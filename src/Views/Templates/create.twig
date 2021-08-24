@@ -1,0 +1,126 @@
+{% extends "app.twig" %}
+
+{% block pageStyles %}
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="{{url('/assets/css/crud.css')}}">
+{% endblock %}
+
+{% block title %}Templates{% endblock %}
+
+{% block content %}
+
+  {% if hasMessages() %}
+    {% if successMessage() %}
+        <script>swal("Success!", "{{successMessage()}}", "success");</script>
+    {% elseif errorMessage() %}
+        <script>swal("Error!", "{{errorMessage()}}", "error");</script>
+    {% endif %}
+  {% endif %}
+
+  <div class="container my-5">
+
+        <a href="javascript:FunApp.backButtonClick()" class="btn btn-success mb-5"><i class="bi bi-chevron-left"></i> Back</a>
+
+        <form method="post" action="/superuser/templates" enctype="multipart/form-data">
+            <div class="card bg-dark text-white text-center">
+                <div class="card-header">
+                    <h2 class="text-white">Create Template</h2>
+                    <hr>
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <label for="name" class="form-label float-left text-white">Name</label>
+                        <input type="text" class="form-control" name="name" placeholder="Enter Name" required>
+
+                        <div class="form-group mt-5 center-text">
+                            <label for="name" class="form-label text-white">Screenshots</label>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-lg-3 form-group mt-5 center-text">
+                                <label for="img_url" class="form-label text-white">Template</label>
+                                <input accept="image/*" type="file" onchange="document.getElementById('img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="img_url" placeholder="img_url" required>
+                                <div class="pt-4 d-flex align-items-center justify-content-center">
+                                    <img src="#" id="img_url" alt="image" class="img-fluid hidden small-img"/>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3  form-group mt-5 center-text">
+                                <label for="hero_section_img_url" class="form-label text-white">Hero Section</label>
+                                <input accept="image/*" type="file" onchange="document.getElementById('hero_section_img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="hero_section_img_url" placeholder="hero_section_img_url" required>
+                                <div class="pt-4 d-flex align-items-center justify-content-center">
+                                    <img src="#" id="hero_section_img_url" alt="image" class="img-fluid hidden small-img"/>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3  form-group mt-5 center-text">
+                                <label for="about_section_img_url" class="form-label text-white">About Section</label>
+                                <input accept="image/*" type="file" onchange="document.getElementById('about_section_img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="about_section_img_url" placeholder="about_section_img_url" required>
+                                <div class="pt-4 d-flex align-items-center justify-content-center">
+                                    <img src="#" id="about_section_img_url" alt="image" class="img-fluid hidden small-img"/>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3  form-group mt-5 center-text">
+                                <label for="details_section_img_url" class="form-label text-white">Details Section</label>
+                                <input accept="image/*" type="file" onchange="document.getElementById('details_section_img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="details_section_img_url" placeholder="details_section_img_url" required>
+                                <div class="pt-4 d-flex align-items-center justify-content-center">
+                                    <img src="#" id="details_section_img_url" alt="image" class="img-fluid hidden small-img"/>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3  form-group mt-5 center-text">
+                                <label for="quotes_section_img_url" class="form-label text-white">Quotes Section</label>
+                                <input accept="image/*" type="file" onchange="document.getElementById('quotes_section_img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="quotes_section_img_url" placeholder="quotes_section_img_url" required>
+                                <div class="pt-4 d-flex align-items-center justify-content-center">
+                                    <img src="#" id="quotes_section_img_url" alt="image" class="img-fluid hidden small-img"/>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3  form-group mt-5 center-text">
+                                <label for="social_media_section_img_url" class="form-label text-white">Social Media Section</label>
+                                <input accept="image/*" type="file" onchange="document.getElementById('social_media_section_img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="social_media_section_img_url" placeholder="social_media_section_img_url" required>
+                                <div class="pt-4 d-flex align-items-center justify-content-center">
+                                    <img src="#" id="social_media_section_img_url" alt="image" class="img-fluid hidden small-img"/>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3  form-group mt-5 center-text">
+                                <label for="gallery_section_img_url" class="form-label text-white">Gallery Section</label>
+                                <input accept="image/*" type="file" onchange="document.getElementById('gallery_section_img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="gallery_section_img_url" placeholder="gallery_section_img_url" required>
+                                <div class="pt-4 d-flex align-items-center justify-content-center">
+                                    <img src="#" id="gallery_section_img_url" alt="image" class="img-fluid hidden small-img"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-5 center-text">
+                            <label for="name" class="form-label text-white">Enabled</label>
+                            <label class="switch">
+                                <input type="checkbox" checked name="is_invisible">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary float-right mt-5"><i class="bi bi-plus"></i> Create</button>
+                </div>
+                <div class="card-footer">
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+    <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
+    <script src="{{url('/assets/js/FunApp.js')}}"></script>
+    <script>
+        $(document).ready(function() {
+            $("input[type='file']").change(function() {
+                $(this).next().find("img").show();
+            });
+        });
+    </script>
+{% endblock %}

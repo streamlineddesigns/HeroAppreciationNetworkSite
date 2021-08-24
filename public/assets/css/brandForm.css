@@ -1,0 +1,40 @@
+body {
+  background: #02a95c;
+  background: linear-gradient(to right, #ffffff, #02a95c);
+}
+
+.card-img-left {
+  width: 45%;
+  /* Link to your background image using in the property below! */
+  background: scroll center url('../img/login.jpg');
+  background-size: cover;
+}
+
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+  background-color: #02a95c;
+}
+
+.btn-google {
+  color: white !important;
+  background-color: #ea4335;
+}
+
+.btn-facebook {
+  color: white !important;
+  background-color: #3b5998;
+}
+
+label {
+  font-weight: 100;
+}
+
+textarea {
+  min-height: 200px !important;
+}
+
+#protector {
+  display: none;
+}

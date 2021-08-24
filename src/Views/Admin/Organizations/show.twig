@@ -1,0 +1,196 @@
+{% extends "app.twig" %}
+
+
+{% block title %}Organizations Show{% endblock %}
+
+{% block content %}
+
+    <div class="container my-5">
+
+
+        {% if organization[0] %}
+        
+            <a href="javascript:FunApp.backButtonClick()" class="btn btn-success mb-5"><i class="bi bi-chevron-left"></i> Back</a>
+            <a class="btn btn-primary edit-btn mb-5 float-right" href="{{ organization[0].id }}/edit"><i class="bi bi-pencil"></i> Edit</a>
+
+            <!--====== Page Title Start ======-->
+            <section class="page-title-area">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-lg-12 text-center">
+                            <h1 class="page-title">{{ organization[0].name }}</h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--====== Page Title End ======-->
+
+            <!--====== Project Details Area Start ======-->
+            <section class="project-details-area section-gap-extra-bottom">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                        
+                        <div class="col-12">
+                            <div class="project-details-tab">
+                        
+                                <div class="tab-content" id="projectTabContent">
+                                    <div class="tab-pane fade show active" id="description" role="tabpanel">
+                                        <div class="row justify-content-center">
+
+                                            <div class="col-lg-6 p-5 text-center aligned">
+                                                <img src="{{url('/assets/img/project/project-details.jpg')}}" alt="Image">
+                                            </div>
+
+                                            <div class="col-lg-6 p-5 text-center aligned">
+                                                <div class="project-summery">
+                                                    <!--<a href="#" class="category">Headphone</a>-->
+                                                    <h3 class="project-title">
+                                                        {{ organization[0].cta_text }}
+                                                    </h3>
+
+                                                    <!---<div class="meta">
+                                                        <div class="author">
+                                                            <img src="{{url('/assets/img/author-thumbs/03.jpg')}}" alt="Thumb">
+                                                            <a href="#">James W. Barrows</a>
+                                                        </div>
+                                                        <a href="#" class="date"><i class="far fa-calendar-alt"></i>25 Feb 2021</a>
+                                                    </div>-->
+                                                    <div class="project-funding-info">
+                                                        <div class="info-box">
+                                                            <span>$0</span>
+                                                            <span class="info-title">Pledged</span>
+                                                        </div>
+                                                        <div class="info-box">
+                                                            <span>0</span>
+                                                            <span class="info-title">Backers</span>
+                                                        </div>
+                                                        <div class="info-box">
+                                                            <span>0</span>
+                                                            <span class="info-title">Rank</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="project-raised clearfix">
+                                                        <div class="d-flex align-items-center justify-content-between">
+                                                            <div class="raised-label">Raised $0</div>
+                                                        </div>
+                                                        <div class="stats-bar" data-value="79">
+                                                            <div class="bar-line"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="project-form">
+                                                        <form action="#">
+                                                            <ul class="donation-amount">
+                                                                <li>$5</li>
+                                                                <li>$50</li>
+                                                                <li>$100</li>
+                                                                <li>$500</li>
+                                                                <li>$1000</li>
+                                                            </ul>
+                                                            <button type="submit" class="main-btn">Donate Now <i class="far fa-arrow-right"></i></button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 p-5 text-center aligned">
+                                                <div class="description-content text-center">
+                                                    <h4 class="description-title">About Us</h4>
+                                                    <p>
+                                                        {{organization[0].about_us_text}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-lg-6 p-5 aligned">
+                                                <img class="" src="{{url('/assets/img/project/project-details-2.jpg')}}" alt="Image">
+                                            </div>
+
+                                            <div class="col-lg-6 p-5">
+                                                <div class="rewards-box text-center">
+                                                    <h4 class="title"><span>Contact</span></h4>
+                                                    <img class="my-4" src="{{url('/assets/img/project/project-rewards.jpg')}}" alt="Image">
+                                                    
+                                                    <span class="rewards-count text-center">Phone</span>
+                                                    <ul class="rewards-info">
+                                                        <li class="text-center">
+                                                            <i class="fas fa-phone"></i> {{ organization[0].phone }}
+                                                        </li>
+                                                    </ul>
+
+                                                    <span class="rewards-count text-center">Email</span>
+                                                    <ul class="rewards-info">
+                                                        <li class="text-center">
+                                                            <i class="fas fa-envelope"></i> {{ organization[0].email }}
+                                                        </li>
+                                                    </ul>
+
+                                                    <span class="rewards-count text-center">Address</span>
+                                                    <ul class="rewards-info">
+                                                        <li class="text-center">
+                                                            <i class="fas fa-map-marker-alt"></i> {{ organization[0].address }}
+                                                        </li>
+                                                    </ul>
+
+                                                    <span class="rewards-count text-center">Social Media</span>
+                                                    <ul class="rewards-info">
+                                                        <li class="text-center">
+                                                            <i class="fab fa-facebook-square"></i>
+                                                            <i class="fab fa-twitter"></i>
+                                                            <i class="fab fa-instagram"></i>
+                                                            <i class="fab fa-google"></i>
+                                                            <i class="fab fa-linkedin"></i>
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 p-5 text-center aligned">
+                                                <h4 class="description-title">What we do</h4>
+                                                <p>
+                                                    Details Text One
+                                                </p>
+                                                <ul class="description-list">
+                                                    <li>Detail One</li>
+                                                    <li>Detail Two</li>
+                                                    <li>Detail Three</li>
+                                                    <li>Detail Four</li>
+                                                    <li>Detail Five</li>
+                                                    <li>Detail Six</li>
+                                                    <li>Detail Seven</li>
+                                                    <li>Detail Eight</li>
+                                                </ul>
+                                                <p>
+                                                    Details Text Two
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="update" role="tabpanel">
+                                        Update
+                                    </div>
+                                    <div class="tab-pane fade" id="bascker-list" role="tabpanel">
+                                        Bascker List
+                                    </div>
+                                    <div class="tab-pane fade" id="reviews" role="tabpanel">
+                                        Reviews
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--====== Project Details Area End ======-->
+        {% else %}
+            <div class="text-center">No organization found by specified id.</div>
+        {% endif %}
+
+    </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+    <script src="{{url('/assets/js/FunApp.js')}}"></script>
+{% endblock %}

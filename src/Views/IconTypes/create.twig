@@ -1,0 +1,49 @@
+{% extends "app.twig" %}
+
+{% block pageStyles %}
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css">
+    
+{% endblock %}
+
+{% block title %}Icons{% endblock %}
+
+{% block content %}
+
+  {% if hasMessages() %}
+    {% if successMessage() %}
+        <script>swal("Success!", "{{successMessage()}}", "success");</script>
+    {% elseif errorMessage() %}
+        <script>swal("Error!", "{{errorMessage()}}", "error");</script>
+    {% endif %}
+  {% endif %}
+
+  <div class="container my-5">
+
+        <a href="javascript:FunApp.backButtonClick()" class="btn btn-success mb-5"><i class="bi bi-chevron-left"></i> Back</a>
+
+        <form method="post" action="/superuser/icontypes">
+            <div class="card bg-dark text-white text-center">
+                <div class="card-header">
+                    <h2 class="text-white">Create Icon Type</h2>
+                    <hr>
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <label for="type" class="form-label float-left text-white">Type Name</label>
+                        <input type="text" class="form-control" name="type" placeholder="Enter Type Name" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary float-right mt-5" ><i class="bi bi-plus"></i> Create</button>
+                </div>
+                <div class="card-footer">
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+    <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
+    <script src="{{url('/assets/js/FunApp.js')}}"></script>
+{% endblock %}

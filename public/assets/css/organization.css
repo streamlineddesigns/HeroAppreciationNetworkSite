@@ -1,0 +1,47 @@
+input[type='file'] {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+
+.file {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+
+.left-leaf {
+    background-color: #02a95c;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.right-leaf {
+    background-color: #02a95c;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.double-leaf {
+    background-color: #02a95c;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.input-left-padded {
+    text-align: left;
+    padding-left: 50px;
+}
+
+.input-wide {
+    width: 500px;
+}
+
+.textarea-short {
+    height: 75px;
+}

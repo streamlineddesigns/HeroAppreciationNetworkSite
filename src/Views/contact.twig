@@ -1,0 +1,132 @@
+{% extends "app.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block pageStyles %}<link rel="stylesheet" href="{{ url('/assets/css/brandForm.css') }}">{% endblock %}
+
+{% block content %}
+
+    {% if hasMessages() %}
+      {% if successMessage() %}
+          <script>swal("Success!", "{{successMessage()}}", "success");</script>
+      {% elseif errorMessage() %}
+          <script>swal("Error!", "{{errorMessage()}}", "error");</script>
+      {% endif %}
+    {% endif %}
+
+    <section class="page-title-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-lg-8">
+                    <h1 class="page-title">Contact Us</h1>
+                </div>
+                <div class="col-auto">
+                    <ul class="page-breadcrumb">
+                        <li><a href="index.html">Home</a></li>
+                        <li>Contact Us</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <div class="container my-5">
+    
+    <div class="contact-info-boxes">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-4">
+                <div class="info-box text-center mb-sm-30 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="icon">
+                        <i class="flaticon-place"></i>
+                    </div>
+                    <div class="info-content">
+                        <h5>Our Location</h5>
+                        <p>
+                            5075 Main Road, D- Block, 2nd Floor, New York
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box text-center mb-sm-30 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="icon">
+                        <i class="flaticon-envelope"></i>
+                    </div>
+                    <div class="info-content">
+                        <h5>Email Address</h5>
+                        <p>
+                            supportinfo@gmail.com <br>
+                            www.funden.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box text-center wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="icon">
+                        <i class="flaticon-phone-call"></i>
+                    </div>
+                    <div class="info-content">
+                        <h5>Support 24/7</h5>
+                        <p>
+                            +012 (345) 689 37 <br>
+                            012345687
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 mx-auto wow fadeInUp" data-wow-delay="0.4s">
+        <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
+          <div class="card-img-left d-none d-md-flex">
+            <!-- Background image for card set in CSS! -->
+          </div>
+          <div class="card-body p-4 p-sm-5">
+            <h5 class="card-title text-center mb-5 fs-5">Contact Us</h5>
+            <form method="post">
+
+              <div class="form-floating row">
+                <div class="col-lg-6 col-sm-6 form-floating mb-3">
+                  <input type="text" name="fname" class="form-control" id="floatingInputFname" placeholder="First Name" required>
+                  <label class="px-4" for="floatingInputFname">First Name</label>
+                </div>
+                <div class="col-lg-6 col-sm-6 form-floating mb-3">
+                  <input type="text" name="lname" class="form-control" id="floatingInputLname" placeholder="Last Name" required>
+                  <label class="px-4" for="floatingInputLname">Last Name</label>
+                </div>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="email" name="email" class="form-control" id="floatingInputEmail" placeholder="Email" required>
+                <label for="floatingInputEmail">Email</label>
+              </div>
+
+              <div class="form-floating mb-3" id="protector">
+                <input type="text" name="protector" class="form-control" id="testingInput" placeholder="testing">
+                <label for="testingInput">testing</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <textarea rows='5' name="message" type="text" class="form-control" id="floatingInputMessage" placeholder="Message" required></textarea>
+                <label for="floatingInputMessage">Message</label>
+              </div>
+
+              <div class="d-grid mb-2">
+                <button class="btn btn-lg btn-success btn-login fw-bold text-uppercase" type="submit">
+                  Send
+                  <i class="far fa-arrow-right"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}<script src="{{ url('/assets/js/login.js') }}"></script>{% endblock %}

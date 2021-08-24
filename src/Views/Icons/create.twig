@@ -1,0 +1,80 @@
+{% extends "app.twig" %}
+
+{% block pageStyles %}
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css">
+    
+{% endblock %}
+
+{% block title %}Icon Types{% endblock %}
+
+{% block content %}
+
+  {% if hasMessages() %}
+    {% if successMessage() %}
+        <script>swal("Success!", "{{successMessage()}}", "success");</script>
+    {% elseif errorMessage() %}
+        <script>swal("Error!", "{{errorMessage()}}", "error");</script>
+    {% endif %}
+  {% endif %}
+
+  <div class="container my-5">
+
+        <a href="javascript:FunApp.backButtonClick()" class="btn btn-success mb-5"><i class="bi bi-chevron-left"></i> Back</a>
+
+        <form method="post" action="/superuser/icons">
+            <div class="card bg-dark text-white text-center">
+                <div class="card-header">
+                    <h2 class="text-white">Create Icon</h2>
+                    <hr>
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <label for="name" class="form-label float-left text-white">Name</label>
+                        <input type="text" class="form-control" name="name" placeholder="Enter Name" required>
+                        <div class="form-group mt-5 text-left">
+                            <label for="class_name" class="form-label float-left text-white">Class Name</label>
+                            <input type="text" class="form-control" id="class_name" name="class_name" placeholder="Enter Class Name" {% if SectionIconTypes[0] %} {% else %} disabled {% endif %} required>
+                        </div>
+                        <div class="form-group mt-5 text-left">
+                            <div>
+                                <i class="" id="section_icon"></i>
+                            </div>
+                        </div>
+                        <div class="form-group mt-5 text-left">
+                            <label for="icon_type" class="form-label float-left text-white">Icon Type</label>
+                            <select class="form-select" name="icon_type">
+                                <option>Select Icon Type</option>
+                                {% if SectionIconTypes[0] %}
+                                    {% for SectionIconType in SectionIconTypes %}
+                                        <option value="{{SectionIconType.id}}">{{SectionIconType.type}}</option>
+                                    {% endfor %}
+                                {% else %}
+                                    <div class="p-2">
+                                        <a href="{{url('/superuser/icontypes/create')}}" >Looks like some icon types need to be created... Click here to create.</a>
+                                    </div>
+                                {% endif %}
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary float-right mt-5" {% if SectionIconTypes[0] %} {% else %} disabled {% endif %}><i class="bi bi-plus"></i> Create</button>
+                </div>
+                <div class="card-footer">
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+    <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
+    <script src="{{url('/assets/js/FunApp.js')}}"></script>
+    <script>
+        $("#class_name").change(function() {
+            $("#section_icon").removeClass();
+            $("#section_icon").addClass($(this).val());
+            $("#section_icon").addClass("fa-3x");
+        });
+    </script>
+{% endblock %}

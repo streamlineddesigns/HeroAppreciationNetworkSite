@@ -1,0 +1,64 @@
+{% extends "app.twig" %}
+
+{% block pageStyles %}
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css">
+    
+{% endblock %}
+
+{% block title %}Templates{% endblock %}
+
+{% block content %}
+
+  {% if hasMessages() %}
+    {% if successMessage() %}
+        <script>swal("Success!", "{{successMessage()}}", "success");</script>
+    {% elseif errorMessage() %}
+        <script>swal("Error!", "{{errorMessage()}}", "error");</script>
+    {% endif %}
+  {% endif %}
+
+  <div class="container my-5">
+
+        <a href="{{url('/superuser/templates/create')}}" class="btn btn-success mb-5 float-right"><i class="bi bi-plus"></i> New</a>
+
+        {% if templates %}
+            <table class="table table-striped table-dark table-bordered table-responsive" data-toggle="table" data-pagination="true" data-search="true">
+                <thead>
+                    <tr>
+                        <th class="mobile-hidden" data-sortable="true">ID</th>
+                        <th data-sortable="true">Name</th>
+                        <th class="actions"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for template in templates %}
+
+                    <tr>
+                        <td class="mobile-hidden">
+                            {{ template.id }}
+                        </td>
+                        <td class="primary-mobile-td">
+                            {{ template.name }}
+                        </td>
+                        <td class="mobile-td text-center">
+                            <a href="/superuser/templates/{{ template.id }}/edit" class="btn btn-primary"><i class="bi bi-pencil"></i><span class="mobile-hidden"> Edit</span></a>
+                            <a href="/superuser/templates/{{ template.id }}" class="btn btn-secondary"><i class="bi bi-eye"></i><span class="mobile-hidden"> View</span></a>
+                            <a href="javascript:FunApp.deleteResource({{ template.id }}, 'templates', 'delete-form-{{ template.id }}')" class="btn btn-danger"><i class="bi bi-trash"></i><span class="mobile-hidden"> Delete</span></a>
+                            <form method="post" action="/superuser/templates/{{ template.id }}/delete" id="delete-form-{{ template.id }}"></form>
+                        </td>
+                    </tr>
+
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            No games found.
+        {% endif %}
+    </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+    <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
+    <script src="{{url('/assets/js/FunApp.js')}}"></script>
+{% endblock %}

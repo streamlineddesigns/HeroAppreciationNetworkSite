@@ -1,0 +1,264 @@
+{% extends "app.twig" %}
+
+{% block pageStyles %}<link rel="stylesheet" href="{{ url('/assets/css/organization.css') }}">{% endblock %}
+
+{% block title %}Organizations Show{% endblock %}
+
+{% block content %}
+
+    <div class="container my-5">
+
+
+        {% if organization[0] %}
+        
+            <a href="javascript:FunApp.backButtonClick()" class="btn btn-success mb-5"><i class="bi bi-chevron-left"></i> Back</a>
+
+            <!--====== Page Title Start ======-->
+            <section class="page-title-area">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-lg-12 text-center">
+                            <h1 class="page-title"><input class="form-control brand-input" type="text" value="{{ organization[0].name }}"></h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--====== Page Title End ======-->
+
+            <!--====== Project Details Area Start ======-->
+            <section class="project-details-area section-gap-extra-bottom">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                        
+                        <div class="col-12">
+                            <div class="project-details-tab">
+                        
+                                <div class="tab-content" id="projectTabContent">
+                                    <div class="tab-pane fade show active" id="description" role="tabpanel">
+                                        <div class="row justify-content-center">
+
+                                            <div class="col-lg-6 p-5 text-center aligned left-leaf">
+                                                <div class="profile-img">
+
+                                                    {% if organization[0].featured_img_url %}
+                                                        <img src="{{ organization[0].featured_img_url }}" alt="profile image"/>
+                                                    {% else %}
+                                                        <img src="{{url('/assets/img/project/project-details.jpg')}}" id="featured_img_url" alt="Image"/>
+                                                    {% endif %}
+
+                                                    <div class="file btn btn-lg btn-primary">
+                                                        Change Photo
+                                                        <input accept="image/*" type="file" onchange="document.getElementById('featured_img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="featured_img_url" placeholder="featured_img_url" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 p-5 text-center aligned">
+                                                <div class="project-summery">
+                                                    <!--<a href="#" class="category">Headphone</a>-->
+                                                    <h3 class="project-title">
+                                                        <input class="form-control brand-input" type="text" value="{{ organization[0].cta_text }}">
+                                                    </h3>
+
+                                                    <!---<div class="meta">
+                                                        <div class="author">
+                                                            <img src="{{url('/assets/img/author-thumbs/03.jpg')}}" alt="Thumb">
+                                                            <a href="#">James W. Barrows</a>
+                                                        </div>
+                                                        <a href="#" class="date"><i class="far fa-calendar-alt"></i>25 Feb 2021</a>
+                                                    </div>-->
+                                                    <div class="project-funding-info">
+                                                        <div class="info-box">
+                                                            <span>$0</span>
+                                                            <span class="info-title">Pledged</span>
+                                                        </div>
+                                                        <div class="info-box">
+                                                            <span>0</span>
+                                                            <span class="info-title">Backers</span>
+                                                        </div>
+                                                        <div class="info-box">
+                                                            <span>0</span>
+                                                            <span class="info-title">Rank</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="project-raised clearfix">
+                                                        <div class="d-flex align-items-center justify-content-between">
+                                                            <div class="raised-label">Raised $0</div>
+                                                        </div>
+                                                        <div class="stats-bar" data-value="79">
+                                                            <div class="bar-line"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="project-form">
+                                                        <form action="#">
+                                                            <ul class="donation-amount">
+                                                                <li>$5</li>
+                                                                <li>$50</li>
+                                                                <li>$100</li>
+                                                                <li>$500</li>
+                                                                <li>$1000</li>
+                                                            </ul>
+                                                            <button type="submit" class="main-btn">Donate Now <i class="far fa-arrow-right"></i></button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 p-5 text-center aligned">
+                                                <div class="description-content text-center">
+                                                    <h4 class="description-title">About Us</h4>
+                                                    <p>
+                                                        <textarea class="form-control brand-input" type="text" value="">{{ organization[0].about_us_text }}</textarea>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-lg-6 p-5 aligned double-leaf">
+                                                <div class="profile-img">
+
+                                                    {% if organization[0].about_img_url %}
+                                                        <img src="{{ organization[0].about_img_url }}" alt="about image"/>
+                                                    {% else %}
+                                                        <img src="{{url('/assets/img/project/project-details-2.jpg')}}" id="about_img_url" alt="Image"/>
+                                                    {% endif %}
+
+                                                    <div class="file btn btn-lg btn-primary">
+                                                        Change Photo
+                                                        <input accept="image/*" type="file" onchange="document.getElementById('about_img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="about_img_url" placeholder="about_img_url" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 p-5 right-leaf">
+                                                <div class="rewards-box text-center">
+                                                    <h4 class="title"><span>Contact</span></h4>
+
+                                                    <div class="profile-img">
+
+                                                        {% if organization[0].contact_img_url %}
+                                                            <img src="{{ organization[0].contact_img_url }}" alt="contact image"/>
+                                                        {% else %}
+                                                            <img src="{{url('/assets/img/project/project-list-01.jpg')}}" id="contact_img_url" alt="Image"/>
+                                                        {% endif %}
+
+                                                        <div class="file btn btn-lg btn-primary">
+                                                            Change Photo
+                                                            <input accept="image/*" type="file" onchange="document.getElementById('contact_img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="contact_img_url" placeholder="contact_img_url" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <span class="rewards-count text-center">Phone</span>
+                                                    <ul class="rewards-info">
+                                                        <li class="text-center">
+                                                                                                                
+                                                            <div class="input-group mb-2">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <i class="fas fa-phone"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <input class="form-control brand-input input-left-padded" type="text" value="{{ organization[0].phone }}">
+                                                            </div>
+
+                                                        </li>
+                                                    </ul>
+
+                                                    <span class="rewards-count text-center">Email</span>
+                                                    <ul class="rewards-info">
+                                                        <li class="text-center">
+                                                        
+                                                            <div class="input-group mb-2">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <i class="fas fa-envelope"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <input class="form-control brand-input input-left-padded" type="text" value="{{ organization[0].email }}">
+                                                            </div>
+
+                                                        </li>
+                                                    </ul>
+
+                                                    <span class="rewards-count text-center">Address</span>
+                                                    <ul class="rewards-info">
+                                                        <li class="text-center">
+
+                                                            <div class="input-group mb-2">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <i class="fas fa-map-marker-alt"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <input class="form-control brand-input input-left-padded" type="text" value="{{ organization[0].address }}">
+                                                            </div>
+                                                            
+                                                        </li>
+                                                    </ul>
+
+                                                    <span class="rewards-count text-center">Social Media</span>
+                                                    <ul class="rewards-info">
+                                                        <li class="text-center">
+                                                            <i class="fab fa-facebook-square fa-2x"></i>
+                                                            <i class="fab fa-twitter fa-2x"></i>
+                                                            <i class="fab fa-instagram fa-2x"></i>
+                                                            <i class="fab fa-google fa-2x"></i>
+                                                            <i class="fab fa-linkedin fa-2x"></i>
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 p-5 text-center aligned">
+                                                <h4 class="description-title">What we do</h4>
+                                                <p>
+                                                    <textarea class="form-control brand-input textarea-short" type="text" value="">{{ organization[0].detail_one }}</textarea>
+                                                </p>
+                                                <ul class="description-list">
+                                                    <li>Detail One</li>
+                                                    <!--foreach over details-->
+                                                    <li>Detail Two</li>
+                                                    <li>Detail Three</li>
+                                                    <li>Detail Four</li>
+                                                    <li>Detail Five</li>
+                                                    <li>Detail Six</li>
+                                                    <li>Detail Seven</li>
+                                                    <li>Detail Eight</li>
+                                                </ul>
+                                                <p>
+                                                    <textarea class="form-control brand-input textarea-short" type="text" value="">{{ organization[0].detail_two }}</textarea>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="update" role="tabpanel">
+                                        Update
+                                    </div>
+                                    <div class="tab-pane fade" id="bascker-list" role="tabpanel">
+                                        Bascker List
+                                    </div>
+                                    <div class="tab-pane fade" id="reviews" role="tabpanel">
+                                        Reviews
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--====== Project Details Area End ======-->
+
+            <a class="btn btn-warning edit-btn mb-5 float-right mb-5"><i class="fas fa-sd-card"></i> Save</a>
+
+        {% else %}
+            <div class="text-center">No organization found by specified id.</div>
+        {% endif %}
+
+    </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+    <script src="{{url('/assets/js/FunApp.js')}}"></script>
+{% endblock %}
