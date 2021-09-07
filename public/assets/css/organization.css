@@ -70,11 +70,10 @@ input[type='file'] {
 }
 
 .donation_list_item {
-
-    background: linear-gradient(to bottom, rgb(2 169 92 / 40%), #ffffff);
+    background-color: white !important;
     display: inline-flex;
 }
 
 .border-branded {
-    border: 1px solid var(--primary-color);
+    border: 2px solid var(--primary-color);
 }

@@ -255,7 +255,7 @@
 
                                                         <ul>
                                                             {% for donation in donations %}
-                                                                <li class="list-inline-item p-4 hidden donation_list_item text-center aligned shadow m-3 left-leaf">
+                                                                <li class="list-inline-item p-4 hidden border-branded donation_list_item text-center aligned shadow m-3 left-leaf">
                                                                     {% if donation.profile_img_url %} 
                                                                         {% if donation.is_invisible == 0 %}
                                                                             <div class="profile-img-custom" style="background-image: url('/assets/img/default_profile_img.png');"></div>
@@ -265,7 +265,7 @@
                                                                     {% else %}
                                                                         <div class="profile-img-custom" style="background-image: url('/assets/img/default_profile_img.png');"></div>
                                                                     {% endif %}
-                                                                    <span class="my-3 bolder">
+                                                                    <span class="bolder">
                                                                     {% if donation.is_invisible == 0 %}
                                                                         Private
                                                                     {% else %}
@@ -276,7 +276,7 @@
                                                                     </span>
                         
 
-                                                                    <span class="my-3 bolder">${{donation.amount}}</span>
+                                                                    <span class=" bolder">${{donation.amount}}</span>
                                                                 </li>
                                                             {% endfor %}
                                                         </ul>

@@ -55,7 +55,7 @@ class OrganizationController extends Controller
                                 ->leftJoin('users', 'users.id', '=', 'donations.sender_user_id')
                                 ->where('recipient_organization_id', $id)
                                 //->where('donations.is_invisible', '1')
-                                ->take(5)->orderBy('donations.amount', 'DESC')->get();
+                                ->orderBy('donations.amount', 'DESC')->get();
                             
         $donations_total = 0;
         for($j = 0; $j < count($donations); $j++) {
