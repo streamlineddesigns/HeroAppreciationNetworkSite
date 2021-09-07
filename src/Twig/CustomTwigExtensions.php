@@ -31,6 +31,9 @@ class CustomTwigExtensions extends AbstractExtension
             new TwigFunction('hasAdminPrivileges', [$this, 'hasAdminPrivileges']),
             new TwigFunction('isAdmin', [$this, 'isAdmin']),
             new TwigFunction('hasSuperUserPrivileges', [$this, 'hasSuperUserPrivileges']),
+            new TwigFunction('count', [$this, 'count']),
+            new TwigFunction('getEmptyArray', [$this, 'getEmptyArray']),
+            new TwigFunction('shorten', [$this, 'shorten']),
         ];
     }
 
@@ -108,5 +111,39 @@ class CustomTwigExtensions extends AbstractExtension
     public function userSession()
     {
         return $_SESSION['user'];
+    }
+
+    public function count($arr)
+    {
+        return count($arr);
+    }
+
+    public function getEmptyArray($current, $max)
+    {
+        $arr = array();
+        $target = $max - $current;
+        if ($current < $max) {
+            for ($i = 0; $i < $target; $i++) {
+                array_push($arr, $current + 1 + $i);
+            }
+        } else {
+            return [];
+        }
+
+        return $arr;
+    }
+
+    public function shorten($str)
+    {
+        if (empty($str)) {
+            return "";
+        }
+        $length = 150;
+        $shortened = "";
+        for($i = 0; $i < $length; $i++) {
+            $shortened .= $str[$i];
+        }
+        $shortened .= "...";
+        return $shortened;
     }
 }

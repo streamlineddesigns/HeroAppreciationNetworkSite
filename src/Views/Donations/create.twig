@@ -1,0 +1,191 @@
+{% extends "app.twig" %}
+
+{% block pageStyles %}
+<link rel="stylesheet" href="{{ url('/assets/css/profile.css') }}">
+<link rel="stylesheet" href="{{ url('/assets/css/payment.css') }}">
+<link rel="stylesheet" href="{{url('/assets/css/crud.css')}}">
+<style>
+.profile-img {
+    /*height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background-image: url("{{url('/assets/img/uploads/users/')}}{{user.id}}/{{ user.profile_img_url }}");
+    background-size: contain;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #222222;*/
+}
+
+.emp-profile {
+    max-width: 850px;
+    border-radius: 75px;
+}
+</style>
+{% endblock %}
+
+{% block title %}Donate{% endblock %}
+
+{% block content %}
+
+  {% if hasMessages() %}
+    {% if successMessage() %}
+        <script>swal("Success!", "{{successMessage()}}", "success");</script>
+    {% elseif errorMessage() %}
+        <script>swal("Error!", "{{errorMessage()}}", "error");</script>
+    {% endif %}
+  {% endif %}
+
+    <div class="container emp-profile my-5 shadow">
+
+  <a href="javascript:FunApp.backButtonClick()" class="btn btn-success mb-5 btn-chubby"><i class="bi bi-chevron-left"></i> Back</a>
+
+    <form method="post" action="/organizations/{{organization[0].id}}/pay" enctype="multipart/form-data">
+      <div class="row">
+
+        <div class="col-lg-8">
+          <div class="row">
+              <div class="col-md-4 mt-4">
+                {% if organization[0].featured_img_url %}
+                    <img src="{{url('/assets/img/uploads/organizations/')}}{{organization[0].id}}/{{ organization[0].featured_img_url }}" alt="profile image"/>
+                {% else %}
+                    <img src="{{url('/assets/img/project/project-details.jpg')}}" id="featured_img_url" alt="Image"/>
+                {% endif %}
+              </div>
+              <div class="col-md-8 mt-4 aligned">
+                  <div class="profile-head">
+                      <p>
+                          Thank you for supporting <strong>{{ organization[0].name }}</strong>!
+                      <p>
+                  </div>
+              </div>
+
+              <div class="col-md-12 mt-4">
+                <h3>Donation Amount</h3>
+              </div>
+
+              <div class="col-md-12 my-2">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text left-rounded">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                        </div>
+                        <input required class="form-control brand-input input-left-padded" type="number" {% if donation_options %} value="{{ donation_options }}" {% endif %} name="donation_amount" placeholder="0.00">
+                    </div>
+              </div>
+
+              <div class="col-md-12 my-2">
+                <hr>
+              </div>
+
+              <div class="col-md-12 mt-4">
+                <h3>Payment Details</h3>
+              </div>
+
+              <div class="col-md-12 mt-2">
+
+                <section class="payment-form dark ">
+                    <div class="card-details green-bg">
+                        <h3 class="title">Credit Card Details</h3>
+                        <div class="row">
+                            <div class="form-group col-sm-7 my-3">
+                                <label for="card-holder">Card Holder</label>
+                                <input id="card-holder" name="card_holder" type="number" class="form-control brand-input" placeholder="Card Holder" aria-label="Card Holder" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="form-group col-sm-5 my-3">
+                                <label for="">Expiration Date</label>
+                                <div class="input-group expiration-date">
+                                    <input type="number" class="form-control brand-input" placeholder="MM" aria-label="MM" aria-describedby="basic-addon1">
+                                    <input type="number" class="form-control brand-input" placeholder="YY" aria-label="YY" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-8 my-3">
+                                <label for="card-number">Card Number</label>
+                                <input id="card-number" type="number" class="form-control brand-input" placeholder="Card Number" aria-label="Card Holder" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="form-group col-sm-4 my-3">
+                                <label for="cvc">CVC</label>
+                                <input id="cvc" type="number" class="form-control brand-input" placeholder="CVC" aria-label="Card Holder" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+              </div>
+
+              <div class="col-md-12 my-2">
+                <hr>
+              </div>
+
+              <div class="col-md-12 mt-4">
+                <h3>Public Donation</h3>
+              </div>
+
+              <div class="col-md-12 my-2">
+                <div class="form-group">
+                    <label class="switch">
+                        <input type="checkbox" {% if (organization[0].is_invisible) %} checked {% endif %} name="is_invisible">
+                        <span class="slider round"></span>
+                    </label>
+                    <span>Allow my name to be displayed for this donation.*</span>
+                </div>
+              </div>
+
+              <div class="col-md-12 my-2">
+                <hr>
+              </div>
+
+              <div class="col-md-12 my-2">
+                <button type="submit" class="btn main-btn float-right">Donate <i class="bi bi-chevron-right"></i></button>
+              </div>
+
+
+              <div class="col-md-12 mt-4">
+                    <i>By continuing, you are agreeing to our terms & conditions, eula, and privacy policy.</i>
+              </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="row">
+              <div class="col-md-12 mt-4  green-bg p-4">
+                  <div class="profile-head my-4 text-center">
+                      <h5>
+                          Your Donation
+                      </h5>
+                  </div>
+                  <div>
+                    <strong>Donation</strong>
+                    <span class="float-right" id="checkout_donation_amount"> {% if donation_options %} ${{ donation_options }} {% else %} $0.00 {% endif %}</span>
+                  </div>
+                  <hr>
+                  <div>
+                    <strong>Total</strong>
+                    <span class="float-right" id="checkout_donation_total"> {% if donation_options %} ${{ donation_options }} {% else %} $0.00 {% endif %}</span>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+    </form>           
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+    <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
+    <script src="{{url('/assets/js/FunApp.js')}}"></script>
+    <script>
+        $(document).ready(function() {
+            $("input[name='donation_amount']").change(function() {
+                let amount = parseFloat($(this).val()).toFixed(2);
+
+                $("#checkout_donation_amount").text(amount);
+
+                $("#checkout_donation_total").text(amount);
+            });
+        });
+    </script>
+{% endblock %}

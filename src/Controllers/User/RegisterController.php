@@ -56,6 +56,11 @@ class RegisterController extends Controller
 
                 //user created
                 if ($user->id != null) {
+                    //make user directory
+                    $directory = $this->container->get('settings')['upload_directory']['users'] . $user->id;
+                    if (! is_dir($directory)) {
+                        mkdir($directory);
+                    }
                     $this->container->get('flash')->addMessage('success', 'Successfully created account!');
 
                     return $response->withStatus(302)->withHeader('Location', '/user/login');

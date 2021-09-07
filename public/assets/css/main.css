@@ -181,6 +181,10 @@ a:hover {
 	color: var(--primary-color);
 }
 
+.width-auto {
+	width: auto;
+}
+
 /*======= Common Margin & Padding =======*/
 .pt-30 {
 	padding-top: 30px;
@@ -431,6 +435,19 @@ a:hover {
 	position: relative;
 	z-index: 1;
 	border: 1px solid transparent;
+	text-decoration: none;
+}
+
+.btn-chubby {
+	border-radius: 50px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.no-decoration {
+	text-decoration: none;
 }
 
 .main-btn i {
@@ -1553,14 +1570,53 @@ a:hover {
 	opacity: 0.1;
 }
 
+.organization_featured_img {
+	height: 250px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #292929;
+    padding-left: calc(var(--bs-gutter-x) * .5);
+}
+
 /*======= Page Title =======*/
 .page-title-area {
-	position: relative;
-	z-index: 1;
-	padding: 125px 0;
 	background-image: url(../img/page-title.jpg);
+	position: relative;
+    padding: 125px 0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: lightgrey;
+}
+
+.social-medias i:hover {
+    cursor: pointer;
+}
+.brand-color {
+    color: var(--primary-color);
+}
+
+.bolder {
+	font-weight: bolder;
+}
+.max-fifty {
+	max-width: 50%;
+}
+.one-hundred {
+	width: 100% !important;
+}
+
+.green-bg {
+	background-color: var(--primary-soft-color);
+}
+
+.page-title-area-custom {
+	background-image: url(../img/bg.png);
 	background-size: cover;
-	background-position: center;
+	border: none;
+    border-top: none;
+	padding: 100px 0;
 }
 
 .page-title-area::before {
@@ -1576,7 +1632,7 @@ a:hover {
 }
 
 .page-title-area .page-title {
-	color: var(--white);
+	color: var(--secondary-color);
 	font-size: 65px;
 }
 
@@ -1947,7 +2003,7 @@ a:hover {
 }
 
 .project-items .project-item .cats a:hover {
-	background-color: var(--secondary-color);
+	background-color: var(--primary-color);
 }
 
 .project-items .project-item .author {
@@ -2504,27 +2560,6 @@ textarea {
 	margin: -4px;
 }
 
-.project-form .donation-amount li {
-	width: 92px;
-	height: 50px;
-	border: 2px solid var(--border-color);
-	border-radius: 25px;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	cursor: pointer;
-	font-size: 18px;
-	font-weight: 500;
-	color: var(--secondary-color);
-	margin: 4px;
-}
-
 .project-form button {
 	margin-top: 25px;
 }
@@ -2619,13 +2654,13 @@ textarea {
 	font-weight: 500;
 	color: var(--secondary-color);
 	margin-bottom: 20px;
+	text-align: left;
 }
 
 .project-details-tab .description-list li::before {
 	width: 40px;
 	height: 40px;
 	display: block;
-	border: 2px solid rgb(2 169 92 / 7%);
 	text-align: center;
 	line-height: 40px;
 	margin-right: 16px;
@@ -5236,4 +5271,40 @@ input[type='file'] {
 
 .left-text {
 	text-align: left;
+}
+
+.donation_options {
+	width: 92px;
+    height: 50px;
+    border: 2px solid var(--border-color);
+    border-radius: 25px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--secondary-color);
+    margin: 4px;
+}
+
+.checked_donation {
+	background-color: var(--primary-color);
+    color: white !important;
+}
+
+.input-left-padded {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.left-rounded {
+	border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
 }

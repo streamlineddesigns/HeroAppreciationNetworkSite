@@ -16,7 +16,7 @@ return function (App $app) {
     $app->get('/contact', [Controllers\ContactController::class, 'index']);
     $app->post('/contact', [Controllers\ContactController::class, 'store']);
     $app->get('/faq', [Controllers\FaqController::class, 'index']);
-    $app->get('/donate', [Controllers\DonateController::class, 'index']);
+    //$app->get('/donate', [Controllers\DonateController::class, 'index']);
 
     /* Public User Endpoints */
     $app->group('/user', function (Group $group) {
@@ -41,6 +41,21 @@ return function (App $app) {
     $app->group('/organizations', function (Group $group) {
         $group->get('', [Controllers\OrganizationController::class, 'index']);
         $group->get('/{id}', [Controllers\OrganizationController::class, 'show']);
+        
+        /*
+         * Both go to the same endpoint, but there's 2 ways to get to this page. 
+         * get: shows unmodified view
+         * post: uses post data to create preset values in the view
+         */
+        $group->get('/{id}/donate', [Controllers\Donations\DonationController::class, 'create']);
+        $group->post('/{id}/donate', [Controllers\Donations\DonationController::class, 'create']);
+        $group->post('/{id}/pay', [Controllers\Donations\DonationController::class, 'pay']);
+    });
+
+    /* Donation Endpoints */
+    $app->group('/donate', function(Group $group) {
+        //$group->get('/{id}', [Controllers\DonationController::class, 'show']);
+
     });
 
     /* Private User Endpoints */

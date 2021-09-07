@@ -1,6 +1,9 @@
 {% extends "app.twig" %}
 
-{% block pageStyles %}<link rel="stylesheet" href="{{ url('/assets/css/organization.css') }}">{% endblock %}
+{% block pageStyles %}
+<link rel="stylesheet" href="{{ url('/assets/css/organization.css') }}">
+<link rel="stylesheet" href="{{url('/assets/css/crud.css')}}">
+{% endblock %}
 
 {% block title %}Organizations Show{% endblock %}
 
@@ -10,17 +13,22 @@
 
 
         {% if organization[0] %}
+        <form method="post" action="{{url('/')}}admin/organizations/{{organization[0].id}}" enctype="multipart/form-data">
         
-            <a href="javascript:FunApp.backButtonClick()" class="btn btn-success mb-5"><i class="bi bi-chevron-left"></i> Back</a>
+            <a href="javascript:FunApp.backButtonClick()" class="btn btn-success mb-5 btn-chubby"><i class="bi bi-chevron-left"></i> Back</a>
 
             <!--====== Page Title Start ======-->
-            <section class="page-title-area">
+            <section id="hero_img_url" class="page-title-area">
                 <div class="container">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-lg-12 text-center">
-                            <h1 class="page-title"><input class="form-control brand-input" type="text" value="{{ organization[0].name }}"></h1>
+                            <h1 class="page-title"><input class="form-control brand-input input-text-lg" type="text" value="{{ organization[0].name }}" name="name"></h1>
                         </div>
                     </div>
+                </div>
+                <div class="file btn btn-lg btn-primary btn-lower">
+                    Change Photo
+                    <input accept="image/*" type="file" onchange="swapbackgrounds(document.getElementById('hero_img_url'), window.URL.createObjectURL(this.files[0]) )" class="form-control form-control-file" name="hero_img_url" placeholder="hero_img_url">
                 </div>
             </section>
             <!--====== Page Title End ======-->
@@ -38,17 +46,17 @@
                                         <div class="row justify-content-center">
 
                                             <div class="col-lg-6 p-5 text-center aligned left-leaf">
-                                                <div class="profile-img">
+                                                <div class="profile-img aligned">
 
                                                     {% if organization[0].featured_img_url %}
-                                                        <img src="{{ organization[0].featured_img_url }}" alt="profile image"/>
+                                                        <img id="featured_img_url" src="{{url('/assets/img/uploads/organizations/')}}{{organization[0].id}}/{{ organization[0].featured_img_url }}" alt="profile image"/>
                                                     {% else %}
-                                                        <img src="{{url('/assets/img/project/project-details.jpg')}}" id="featured_img_url" alt="Image"/>
+                                                        <img id="featured_img_url" src="{{url('/assets/img/project/project-details.jpg')}}" alt="Image"/>
                                                     {% endif %}
 
                                                     <div class="file btn btn-lg btn-primary">
                                                         Change Photo
-                                                        <input accept="image/*" type="file" onchange="document.getElementById('featured_img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="featured_img_url" placeholder="featured_img_url" required>
+                                                        <input accept="image/*" type="file" onchange="document.getElementById('featured_img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="featured_img_url" placeholder="featured_img_url">
                                                     </div>
                                                 </div>
                                             </div>
@@ -57,7 +65,7 @@
                                                 <div class="project-summery">
                                                     <!--<a href="#" class="category">Headphone</a>-->
                                                     <h3 class="project-title">
-                                                        <input class="form-control brand-input" type="text" value="{{ organization[0].cta_text }}">
+                                                        <input class="form-control brand-input" type="text" value="{{ organization[0].cta_text }}" name="cta_text">
                                                     </h3>
 
                                                     <!---<div class="meta">
@@ -69,7 +77,7 @@
                                                     </div>-->
                                                     <div class="project-funding-info">
                                                         <div class="info-box">
-                                                            <span>$0</span>
+                                                            <span>${{donations_total}}</span>
                                                             <span class="info-title">Pledged</span>
                                                         </div>
                                                         <div class="info-box">
@@ -83,24 +91,41 @@
                                                     </div>
                                                     <div class="project-raised clearfix">
                                                         <div class="d-flex align-items-center justify-content-between">
-                                                            <div class="raised-label">Raised $0</div>
+                                                            <div class="raised-label">Raised ${{donations_total}}</div>
                                                         </div>
                                                         <div class="stats-bar" data-value="79">
                                                             <div class="bar-line"></div>
                                                         </div>
                                                     </div>
+
                                                     <div class="project-form">
                                                         <form action="#">
                                                             <ul class="donation-amount">
-                                                                <li>$5</li>
-                                                                <li>$50</li>
-                                                                <li>$100</li>
-                                                                <li>$500</li>
-                                                                <li>$1000</li>
+                                                                <li>
+                                                                    <input disabled type="radio" class="btn-check width-auto" name="donation_options" id="option1" autocomplete="off" value="-1" checked>
+                                                                    <label class="btn donation_options checked_donation" for="option1" id="option1Label">Custom</label>
+                                                                </li>
+                                                                <li>
+                                                                    <input disabled type="radio" class="btn-check width-auto" name="donation_options" id="option2" autocomplete="off" value="5">
+                                                                    <label class="btn donation_options" for="option2">$5</label>
+                                                                </li>
+                                                                <li>
+                                                                    <input disabled type="radio" class="btn-check width-auto" name="donation_options" id="option3" autocomplete="off" value="10">
+                                                                    <label class="btn donation_options" for="option3">$10</label>
+                                                                </li>
+                                                                <li>
+                                                                    <input disabled type="radio" class="btn-check width-auto" name="donation_options" id="option4" autocomplete="off" value="25">
+                                                                    <label class="btn donation_options" for="option4">$25</label>
+                                                                </li>
+                                                                <li>
+                                                                    <input disabled type="radio" class="btn-check width-auto" name="donation_options" id="option5" autocomplete="off" value="50">
+                                                                    <label class="btn donation_options" for="option5">$50</label>
+                                                                </li>
                                                             </ul>
-                                                            <button type="submit" class="main-btn">Donate Now <i class="far fa-arrow-right"></i></button>
+                                                            <button disabled class="btn main-btn btn-chubby">Donate Now <i class="far fa-arrow-right"></i></button>
                                                         </form>
                                                     </div>
+
                                                 </div>
                                             </div>
 
@@ -108,23 +133,23 @@
                                                 <div class="description-content text-center">
                                                     <h4 class="description-title">About Us</h4>
                                                     <p>
-                                                        <textarea class="form-control brand-input" type="text" value="">{{ organization[0].about_us_text }}</textarea>
+                                                        <textarea class="form-control brand-input" type="text" value="" name="about_us_text">{{ organization[0].about_us_text }}</textarea>
                                                     </p>
                                                 </div>
                                             </div>
                                             
-                                            <div class="col-lg-6 p-5 aligned double-leaf">
-                                                <div class="profile-img">
+                                            <div class="col-lg-6 p-5 aligned double-right-leaf">
+                                                <div class="profile-img  aligned">
 
                                                     {% if organization[0].about_img_url %}
-                                                        <img src="{{ organization[0].about_img_url }}" alt="about image"/>
+                                                        <img id="about_img_url" src="{{url('/assets/img/uploads/organizations/')}}{{organization[0].id}}/{{ organization[0].about_img_url }}" alt="about image"/>
                                                     {% else %}
-                                                        <img src="{{url('/assets/img/project/project-details-2.jpg')}}" id="about_img_url" alt="Image"/>
+                                                        <img id="about_img_url" src="{{url('/assets/img/project/project-details-2.jpg')}}" alt="Image"/>
                                                     {% endif %}
 
                                                     <div class="file btn btn-lg btn-primary">
                                                         Change Photo
-                                                        <input accept="image/*" type="file" onchange="document.getElementById('about_img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="about_img_url" placeholder="about_img_url" required>
+                                                        <input accept="image/*" type="file" onchange="document.getElementById('about_img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="about_img_url" placeholder="about_img_url">
                                                     </div>
                                                 </div>
                                             </div>
@@ -133,17 +158,17 @@
                                                 <div class="rewards-box text-center">
                                                     <h4 class="title"><span>Contact</span></h4>
 
-                                                    <div class="profile-img">
+                                                    <div class="profile-img aligned">
 
                                                         {% if organization[0].contact_img_url %}
-                                                            <img src="{{ organization[0].contact_img_url }}" alt="contact image"/>
+                                                            <img id="contact_img_url" class="max-fifty" src="{{url('/assets/img/uploads/organizations/')}}{{organization[0].id}}/{{ organization[0].contact_img_url }}" alt="contact image"/>
                                                         {% else %}
-                                                            <img src="{{url('/assets/img/project/project-list-01.jpg')}}" id="contact_img_url" alt="Image"/>
+                                                            <img id="contact_img_url" class="max-fifty" src="{{url('/assets/img/project/project-list-01.jpg')}}" alt="Image"/>
                                                         {% endif %}
 
-                                                        <div class="file btn btn-lg btn-primary">
+                                                        <div class="file btn btn-lg btn-primary max-fifty">
                                                             Change Photo
-                                                            <input accept="image/*" type="file" onchange="document.getElementById('contact_img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="contact_img_url" placeholder="contact_img_url" required>
+                                                            <input accept="image/*" type="file" onchange="document.getElementById('contact_img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="contact_img_url" placeholder="contact_img_url">
                                                         </div>
                                                     </div>
 
@@ -157,7 +182,7 @@
                                                                         <i class="fas fa-phone"></i>
                                                                     </div>
                                                                 </div>
-                                                                <input class="form-control brand-input input-left-padded" type="text" value="{{ organization[0].phone }}">
+                                                                <input class="form-control brand-input input-left-padded" type="text" value="{{ organization[0].phone }}" name="phone">
                                                             </div>
 
                                                         </li>
@@ -173,7 +198,7 @@
                                                                         <i class="fas fa-envelope"></i>
                                                                     </div>
                                                                 </div>
-                                                                <input class="form-control brand-input input-left-padded" type="text" value="{{ organization[0].email }}">
+                                                                <input class="form-control brand-input input-left-padded" type="text" value="{{ organization[0].email }}" name="email">
                                                             </div>
 
                                                         </li>
@@ -189,7 +214,7 @@
                                                                         <i class="fas fa-map-marker-alt"></i>
                                                                     </div>
                                                                 </div>
-                                                                <input class="form-control brand-input input-left-padded" type="text" value="{{ organization[0].address }}">
+                                                                <input class="form-control brand-input input-left-padded" type="text" value="{{ organization[0].address }}" name="address">
                                                             </div>
                                                             
                                                         </li>
@@ -212,22 +237,38 @@
                                             <div class="col-lg-6 p-5 text-center aligned">
                                                 <h4 class="description-title">What we do</h4>
                                                 <p>
-                                                    <textarea class="form-control brand-input textarea-short" type="text" value="">{{ organization[0].detail_one }}</textarea>
+                                                    <textarea class="form-control brand-input textarea-short" type="text" value="" name="detail_one">{{ organization[0].detail_one }}</textarea>
                                                 </p>
                                                 <ul class="description-list">
-                                                    <li>Detail One</li>
-                                                    <!--foreach over details-->
-                                                    <li>Detail Two</li>
-                                                    <li>Detail Three</li>
-                                                    <li>Detail Four</li>
-                                                    <li>Detail Five</li>
-                                                    <li>Detail Six</li>
-                                                    <li>Detail Seven</li>
-                                                    <li>Detail Eight</li>
+                                                    {% for detail_text in detail_texts %}
+                                                        <li><textarea class="detail_field form-control brand-input textarea-small" type="text" value="" id="{{detail_text['details_id']}}" name="detail_text_{{ detail_text['details_id'] }}">{{ detail_text['detail_text'] }}</textarea></li>
+                                                    {% endfor %}
+                                                    {% if count(detail_texts) < 8 %}
+                                                        {% for index in getEmptyArray(count(detail_texts), 8) %}
+                                                            <li><textarea class="detail_field form-control brand-input textarea-small" type="text" value="" name="detail_text_{{index}}"></textarea></li>
+                                                        {% endfor %}
+                                                    {% endif %}
+
+
+                                                    <input type="text" class="hidden" name="detail_texts">
                                                 </ul>
                                                 <p>
-                                                    <textarea class="form-control brand-input textarea-short" type="text" value="">{{ organization[0].detail_two }}</textarea>
+                                                    <textarea class="form-control brand-input textarea-short" type="text" value="" name="detail_two">{{ organization[0].detail_two }}</textarea>
                                                 </p>
+                                            </div>
+
+                                            <div class="col-lg-12 p-5">
+                                                <div class="form-group mt-5 float-right">
+                                                    <label for="name" class="form-label">Enabled</label>
+                                                    <label class="switch">
+                                                        <input type="checkbox" {% if (organization[0].is_invisible) %} checked {% endif %} name="is_invisible">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-lg-12 p-5">
+                                                <button type="submit" class="btn btn-primary btn-big edit-btn float-right btn-chubby"><i class="fas fa-sd-card"></i> Save</button>
                                             </div>
 
                                         </div>
@@ -249,9 +290,10 @@
             </section>
             <!--====== Project Details Area End ======-->
 
-            <a class="btn btn-warning edit-btn mb-5 float-right mb-5"><i class="fas fa-sd-card"></i> Save</a>
-
+            
+        </form>
         {% else %}
+            
             <div class="text-center">No organization found by specified id.</div>
         {% endif %}
 
@@ -261,4 +303,35 @@
 
 {% block pageScripts %}
     <script src="{{url('/assets/js/FunApp.js')}}"></script>
+    <script>
+
+        $(document).ready(function() {
+            saveData();
+            {% if organization[0].hero_img_url %}
+                var hero_img_url = "{{url('/assets/img/uploads/organizations/')}}{{organization[0].id}}/{{organization[0].hero_img_url}}";
+                swapbackgrounds(document.getElementById('hero_img_url'), hero_img_url);
+            {% endif %}
+        });
+
+        function swapbackgrounds(element, img)
+        {
+            var newimg = "url('" + img  +"')";
+            $(element).css("background-image", newimg);
+        }
+
+        $(".detail_field").change(function() {
+            saveData();
+        });
+
+        function saveData() {
+            details = [];
+            $(".detail_field").each(function() {
+                var detail = {bHasValue: ($(this).val() != "") ? true : false,bHasID: ($(this).attr("id") != undefined) ? true : false, id:$(this).attr("id"), detail_text:$(this).val()};
+                details.push(detail);
+            });
+
+            $("input[name='detail_texts']").val(JSON.stringify(details));
+            
+        }
+    </script>
 {% endblock %}

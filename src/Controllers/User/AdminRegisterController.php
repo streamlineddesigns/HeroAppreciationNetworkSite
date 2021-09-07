@@ -80,6 +80,12 @@ class AdminRegisterController extends Controller
                         $OrganizationSignUpToken->delete();
                     }
 
+                    
+                    //make user directory
+                    $directory = $this->container->get('settings')['upload_directory']['users'] . $user->id;
+                    if (! is_dir($directory)) {
+                        mkdir($directory);
+                    }
 
                     $this->container->get('flash')->addMessage('success', 'Successfully created admin account!');
                     return $response->withStatus(302)->withHeader('Location', '/user/login');

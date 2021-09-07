@@ -1,6 +1,26 @@
 {% extends "app.twig" %}
 
-{% block pageStyles %}<link rel="stylesheet" href="{{ url('/assets/css/profile.css') }}">{% endblock %}
+{% block pageStyles %}
+<link rel="stylesheet" href="{{ url('/assets/css/profile.css') }}">
+<style>
+.profile-img {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background-image: url("{{url('/assets/img/uploads/users/')}}{{user.id}}/{{ user.profile_img_url }}");
+    background-size: contain;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #222222;
+}
+
+.emp-profile {
+    width: 550px;
+    border-radius: 75px;
+}
+</style>
+{% endblock %}
 
 {% block title %}Profile{% endblock %}
 
@@ -14,26 +34,26 @@
     {% endif %}
   {% endif %}
 
-  <div class="container emp-profile my-5">
+  <div class="container emp-profile my-5 shadow">
     <form>
       <div class="row">
-        <div class="col-lg-4 d-flex justify-content-center align-items-center">
+        <div class="col-md-12 mb-5">
+            <a href="{{ url('/user/profile/edit') }}" class="main-btn nav-btn d-sm-inline-block float-right">Edit</a>
+        </div>
+        <div class="col-lg-12 d-flex justify-content-center align-items-center">
           <div class="profile-img">
 
               {% if user.profile_img_url %}
-                <img src="{{ user.profile_img_url }}" alt="profile image"/>
+                <img src="{{url('/assets/img/uploads/users/')}}{{user.id}}/{{ user.profile_img_url }}" class="hidden" alt="profile image"/>
               {% else %}
-                <img src="{{url('/assets/img/default_profile_img.png')}}" alt="default profile image"/>
+                <img src="{{url('/assets/img/default_profile_img.png')}}" class="hidden" alt="default profile image"/>
               {% endif %}
 
-              <div class="file btn btn-lg btn-primary">
-                  Change Photo
-                  <input type="file" name="file"/>
-              </div>
           </div>
         </div>
-        <div class="col-lg-8 my-5">
+        <div class="col-lg-12 my-5">
           <div class="row">
+              
               <div class="col-md-6">
                   <div class="profile-head">
                       <h5>
@@ -42,11 +62,8 @@
                       <h6>
                           {{ user.community }}
                       </h6>
-                      <p class="proile-rating"><span>Karma Points :</span> 750</p>
+                      <p class="proile-rating"><span>Karma Points :</span> {{donations_total}}</p>
                   </div>
-              </div>
-              <div class="col-md-6">
-                  <a href="#" class="main-btn nav-btn d-sm-inline-block float-right">Edit</a>
               </div>
           </div>
           
@@ -83,18 +100,10 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Password</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p class="text-center">**********</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
                                 <label>Social Media</label>
                             </div>
                             <div class="col-md-6">
-                                <p class="text-center social-medias">
+                                <p class="text-center social-medias brand-color">
                                   <i class="fab fa-2x fa-facebook"></i>
                                   <i class="fab fa-2x fa-instagram"></i>
                                   <i class="fab fa-2x fa-twitter"></i>
@@ -106,45 +115,33 @@
                       </div>
                       <div class="tab-pane fade" id="donations" role="tabpanel" aria-labelledby="donations-tab">
                         <div class="row">
-                              <div class="col-md-6">
-                                  <label>Date</label>
+                              <div class="col-md-4">
+                                  <label>To</label>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                   <label>Amount</label>
                               </div>
+                              <div class="col-md-4">
+                                  <label>Public</label>
+                              </div>
+                              
                           </div>
-                          <div class="row">
-                              <div class="col-md-6">
-                                  <p>08/13/21</p>
+
+                          {% for donation in donations %}
+                            <div class="row row_donations">
+                              <div class="col-md-4">
+                                  <a href="/organizations/{{donation.recipient_organization_id}}">{{donation.name}}</a>
                               </div>
-                              <div class="col-md-6">
-                                  <p>$100</p>
+                              <div class="col-md-4">
+                                  <p>${{donation.amount}}</p>
                               </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-6">
-                                  <p>08/12/21</p>
+                              <div class="col-md-4">
+                                  <label>{% if donation.is_invisible == 1 %} <i class="fas fa-eye brand-color"></i> {% else %} <i class="fas fa-eye-slash"></i> {% endif %}</label>
                               </div>
-                              <div class="col-md-6">
-                                  <p>$100</p>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-6">
-                                  <p>08/11/21</p>
-                              </div>
-                              <div class="col-md-6">
-                                  <p>$100</p>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-6">
-                                  <p>08/10/21</p>
-                              </div>
-                              <div class="col-md-6">
-                                  <p>$100</p>
-                              </div>
-                          </div>
+                            </div>
+                            <hr>
+                          {% endfor %}
+
 
                       </div>
                   </div>

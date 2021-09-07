@@ -13,22 +13,17 @@
           <script>swal("Error!", "{{errorMessage()}}", "error");</script>
       {% endif %}
     {% endif %}
-
-    <section class="page-title-area">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-lg-8">
-                    <h1 class="page-title">Contact Us</h1>
-                </div>
-                <div class="col-auto">
-                    <ul class="page-breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li>Contact Us</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!--====== Page Title Start ======-->
+	<section class="page-title-area page-title-area-custom">
+		<div class="container">
+			<div class="row align-items-center justify-content-between">
+				<div class="col-lg-12 text-center">
+					<h1 class="page-title text-white">Contact</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--====== Page Title End ======-->
 
   <div class="container my-5">
     
@@ -39,7 +34,7 @@
                     <div class="icon">
                         <i class="flaticon-place"></i>
                     </div>
-                    <div class="info-content">
+                    <div class="info-content shadow rounded-3">
                         <h5>Our Location</h5>
                         <p>
                             5075 Main Road, D- Block, 2nd Floor, New York
@@ -52,11 +47,10 @@
                     <div class="icon">
                         <i class="flaticon-envelope"></i>
                     </div>
-                    <div class="info-content">
+                    <div class="info-content shadow rounded-3">
                         <h5>Email Address</h5>
                         <p>
                             supportinfo@gmail.com <br>
-                            www.funden.com
                         </p>
                     </div>
                 </div>
@@ -66,7 +60,7 @@
                     <div class="icon">
                         <i class="flaticon-phone-call"></i>
                     </div>
-                    <div class="info-content">
+                    <div class="info-content shadow rounded-3">
                         <h5>Support 24/7</h5>
                         <p>
                             +012 (345) 689 37 <br>
@@ -84,7 +78,7 @@
           <div class="card-img-left d-none d-md-flex">
             <!-- Background image for card set in CSS! -->
           </div>
-          <div class="card-body p-4 p-sm-5">
+          <div class="card-body p-4 p-sm-5 green-bg">
             <h5 class="card-title text-center mb-5 fs-5">Contact Us</h5>
             <form method="post">
 
@@ -110,7 +104,7 @@
               </div>
 
               <div class="form-floating mb-3">
-                <textarea rows='5' name="message" type="text" class="form-control" id="floatingInputMessage" placeholder="Message" required></textarea>
+                <textarea rows='5' name="message" type="text" class="form-control one-hundred" id="floatingInputMessage" placeholder="Message" required></textarea>
                 <label for="floatingInputMessage">Message</label>
               </div>
 
