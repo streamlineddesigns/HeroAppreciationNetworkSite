@@ -31,7 +31,7 @@
   <div class="container my-5">
     <div class="row">
       <div class="col-lg-10 col-xl-9 mx-auto">
-        <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
+        <div class="card flex-row my-5 border-0 shadow rounder overflow-hidden">
           <div class="card-img-left d-none d-md-flex justify-content-center align-items-center p-5" {% if api_token %} style="background: scroll center url( {{ url('/assets/img/login2.jpg') }} );" {% endif %}>
             <!-- Background image for card set in CSS! -->
             <img src="{{url('/assets/img/default_profile_img.png')}}" class="img-fluid p-5" alt="default profile image"/>
@@ -50,34 +50,40 @@
 
               <div class="form-floating row">
                 <div class="col-lg-6 col-sm-6 form-floating mb-3">
-                  <input type="text" name="fname" class="form-control" id="floatingInputFname" placeholder="First Name" required>
+                  <input type="text" name="fname" class="form-control rounder" id="floatingInputFname" placeholder="First Name" required>
                   <label class="px-4" for="floatingInputFname">First Name</label>
                 </div>
-                <div class="col-lg-6 col-sm-6 form-floating mb-3">
-                  <input type="text" name="lname" class="form-control" id="floatingInputLname" placeholder="Last Name" required>
+                <div class="col-lg-6 col-sm-6 form-floating mb-3 rounder">
+                  <input type="text" name="lname" class="form-control rounder" id="floatingInputLname" placeholder="Last Name" required>
                   <label class="px-4" for="floatingInputLname">Last Name</label>
                 </div>
               </div>
 
               <div class="form-floating mb-3">
-                <input type="email" name="email" class="form-control" id="floatingInputEmail" placeholder="name@example.com">
+                <input type="email" name="email" class="form-control rounder" id="floatingInputEmail" placeholder="name@example.com">
                 <label for="floatingInputEmail">Email address</label>
               </div>
 
               <hr>
 
               <div class="form-floating mb-3">
-                <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input type="password" name="password" class="form-control rounder" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password</label>
               </div>
 
               <div class="form-floating mb-3">
-                <input type="password" name="confirm_password" class="form-control" id="floatingPasswordConfirm" placeholder="Confirm Password">
+                <input type="password" name="confirm_password" class="form-control rounder" id="floatingPasswordConfirm" placeholder="Confirm Password">
                 <label for="floatingPasswordConfirm">Confirm Password</label>
               </div>
 
-              <div class="d-grid mb-2">
-                <button class="btn btn-lg btn-success btn-login fw-bold text-uppercase" type="submit">
+              <div class="">
+                {% if api_token %}
+                  <a class="d-block mt-4 my-2 small" href="{{url('/user/login')}}/{{api_token}}">Have an account? Login</a>
+                {% else %}
+                  <a class="d-block my-2" href="{{url('/contact')}}">Are you registering an Organization? </a>
+                  <a class="d-block my-2 small" href="{{url('/user/login')}}">Have an account? Login</a>
+                {% endif %}
+                <button class="btn main-btn float-right max-fifty" type="submit">
                   {% if api_token %}
                     Continue
                   {% else %}
@@ -86,15 +92,6 @@
                   <i class="far fa-arrow-right"></i>
                 </button>
               </div>
-
-              
-
-              {% if api_token %}
-                  <a class="d-block text-center mt-4 my-2 small" href="{{url('/user/login')}}/{{api_token}}">Have an account? Login</a>
-              {% else %}
-                <a class="d-block text-center mt-4 my-2 small" href="{{url('/user/login')}}">Have an account? Login</a>
-                <a class="d-block text-center my-2" href="{{url('/contact')}}">Are you registering an Organization? </a>
-              {% endif %}
 
               <!--<hr class="my-4">
 

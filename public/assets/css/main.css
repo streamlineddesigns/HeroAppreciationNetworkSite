@@ -1359,8 +1359,8 @@ a:hover {
 
 /*======= Hero Section One =======*/
 .hero-area-one .hero-text {
-	padding-top: 220px;
-	padding-bottom: 390px;
+	padding-top: 25px;
+    padding-bottom: 125px;
 	text-align: center;
 	background-color: #fde2b7;
 	background-image: url(../img/hero/hero-one-bg.jpg);
@@ -2308,8 +2308,8 @@ a:hover {
 
 /*======= Project Section =======*/
 .project-section.project-section-extra-gap {
-	padding-top: 130px;
-	padding-bottom: 210px;
+	padding-top: 50px;
+    padding-bottom: 100px;
 }
 
 .project-section.project-section-two {
@@ -2864,6 +2864,7 @@ textarea {
 	z-index: -1;
 	height: 100%;
 	background-color: var(--primary-color);
+	border-radius: 75px;
 }
 
 .counter-with-image-text-block .counter-boxes-area {
@@ -4244,7 +4245,11 @@ textarea {
 .about-section-two .about-text-area .container {
 	position: relative;
 	z-index: 1;
-	padding-top: 140px;
+	padding-top: 0px;
+}
+
+.card-title {
+    min-height: 50px !important;
 }
 
 .about-section-two .about-text-area .about-text {
@@ -5354,4 +5359,28 @@ input[type='file'] {
 .left-rounded {
 	border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
+}
+
+.left-leaf {
+    background-color: #02a95c;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.right-leaf {
+    background-color: #02a95c;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.double-right-leaf {
+    background-color: #02a95c;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.double-left-leaf {
+    background-color: #02a95c;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
 }

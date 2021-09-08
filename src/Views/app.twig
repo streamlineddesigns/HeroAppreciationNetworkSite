@@ -53,16 +53,17 @@
                     <div class="row justify-content-between align-items-center">
                         <div class="col-auto">
                             <ul class="contact-info">
-                                <li><a href="#"><i class="far fa-envelope"></i> support@gmail.com</a></li>
-                                <li><a href="#"><i class="far fa-map-marker-alt"></i> 250 Main Street, 2nd Floor, USA</a></li>
+                                <li><a href="mailto:info@charity.com"><i class="far fa-envelope-open"></i></a></li>
+                                <a href="tel:6162910591"><i class="far fa-phone"></i></a>
                             </ul>
                         </div>
                         <div class="col-auto d-none d-md-block">
                             <ul class="social-icons">
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li><a class="p-2"><i class="fab fa-facebook-square"></i></a></li>
+                                <li><a class="p-2"><i class="fab fa-instagram"></i></a></li>
+                                <li><a class="p-2"><i class="fab fa-twitter"></i></a></li>
+                                <li><a class="p-2"><i class="fab fa-linkedin"></i></a></li>
+                                <li><a class="p-2"><i class="fab fa-google"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -210,7 +211,7 @@
                                         <img src="{{url('/assets/img/logo-white.png')}}" alt="Funden">
                                     </div>
                                     <p>
-                                        Sed ut perspiciatis unde omn iste natus error sit voluptatem
+                                        Help your favorite organizations get to the highest ranks!
                                     </p>
                                     <div class="newsletter-form">
                                         <h5 class="form-title">Join Newsletters</h5>
@@ -223,14 +224,18 @@
                             </div>
                                                 <div class="col-lg-2 col-md-5 col-sm-6">
                                 <div class="widget nav-widget">
-                                    <h4 class="widget-title">Our Projects</h4>
+                                    <h4 class="widget-title">Links</h4>
                                     <ul>
-                                        <li><a href="project-1.html">Medical & Health</a></li>
-                                        <li><a href="project-2.html">Educations</a></li>
-                                        <li><a href="project-1.html">Technology</a></li>
-                                        <li><a href="project-3.html">Web Development</a></li>
-                                        <li><a href="project-2.html">Food & Clothes</a></li>
-                                        <li><a href="project-1.html">Video & Movies</a></li>
+                                        <li><a href="{{url('/')}}">Home</a></li>
+                                        <li><a href="{{url('/organizations ')}}">Organizations</a></li>
+                                        <li><a href="{{url('/about')}}">About</a></li>
+                                        <li><a href="{{url('/contact')}}">Contact</a></li>
+                                        {% if hasUserPrivileges() %}
+                                            <li><a href="{{url('/user/profile')}}">Profile</a></li>
+                                            <li><a href="{{url('/user/logout')}}">Logout</a></li>
+                                        {% else %}
+                                            <li><a href="{{url('/user/login')}}">Login</a></li>
+                                        {% endif %}
                                     </ul>
                                 </div>
                             </div>
@@ -238,11 +243,11 @@
                                 <div class="widget nav-widget">
                                     <h4 class="widget-title">Support</h4>
                                     <ul>
-                                        <li><a href="about.html">Privacy Policy</a></li>
-                                        <li><a href="contact.html">Conditions</a></li>
-                                        <li><a href="company-overview.html">Company</a></li>
-                                        <li><a href="faq.html">Faq & Terms</a></li>
-                                        <li><a href="contact.html">Contact Us</a></li>
+                                        <li><a >Privacy Policy</a></li>
+                                        <li><a >Conditions</a></li>
+                                        <li><a >Company</a></li>
+                                        <li><a >Faq & Terms</a></li>
+                                        <li><a >Contact Us</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -254,21 +259,27 @@
                                             <span class="icon"><i class="far fa-phone"></i></span>
                                             <span class="info">
                                                 <span class="info-title">Phone Number</span>
-                                                <a href="#">+012(345) 78 93</a>
+                                                <a href="tel:6162910591">(616) 291-0591</a>
                                             </span>
                                         </li>
                                         <li>
                                             <span class="icon"><i class="far fa-envelope-open"></i></span>
                                             <span class="info">
                                                 <span class="info-title">Email Address</span>
-                                                <a href="#">support@gmail.com</a>
+                                                <a href="mailto:info@charity.com">info@charity.com</a>
                                             </span>
                                         </li>
                                         <li>
-                                            <span class="icon"><i class="far fa-map-marker-alt"></i></span>
+                                            <span class="icon"><i class="fas fa-users"></i></span>
                                             <span class="info">
-                                                <span class="info-title">Locations</span>
-                                                <a href="#">59 Main Street, USA</a>
+                                                <span class="info-title">Social Media</span>
+                                                <div class="">
+                                                    <a class="p-2"><i class="fab fa-facebook-square"></i></a>
+                                                    <a class="p-2"><i class="fab fa-instagram"></i></a>
+                                                    <a class="p-2"><i class="fab fa-twitter"></i></a>
+                                                    <a class="p-2"><i class="fab fa-linkedin"></i></a>
+                                                    <a class="p-2"><i class="fab fa-google"></i></a>
+                                                </div>
                                             </span>
                                         </li>
                                     </ul>
@@ -279,16 +290,7 @@
                     <div class="copyright-area">
                         <div class="row flex-md-row-reverse">
                             <div class="col-md-6">
-                                <ul class="social-icons">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <p class="copyright-text">© 2021 <a href="#">Funden</a>. All Rights Reserved</p>
+                                <p class="copyright-text">© 2021 <a href="#">Charity</a>. All Rights Reserved</p>
                             </div>
                         </div>
                     </div>
