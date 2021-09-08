@@ -252,12 +252,12 @@
 		<div class="about-text-area">
 			<div class="container">
 				<div class="row align-items-end justify-content-xl-start">
-					<div class="col-lg-6 wow fadeInUp">
-						<div class="about-curved-img">
-							<img src="assets/img/about/man-with-laptop.png" alt="Image">
+					<div class="col-lg-6 wow fadeInUp aligned p-5">
+						<div class="about-curved-img p-5 ">
+							<img src="assets/img/about/man-with-laptop.png" class="rounder shadow" style="max-height: 550px;" alt="Image">
 						</div>
 					</div>
-					<div class="col-lg-6 wow fadeInUp">
+					<div class="col-lg-6 wow fadeInUp aligned p-5">
 						<div class="about-text">
 							<div class="common-heading mb-30">
 								<span class="tagline">
@@ -321,7 +321,7 @@
 			<div class="row team-members team-slider primary-bg">
 
 				{% for donation in donations %}
-				<li class="list-inline-item p-2 hidden donation_list_item text-center aligned shadow m-3 left-leaf custom-test">
+				<li class="list-inline-item p-2 hidden donation_list_item text-center aligned shadow m-3 left-leaf custom-test border-branded">
 					{% if donation.profile_img_url %} 
 						{% if donation.is_invisible == 0 %}
 							<div class="profile-img-custom" style="background-image: url('/assets/img/default_profile_img.png');"></div>
