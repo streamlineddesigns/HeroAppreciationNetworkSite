@@ -1591,6 +1591,7 @@ a:hover {
 }
 
 .rank-gold {
+	background-color:#ffd700 !important;
 	color: white;
     font-weight: bolder;
     font-size: 33px;
