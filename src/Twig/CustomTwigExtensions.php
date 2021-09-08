@@ -141,7 +141,7 @@ class CustomTwigExtensions extends AbstractExtension
         $length = 150;
         $shortened = "";
         for($i = 0; $i < $length; $i++) {
-            $shortened .= $str[$i];
+            $shortened .= (isset($str[$i])) ? $str[$i] : "" ;
         }
         $shortened .= "...";
         return $shortened;

@@ -243,6 +243,13 @@ class OrganizationController extends Controller
                     "cta_text" => $cta_text,
                     "is_invisible" => 0,
                 ]);
+            } else {
+                $org_template_hero_section = OrgTemplateHeroSection::create([
+                    "organization_id" => $id,
+                    "featured_img_url" => null,
+                    "cta_text" => $cta_text,
+                    "is_invisible" => 0,
+                ]);
             }
             
         }

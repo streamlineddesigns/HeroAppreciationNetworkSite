@@ -71,7 +71,7 @@
                                 <i class="fas fa-dollar-sign"></i>
                             </div>
                         </div>
-                        <input required class="form-control brand-input input-left-padded" type="number" {% if donation_options %} value="{{ donation_options }}" {% endif %} name="donation_amount" placeholder="0.00">
+                        <input required class="form-control brand-input input-left-padded" type="number" {% if donation_options %} {% if donation_options == 0.00 %} {% else %} value="{{ donation_options }}" {% endif %} {% endif %} name="donation_amount" placeholder="0.00">
                     </div>
               </div>
 

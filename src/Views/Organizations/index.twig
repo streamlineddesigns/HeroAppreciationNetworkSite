@@ -31,23 +31,31 @@
 
   <div class="container my-5">
     
-        {% if organizations %}
+        {% if topThree %}
 
+            
             <!--====== Project Area Start ======-->
-            <section class="project-section section-gap-extra-bottom primary-soft-bg p-5">
+            <section class="project-section section-gap-extra-bottom primary-soft-bg rounder p-5">
+                <div class="heading text-center mb-5">
+                    <i class="fas fa-crown fa-2x"></i>
+                    <h1 class="d-inline"> Top Ranking </h1>
+                    <i class="fas fa-crown fa-2x"></i>
+                </div>
+                
+                
                 <div class="container">
                     <div class="row project-items project-style-three justify-content-center">
 
-                        {% for organization in organizations %}
-                        <div class="col-lg-4">
-                            <div class="card p-3">
+                        {% for organization in topThree %}
+                        <div class="col-lg-4 p-2">
+                            <div class="card p-2 rounder shadow">
                                 <div class="thumb card-img-top organization_featured_img" style="background-image: url(/assets/img/uploads/organizations/{{organization.id}}/{{organization.featured_img_url}});"></div>
                                 <div class="card-body">
                                     <h5 class="card-title text-center">
                                         <a href="/organizations/{{ organization.id }}" class="brand-color no-decoration">{{ organization.name }}</a>
                                     </h5>
                                     <p class="card-text">
-                                        <p>{{ shorten(organization.about_us_text) }}</p>
+                                        <p style="min-height: 150px;">{{ shorten(organization.about_us_text) }}</p>
                                     </p>
                                 </div>
                                 
@@ -64,7 +72,7 @@
                                 </ul>
                                 <ul class="list-group list-group-flush text-center">
                                     <li class="list-group-item">
-                                        <strong class="brand-color">Raised $0</strong>
+                                        <strong class="brand-color">Raised ${{organization.donations_total}}</strong>
                                     </li>
                                 </ul>
 
@@ -86,6 +94,64 @@
         {% else %}
             No organization found.
         {% endif %}
+
+
+        {% if organizations %}
+
+            
+            <!--====== Project Area Start ======-->
+            <section class="project-section section-gap-extra-bottom p-5">
+                <div class="container">
+                    <div class="row project-items project-style-three justify-content-center">
+
+                        {% for organization in organizations %}
+                        <div class="col-lg-4 p-2">
+                            <div class="card p-2 rounder shadow">
+                                <div class="thumb card-img-top organization_featured_img" style="background-image: url(/assets/img/uploads/organizations/{{organization.id}}/{{organization.featured_img_url}});"></div>
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">
+                                        <a href="/organizations/{{ organization.id }}" class="brand-color no-decoration">{{ organization.name }}</a>
+                                    </h5>
+                                    <p class="card-text">
+                                        <p style="min-height: 150px;">{{ shorten(organization.about_us_text) }}</p>
+                                    </p>
+                                </div>
+                                
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <p class="text-center social-medias brand-color">
+                                            <i class="fab fa-2x fa-facebook"></i>
+                                            <i class="fab fa-2x fa-instagram"></i>
+                                            <i class="fab fa-2x fa-twitter"></i>
+                                            <i class="fab fa-2x fa-linkedin"></i>
+                                            <i class="fab fa-2x fa-google"></i>
+                                        </p>
+                                    </li>
+                                </ul>
+                                <ul class="list-group list-group-flush text-center">
+                                    <li class="list-group-item">
+                                        <strong class="brand-color">Raised ${{organization.donations_total}}</strong>
+                                    </li>
+                                </ul>
+
+                                <div class="card-body aligned">
+                                    <a href="/organizations/{{ organization.id }}/donate" class="main-btn nav-btn d-none d-sm-inline-block shadow">Donate</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!--<div class="col-12">
+                            <div class="view-more-btn text-center mt-40">
+                                <a href="project-details.html" class="main-btn bordered-btn">View More Project <i class="far fa-arrow-right"></i></a>
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+            </section>
+            <!--====== Project Area End ======-->
+        {% endif %}
+
+        
     </div>
 
 {% endblock %}

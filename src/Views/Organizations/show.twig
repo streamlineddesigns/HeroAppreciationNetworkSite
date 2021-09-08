@@ -87,13 +87,35 @@
                                                             <span class="info-title">Pledged</span>
                                                         </div>
                                                         <div class="info-box">
-                                                            <span>0</span>
-                                                            <span class="info-title">Backers</span>
+                                                            <span class="">{{ donation_statistics['donations_count'] }}</span>
+                                                            <span class="info-title">{% if donation_statistics['donations_count'] > 1 %} Donations {% else %} Donation {% endif %}</span>
                                                         </div>
-                                                        <div class="info-box">
-                                                            <span>0</span>
-                                                            <span class="info-title">Rank</span>
-                                                        </div>
+                                                        {% if donation_statistics['rank'] == 1 %}
+                                                            <div class="info-box rank-gold">
+                                                                <span class="text-white">{% if donation_statistics['rank'] > 0 %} {{ donation_statistics['rank'] }} {% else %} {{ donation_statistics['rank'] }} {% endif %}</span>
+                                                                <span class="info-title text-white">Rank</span>
+                                                            </div>
+                                                        
+                                                        {% elseif donation_statistics['rank'] == 2 %}
+                                                            <div class="info-box rank-silver">
+                                                                <span class="text-white">{% if donation_statistics['rank'] > 0 %} {{ donation_statistics['rank'] }} {% else %} {{ donation_statistics['rank'] }} {% endif %}</span>
+                                                                <span class="info-title text-white">Rank</span>
+                                                            </div>
+
+                                                        {% elseif donation_statistics['rank'] == 3 %}
+                                                            <div class="info-box rank-bronze">
+                                                                <span class="text-white">{% if donation_statistics['rank'] > 0 %} {{ donation_statistics['rank'] }} {% else %} {{ donation_statistics['rank'] }} {% endif %}</span>
+                                                                <span class="info-title text-white">Rank</span>
+                                                            </div>
+
+                                                        {% else %}
+                                                            <div class="info-box">
+                                                                <span>{% if donation_statistics['rank'] > 0 %} {{ donation_statistics['rank'] }} {% else %} ? {% endif %}</span>
+                                                                <span class="info-title">Rank</span>
+                                                            </div>
+
+                                                        {% endif %}
+                                                        
                                                     </div>
                                                     <div class="project-raised clearfix">
                                                         <div class="d-flex align-items-center justify-content-between">
@@ -153,7 +175,7 @@
                                                 {% endif %}
                                             </div>
 
-                                            <div class="col-lg-6 p-5 right-leaf">
+                                            <div class="col-lg-6 p-5 double-left-leaf">
                                                 <div class="rewards-box text-center">
                                                     <h4 class="title"><span>Contact</span></h4>
 
@@ -177,7 +199,7 @@
                                                                         <i class="fas fa-phone"></i>
                                                                     </div>
                                                                 </div>
-                                                                <input readonly class="form-control brand-input input-left-padded" type="text" value="{{ organization[0].phone }}" name="phone">
+                                                                <input readonly class="form-control brand-input input-left-padded right-rounded" type="text" value="{{ organization[0].phone }}" name="phone">
                                                             </div>
 
                                                         </li>
@@ -193,7 +215,7 @@
                                                                         <i class="fas fa-envelope"></i>
                                                                     </div>
                                                                 </div>
-                                                                <input readonly class="form-control brand-input input-left-padded" type="text" value="{{ organization[0].email }}" name="email">
+                                                                <input readonly class="form-control brand-input input-left-padded right-rounded" type="text" value="{{ organization[0].email }}" name="email">
                                                             </div>
 
                                                         </li>
@@ -209,7 +231,7 @@
                                                                         <i class="fas fa-map-marker-alt"></i>
                                                                     </div>
                                                                 </div>
-                                                                <input readonly class="form-control brand-input input-left-padded" type="text" value="{{ organization[0].address }}" name="address">
+                                                                <input readonly class="form-control brand-input input-left-padded right-rounded" type="text" value="{{ organization[0].address }}" name="address">
                                                             </div>
                                                             
                                                         </li>
@@ -249,13 +271,54 @@
                                             </div>
 
                                             {% if donations[0] %}
-                                                <div class="col-lg-12 mt-5 p-5 aligned">
+                                                <div class="col-lg-6 p-5 aligned text-center">
                                                     
-                                                        <h1 class="my-5">Top Donations</h1>
+
+                                                    <div class="col-md-10 p-5 rounder">
+                                                        <div class="profile-head my-5 text-center">
+                                                            <h4>
+                                                                Donations Overview
+                                                            </h4>
+                                                        </div>
+
+                                                        <div class="left-text">
+                                                            <strong>Rank</strong>
+                                                            <span class="float-right brand-color" >  {{ donation_statistics['rank'] }} </span>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="left-text">
+                                                            <strong>Total Donors</strong>
+                                                            <span class="float-right brand-color" > {{ donation_statistics['backers'] }} </span>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="left-text">
+                                                            <strong>Total Donations</strong>
+                                                            <span class="float-right brand-color" > {{ donation_statistics['donations_count'] }} </span>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="left-text">
+                                                            <strong>Average Donation</strong>
+                                                            <span class="float-right brand-color" > ${{ donation_statistics['average_donation'] }} </span>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="left-text">
+                                                            <strong>Highest Donation</strong>
+                                                            <span class="float-right brand-color" > ${{ donation_statistics['highest_donation']['amount'] }} </span>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="left-text">
+                                                            <strong>All Donations</strong>
+                                                            <span class="float-right brand-color" > ${{ donation_statistics['total'] }} </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 p-5 aligned left-leaf text-center">
+                                                    
+                                                        <h1 class="my-5 text-white">Top Donations</h1>
 
                                                         <ul>
                                                             {% for donation in donations %}
-                                                                <li class="list-inline-item p-4 hidden border-branded donation_list_item text-center aligned shadow m-3 left-leaf">
+                                                                <li class="list-inline-item p-4 hidden donation_list_item text-center aligned shadow m-3 left-leaf">
                                                                     {% if donation.profile_img_url %} 
                                                                         {% if donation.is_invisible == 0 %}
                                                                             <div class="profile-img-custom" style="background-image: url('/assets/img/default_profile_img.png');"></div>

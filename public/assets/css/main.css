@@ -1577,6 +1577,37 @@ a:hover {
     background-repeat: no-repeat;
     background-color: #292929;
     padding-left: calc(var(--bs-gutter-x) * .5);
+	padding: 0px!important;
+    border: 25px solid white;
+    border-radius: 75px;
+}
+
+.custom-group-text {
+	height: auto !important;
+}
+
+.fa-crown {
+	color: #ffd700;
+}
+
+.rank-gold {
+	color: white;
+    font-weight: bolder;
+    font-size: 33px;
+}
+
+.rank-silver {
+	background-color:#c0c0c0 !important;
+	color: white;
+    font-weight: bolder;
+    font-size: 33px;
+}
+
+.rank-bronze {
+	background-color:#cd7f32 !important;
+	color: white;
+    font-weight: bolder;
+    font-size: 33px;
 }
 
 /*======= Page Title =======*/
@@ -1595,6 +1626,10 @@ a:hover {
 }
 .brand-color {
     color: var(--primary-color);
+}
+
+.rounder {
+	border-radius: 75px;
 }
 
 .bolder {
@@ -2413,12 +2448,21 @@ a:hover {
     display: inline;
 }
 
+.right-rounded {
+	border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
 .input-group-text {
 	height: 100%;
     background-color: #02a95c;
     border: 2px solid #02a95c;
 	border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
+
+
+	border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
 }
 
 .input-group-text i {
