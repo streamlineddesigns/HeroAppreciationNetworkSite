@@ -4248,6 +4248,11 @@ textarea {
 	padding-top: 0px;
 }
 
+.custom-test {
+	background-color: white !important;
+	width: 300px !important;
+}
+
 .card-title {
     min-height: 50px !important;
 }

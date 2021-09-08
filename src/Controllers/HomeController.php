@@ -25,8 +25,9 @@ class HomeController extends Controller
                                            ->leftJoin('org_template_social_media_section', 'org_template_social_media_section.organization_id', '=', 'organizations.id')
                                            ->where('organizations.is_invisible', 1)->get();
 
-        $donations = Donations::select("donations.*", "users.id as user_id", "users.fname as fname", "users.lname as lname", "users.profile_img_url as profile_img_url")
+        $donations = Donations::select("donations.*", "users.id as user_id", "users.fname as fname", "users.lname as lname", "users.profile_img_url as profile_img_url", "organizations.name as org_name", "organizations.id as org_id")
                                 ->leftJoin('users', 'users.id', '=', 'donations.sender_user_id')
+                                ->leftJoin('organizations', 'organizations.id', '=', 'donations.recipient_organization_id')
                                 ->orderBy('donations.amount', 'DESC')->get();
                             
         $organizations_donations_total = array();

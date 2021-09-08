@@ -11,6 +11,7 @@
 		background-repeat: no-repeat;
 		background-position: center;
 		background-color: #222222;
+		margin: 0 auto;
 	}
     </style>
 {% endblock %}
@@ -248,17 +249,15 @@
 
 	<!--====== About Section Start ======-->
 	<section class="about-section-two">
-		<div class="about-form-area">
-			<div class="container">
-				<div class="about-video wow fadeInDown" data-wow-delay="0.2s">
-					<a href="//www.youtube.com/watch?v=XSGBVzeBUbk" class="video-btn" data-lity><i class="fas fa-play"></i></a>
-				</div>
-			</div>
-		</div>
 		<div class="about-text-area">
 			<div class="container">
 				<div class="row align-items-end justify-content-xl-start">
-					<div class="col-xl-5 col-lg-7 col-md-8 order-xl-2">
+					<div class="col-lg-6 wow fadeInUp">
+						<div class="about-curved-img">
+							<img src="assets/img/about/man-with-laptop.png" alt="Image">
+						</div>
+					</div>
+					<div class="col-lg-6 wow fadeInUp">
 						<div class="about-text">
 							<div class="common-heading mb-30">
 								<span class="tagline">
@@ -288,11 +287,7 @@
 							<a href="{{ url('/about') }}" class="main-btn btn-dark mt-40">Learn More <i class="far fa-arrow-right"></i></a>
 						</div>
 					</div>
-					<div class="col-xl-5 order-xl-1 wow fadeInUp">
-						<div class="about-curved-img">
-							<img src="assets/img/about/man-with-laptop.png" alt="Image">
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -323,30 +318,33 @@
 
 		</div>
 		<div class="container-fluid fluid-extra-padding">
-			<div class="row team-members team-slider">
+			<div class="row team-members team-slider primary-bg">
 
 				{% for donation in donations %}
-				<div class="col">
-					<div class="member-box">
-						<div class="member-photo aligned mb-5">
-							{% if donation.profile_img_url %}
-								<div class="profile-img-custom" alt="Member" style="background-image: url('/assets/img/uploads/users/{{ donation.user_id }}/{{ donation.profile_img_url }}')"></div>
-							{% else %}
-								<div class="profile-img-custom" alt="Member" style="background-image: url('/assets/img/default_profile_img.png')"></div>
-							{% endif %}
-						</div>
-						<div class="member-info" style="    z-index: -1;">
-							<span class="title">{{ donation.fname }} {{ donation.lname }}</span>
-							<h2 class="title">${{ donation.amount }}</h2>
-							<ul class="social-links">
-								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
-								<li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
+				<li class="list-inline-item p-2 hidden donation_list_item text-center aligned shadow m-3 left-leaf custom-test">
+					{% if donation.profile_img_url %} 
+						{% if donation.is_invisible == 0 %}
+							<div class="profile-img-custom" style="background-image: url('/assets/img/default_profile_img.png');"></div>
+						{% else %}
+							<div class="profile-img-custom" style="background-image: url(/assets/img/uploads/users/{{ donation.user_id }}/{{ donation.profile_img_url }});"></div>
+						{% endif %}
+					{% else %}
+						<div class="profile-img-custom" style="background-image: url('/assets/img/default_profile_img.png');"></div>
+					{% endif %}
+					<span class="bolder">
+					{% if donation.is_invisible == 0 %}
+						Private
+					{% else %}
+						<h5 class="brand-color">{{donation.fname}} {{donation.lname}}</h5>
+					{% endif %}
+					
+					
+					</span>
+
+
+					<h5 class="bolder brand-color">${{donation.amount}}</h5>
+					<h5 class="bolder text-white"><a class="brand-color" href="/organizations/{{donation.org_id }}">{{donation.org_name}}</a></h5>
+				</li>
 				{% endfor %}
 				
 
@@ -365,7 +363,7 @@
 					<div class="col-xl-4 col-lg-5 col-md-9">
 						<div class="content">
 							<h2 class="cta-title">Get Funding</h2>
-							<p>Are you an organization and you want to sign up?</p>
+							<p class="white-text text-white">Are you an organization and you want to sign up?</p>
 							<a href="{{url('/contact')}}" class="main-btn">Sign Up! <i class="far fa-arrow-right"></i></a>
 						</div>
 					</div>
@@ -373,7 +371,7 @@
 					<div class="col-xl-4 col-lg-5 col-md-9">
 						<div class="content">
 							<h2 class="cta-title">Donate today</h2>
-							<p>Do you want to donate to you favorite organization?</p>
+							<p class="white-text text-white">Do you want to donate to you favorite organization?</p>
 							<a href="{{url('/organizations')}}" class="main-btn">Donate Now! <i class="far fa-arrow-right"></i></a>
 						</div>
 					</div>
