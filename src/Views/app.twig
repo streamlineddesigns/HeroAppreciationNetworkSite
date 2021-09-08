@@ -103,7 +103,7 @@
                                             {% if hasSuperUserPrivileges() %}
                                                 <li><a href="{{url('/superuser/icontypes')}}">Icon Types</a></li>
                                                 <li><a href="{{url('/superuser/icons')}}">Icons</a></li>
-                                                <li><a href="{{url('/superuser/templates')}}">Templates</a></li>
+                                                <!--<li><a href="{{url('/superuser/templates')}}">Templates</a></li>-->
                                                 <li><a href="{{url('/superuser/organizations/tokens')}}">Tokens</a></li>
                                             {% endif %}
                                             <li><a href="{{url('/user/logout')}}">Logout</a></li>
@@ -115,7 +115,7 @@
                             </ul>
                         </div>
                         <div class="navbar-extra d-flex align-items-center">
-                            <a href="{{ url('/organizations') }}" class="main-btn nav-btn d-none d-sm-inline-block">
+                            <a href="{{ url('/organizations') }}" id="main_donator" class="main-btn nav-btn d-none d-sm-inline-block">
                                 Donate Now <i class="far fa-arrow-right"></i>
                             </a>
                             <a href="#" class="nav-toggler">

@@ -2696,7 +2696,7 @@ textarea {
 	-ms-flex-align: center;
 	align-items: center;
 	font-size: 15px;
-	font-weight: 500;
+	font-weight: 300;
 	color: var(--secondary-color);
 	margin-bottom: 20px;
 	text-align: left;
@@ -5282,6 +5282,8 @@ textarea {
 .search-input {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
+	border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
 
 .float-right {

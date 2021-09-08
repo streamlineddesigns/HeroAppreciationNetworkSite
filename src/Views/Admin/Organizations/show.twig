@@ -70,21 +70,21 @@
                                                     </div>-->
                                                     <div class="project-funding-info">
                                                         <div class="info-box">
-                                                            <span>${{donations_total}}</span>
+                                                            <span>{% if false %} ${{donations_total}} {% else %} X {% endif %}</span>
                                                             <span class="info-title">Pledged</span>
                                                         </div>
                                                         <div class="info-box">
-                                                            <span>0</span>
+                                                            <span>X</span>
                                                             <span class="info-title">Backers</span>
                                                         </div>
                                                         <div class="info-box">
-                                                            <span>0</span>
+                                                            <span>X</span>
                                                             <span class="info-title">Rank</span>
                                                         </div>
                                                     </div>
                                                     <div class="project-raised clearfix">
                                                         <div class="d-flex align-items-center justify-content-between">
-                                                            <div class="raised-label">Raised ${{donations_total}}</div>
+                                                            <div class="raised-label">Raised {% if false %} ${{donations_total}} {% else %} X {% endif %}</div>
                                                         </div>
                                                         <div class="stats-bar" data-value="79">
                                                             <div class="bar-line"></div>
@@ -163,7 +163,7 @@
                                                                         <i class="fas fa-phone"></i>
                                                                     </div>
                                                                 </div>
-                                                                <input readonly class="form-control brand-input input-left-padded" type="text" value="{{ organization[0].phone }}" name="phone">
+                                                                <input readonly class="form-control brand-input input-left-padded right-rounded" type="text" value="{{ organization[0].phone }}" name="phone">
                                                             </div>
 
                                                         </li>
@@ -179,7 +179,7 @@
                                                                         <i class="fas fa-envelope"></i>
                                                                     </div>
                                                                 </div>
-                                                                <input readonly class="form-control brand-input input-left-padded" type="text" value="{{ organization[0].email }}" name="email">
+                                                                <input readonly class="form-control brand-input input-left-padded right-rounded" type="text" value="{{ organization[0].email }}" name="email">
                                                             </div>
 
                                                         </li>
@@ -195,7 +195,7 @@
                                                                         <i class="fas fa-map-marker-alt"></i>
                                                                     </div>
                                                                 </div>
-                                                                <input readonly class="form-control brand-input input-left-padded" type="text" value="{{ organization[0].address }}" name="address">
+                                                                <input readonly class="form-control brand-input input-left-padded right-rounded" type="text" value="{{ organization[0].address }}" name="address">
                                                             </div>
                                                             
                                                         </li>
