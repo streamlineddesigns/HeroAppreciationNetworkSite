@@ -16,62 +16,6 @@
 	</section>
 	<!--====== Page Title End ======-->
 
-
-	<!--====== Feature Section Start ======-->
-	<section class="feature-section feature-section-one mt-5">
-		<div class="container">
-			<div class="row justify-content-lg-between justify-content-center align-items-center">
-				<div class="col-lg-6 wow fadeInUp aligned p-5">
-					<div class="feature-content mb-md-70">
-						<div class="common-heading mb-45">
-							<span class="tagline">
-								<i class="fas fa-plus"></i> Why Choose us
-								<span class="heading-shadow-text">Why Choose us</span>
-							</span>
-							<h2 class="title">Why Choose us</h2>
-						</div>
-						<!-- Fancy Icon List -->
-						<div class="fancy-icon-list">
-							<div class="fancy-list-item wow fadeInUp" data-wow-delay="0.1s">
-								<div class="icon">
-									<i class="flaticon-debit-card"></i>
-								</div>
-								<div class="content">
-									<h4 class="title">Fast & Easy Payouts</h4>
-									<p>Sed ut perspiciatis unde omnis iste natus voluptatem accusan doloremque</p>
-								</div>
-							</div>
-							<div class="fancy-list-item wow fadeInUp" data-wow-delay="0.2s">
-								<div class="icon">
-									<i class="flaticon-payment"></i>
-								</div>
-								<div class="content">
-									<h4 class="title">Global Payment Processing</h4>
-									<p>Sed ut perspiciatis unde omnis iste natus voluptatem accusan doloremque</p>
-								</div>
-							</div>
-							<div class="fancy-list-item wow fadeInUp" data-wow-delay="0.3s">
-								<div class="icon">
-									<i class="flaticon-wallet-1"></i>
-								</div>
-								<div class="content">
-									<h4 class="title">Many Payment Options</h4>
-									<p>Sed ut perspiciatis unde omnis iste natus voluptatem accusan doloremque</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 wow fadeInUp aligned p-5">
-					<div class="feature-img">
-						<img src="assets/img/hero/feature-img.jpg" class="rounder shadow" style="max-height: 550px;" alt="Image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--====== Feature Section End ======-->
-
 	<!--====== About Section Start ======-->
 	<section class="about-section-two mb-5">
 		<div class="about-text-area">
@@ -120,6 +64,128 @@
 		</div>
 	</section>
 	<!--====== About Section End ======-->
+
+		<!--====== Counter Area Start ======-->
+	<section class="counter-section-one mt-negative my-5">
+		<div class="container primary-bg">
+			<div class="row counter-boxes justify-content-xl-between justify-content-center">
+				<div class="col-xl-auto col-lg-5 col-md-5 col-sm-6">
+					<div class="counter-box mb-40 icon-left">
+						<div class="icon white-color">
+							<i class="flaticon-crowdfunding"></i>
+						</div>
+						<div class="content white-color">
+							<div class="count-wrap">
+								$<span class="count">{{ donation_statistics['average_donation'] }}</span>
+								<span class="suffix">+</span>
+							</div>
+							<h6 class="title">Average Donation</h6>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-auto col-lg-5 col-md-5 col-sm-6">
+					<div class="counter-box mb-40 icon-left">
+						<div class="icon white-color">
+							<i class="flaticon-crowdfunding"></i>
+						</div>
+						<div class="content white-color">
+							<div class="count-wrap">
+								$<span class="count">{{ donation_statistics['total_donations'] }}</span>
+								<span class="suffix">+</span>
+							</div>
+							<h6 class="title">$ Donations Made</h6>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-auto col-lg-5 col-md-5 col-sm-6">
+					<div class="counter-box mb-40 icon-left">
+						<div class="icon white-color">
+							<i class="flaticon-crowdfunding"></i>
+						</div>
+						<div class="content white-color">
+							<div class="count-wrap">
+								<span class="count">{{ donation_statistics['total_organizations'] }}</span>
+								<span class="suffix">+</span>
+							</div>
+							<h6 class="title">Organizations</h6>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-auto col-lg-5 col-md-5 col-sm-6">
+					<div class="counter-box mb-40 icon-left">
+						<div class="icon white-color">
+							<i class="flaticon-crowdfunding"></i>
+						</div>
+						<div class="content white-color">
+							<div class="count-wrap">
+								<span class="count">{{ donation_statistics['donations_count'] }}</span>
+								<span class="suffix">+</span>
+							</div>
+							<h6 class="title"># Donations Made</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--====== Counter Area End ======-->
+
+
+	<!--====== Feature Section Start ======-->
+	<section class="feature-section feature-section-one my-5">
+		<div class="container">
+			<div class="row justify-content-lg-between justify-content-center align-items-center">
+				<div class="col-lg-6 wow fadeInUp aligned p-5">
+					<div class="feature-content mb-md-70">
+						<div class="common-heading mb-45">
+							<span class="tagline">
+								<i class="fas fa-plus"></i> Organizations Choose Us
+								<span class="heading-shadow-text">Organizations Choose Us</span>
+							</span>
+							<h2 class="title">Why Organizations Choose us</h2>
+						</div>
+						<!-- Fancy Icon List -->
+						<div class="fancy-icon-list">
+							<div class="fancy-list-item wow fadeInUp" data-wow-delay="0.1s">
+								<div class="icon">
+									<i class="flaticon-debit-card"></i>
+								</div>
+								<div class="content">
+									<h4 class="title">Fast & Easy Payouts</h4>
+									<p>Payouts are very fast and easy. We integrate with 3rd party tools that have been around for years.</p>
+								</div>
+							</div>
+							<div class="fancy-list-item wow fadeInUp" data-wow-delay="0.2s">
+								<div class="icon">
+									<i class="flaticon-payment"></i>
+								</div>
+								<div class="content">
+									<h4 class="title">Global Payment Processing</h4>
+									<p>Payments are accepted globally, meaning anyone in the world can donate.</p>
+								</div>
+							</div>
+							<div class="fancy-list-item wow fadeInUp" data-wow-delay="0.3s">
+								<div class="icon">
+									<i class="flaticon-wallet-1"></i>
+								</div>
+								<div class="content">
+									<h4 class="title">Many Payment Options</h4>
+									<p>We accept numerous payment methods, making it easier than ever to recieve a donation.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 wow fadeInUp aligned p-5">
+					<div class="feature-img">
+						<img src="assets/img/hero/feature-img.jpg" class="rounder shadow" style="max-height: 550px;" alt="Image">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--====== Feature Section End ======-->
+
 
 
 {% endblock %}
