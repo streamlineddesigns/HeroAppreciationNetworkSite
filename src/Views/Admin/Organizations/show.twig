@@ -1,6 +1,9 @@
 {% extends "app.twig" %}
 
-{% block pageStyles %}<link rel="stylesheet" href="{{ url('/assets/css/organization.css') }}">{% endblock %}
+{% block pageStyles %}
+<link rel="stylesheet" href="{{ url('/assets/css/organization.css') }}">
+<link rel="stylesheet" href="{{url('/assets/css/crud.css')}}">
+{% endblock %}
 
 {% block title %}Organizations Show{% endblock %}
 
@@ -20,6 +23,9 @@
         {% if organization[0] %}
         
             <a href="javascript:FunApp.backButtonClick()" class="btn btn-success mb-5 btn-chubby"><i class="bi bi-chevron-left"></i> Back</a>
+            {% if (organization[0].is_invisible) %}
+            <a href="{{url('/organizations/')}}{{organization[0].id}}" class="btn btn-success mb-5 btn-chubby btn-clear"><i class="fas fa-eye"></i> View Live</a>
+            {% endif %}
             <a class="btn btn-primary edit-btn mb-5 float-right btn-chubby" href="/admin/organizations/{{ organization[0].id }}/edit"><i class="bi bi-pencil"></i> Edit</a>
 
             <!--====== Page Title Start ======-->
@@ -232,6 +238,17 @@
                                                 <p>
                                                     {{ organization[0].detail_two }}
                                                 </p>
+                                            </div>
+
+
+                                            <div class="col-lg-12 p-5" style="pointer-events: none;">
+                                                <div class="form-group mt-5 float-right">
+                                                    <label for="name" class="form-label">Enabled</label>
+                                                    <label class="switch">
+                                                        <input type="checkbox" {% if (organization[0].is_invisible) %} checked {% endif %} name="is_invisible">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
                                             </div>
 
                                         </div>

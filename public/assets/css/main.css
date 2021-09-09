@@ -3669,6 +3669,11 @@ textarea {
 	padding-bottom: 60px;
 }
 
+.btn-clear {
+	background-color: transparent;
+    color: var(--primary-color);
+}
+
 .team-slider-area .member-box {
 	margin-bottom: 50px;
 }
