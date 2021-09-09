@@ -82,34 +82,34 @@
                                                         <a href="#" class="date"><i class="far fa-calendar-alt"></i>25 Feb 2021</a>
                                                     </div>-->
                                                     <div class="project-funding-info">
-                                                        <div class="info-box">
+                                                        <div class="info-box rounder">
                                                             <span>${{donations_total}}</span>
                                                             <span class="info-title">Pledged</span>
                                                         </div>
-                                                        <div class="info-box">
+                                                        <div class="info-box rounder">
                                                             <span class="">{{ donation_statistics['donations_count'] }}</span>
                                                             <span class="info-title">{% if donation_statistics['donations_count'] > 1 %} Donations {% else %} Donation {% endif %}</span>
                                                         </div>
                                                         {% if donation_statistics['rank'] == 1 %}
-                                                            <div class="info-box rank-gold">
+                                                            <div class="info-box rank-gold rounder">
                                                                 <span class="text-white">{% if donation_statistics['rank'] > 0 %} {{ donation_statistics['rank'] }} {% else %} {{ donation_statistics['rank'] }} {% endif %}</span>
                                                                 <span class="info-title text-white">Rank</span>
                                                             </div>
                                                         
                                                         {% elseif donation_statistics['rank'] == 2 %}
-                                                            <div class="info-box rank-silver">
+                                                            <div class="info-box rank-silver rounder">
                                                                 <span class="text-white">{% if donation_statistics['rank'] > 0 %} {{ donation_statistics['rank'] }} {% else %} {{ donation_statistics['rank'] }} {% endif %}</span>
                                                                 <span class="info-title text-white">Rank</span>
                                                             </div>
 
                                                         {% elseif donation_statistics['rank'] == 3 %}
-                                                            <div class="info-box rank-bronze">
+                                                            <div class="info-box rank-bronze rounder">
                                                                 <span class="text-white">{% if donation_statistics['rank'] > 0 %} {{ donation_statistics['rank'] }} {% else %} {{ donation_statistics['rank'] }} {% endif %}</span>
                                                                 <span class="info-title text-white">Rank</span>
                                                             </div>
 
                                                         {% else %}
-                                                            <div class="info-box">
+                                                            <div class="info-box rounder">
                                                                 <span>{% if donation_statistics['rank'] > 0 %} {{ donation_statistics['rank'] }} {% else %} ? {% endif %}</span>
                                                                 <span class="info-title">Rank</span>
                                                             </div>
@@ -175,8 +175,8 @@
                                                 {% endif %}
                                             </div>
 
-                                            <div class="col-lg-6 p-5 double-left-leaf">
-                                                <div class="rewards-box text-center">
+                                            <div class="col-lg-6 p-5 double-left-leaf aligned">
+                                                <div class="rewards-box text-center one-hundred">
                                                     <h4 class="title"><span>Contact</span></h4>
 
                                                     <div class="profile-img aligned">

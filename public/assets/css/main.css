@@ -1631,7 +1631,7 @@ a:hover {
 }
 
 .rounder {
-	border-radius: 75px;
+	border-radius: 75px !important;
 }
 
 .bolder {
