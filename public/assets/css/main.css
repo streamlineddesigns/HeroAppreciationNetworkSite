@@ -3171,6 +3171,7 @@ textarea {
 	z-index: -1;
 	background-color: var(--secondary-color);
 	opacity: 0.9;
+	border-radius: 75px;
 }
 
 .cta-box .main-btn {
