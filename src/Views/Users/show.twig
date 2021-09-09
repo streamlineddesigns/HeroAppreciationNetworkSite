@@ -18,7 +18,11 @@
     width: 550px;
     border-radius: 75px;
 }
+.custom-group-text {
+    border: 9px solid #02a95c;
+}
 </style>
+
 
 {% if user.profile_img_url %}
     <style>
@@ -168,4 +172,16 @@
 
 {% block pageScripts %}
     <script src="{{url('/assets/js/FunApp.js')}}"></script>
+    <script>
+
+        $(document).ready(function() {
+            var html =
+            `
+            <input class="form-control search-input" type="search" placeholder="Search" autocomplete="off">
+            `;
+
+            $("#main_donator").replaceWith(html);
+        });
+    
+    </script>
 {% endblock %}
