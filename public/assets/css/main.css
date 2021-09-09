@@ -3174,6 +3174,29 @@ textarea {
 	border-radius: 75px;
 }
 
+.custom-search-dropdown {
+	position: absolute;
+	right: 278px;
+    top: 135px;
+}
+
+.custom-search-dropdown-sticky-on {
+	position: absolute;
+	right: 278px;
+    top: 72px;
+}
+
+.dropdown-toggleable {
+	min-width: 12rem;
+}
+
+.custom-search-dropdown .dropdown-toggle {
+	background-color: transparent;
+    border: none;
+    color: transparent;
+    width: 100%;
+}
+
 .cta-box .main-btn {
 	margin-top: 30px;
 }

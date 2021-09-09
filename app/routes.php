@@ -26,6 +26,7 @@ return function (App $app) {
         $group->post('/register', [Controllers\User\RegisterController::class, 'store']);
         $group->get('/logout', [Controllers\User\LoginController::class, 'logout']);
         $group->get('/profile/v/{id}', [Controllers\User\UserController::class, 'show']);
+        $group->post('/search/{name}', [Controllers\User\UserController::class, 'search']);
     });
 
     /* API Token for registering admins only */
@@ -42,6 +43,7 @@ return function (App $app) {
     $app->group('/organizations', function (Group $group) {
         $group->get('', [Controllers\OrganizationController::class, 'index']);
         $group->get('/{id}', [Controllers\OrganizationController::class, 'show']);
+        $group->post('/search/{name}', [Controllers\OrganizationController::class, 'search']);
         
         /*
          * Both go to the same endpoint, but there's 2 ways to get to this page. 

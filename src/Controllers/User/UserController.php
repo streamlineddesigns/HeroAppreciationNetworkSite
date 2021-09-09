@@ -116,6 +116,24 @@ class UserController extends Controller
         return $response->withStatus(302)->withHeader('Location', "/user/profile");
     }
 
+    public function search($request, $response, $name) 
+    {
+        $user = Users::select("users.*")
+                                       ->where("is_invisible", 1)
+                                       ->where("users.fname",'LIKE','%'.$name.'%')
+                                       ->orWhere("users.lname",'LIKE','%'.$name.'%')
+                                       ->orderBy("users.fname")
+                                       ->limit(5)->get();
+
+                                       
+
+        if (isset($user[0]->id)) {
+            $response->getBody()->write(json_encode($user));
+        }
+        
+        return $response;
+    }
+
     function moveUploadedFile($directory, $uploadedFile)
     {
         $extension = pathinfo($uploadedFile->getClientFilename(), PATHINFO_EXTENSION);

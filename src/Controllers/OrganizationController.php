@@ -126,4 +126,22 @@ class OrganizationController extends Controller
 
         return $this->container->get('view')->render($response, $view,  ['organization' => $organization, 'detail_texts' => $detail_texts, 'counter' => $counter, 'donations' => $donations, 'donations_total' => $donations_total, 'donation_statistics' => $donation_statistics,]);
     }
+
+
+    public function search($request, $response, $name) 
+    {
+        $organization = Organizations::select("organizations.*")
+                                       ->where("is_invisible", 1)
+                                       ->where("organizations.name",'LIKE','%'.$name.'%')
+                                       ->orderBy("organizations.name")
+                                       ->limit(5)->get();
+
+                                       
+
+        if (isset($organization[0]->id)) {
+            $response->getBody()->write(json_encode($organization));
+        }
+        
+        return $response;
+    }
 }

@@ -167,13 +167,61 @@
     <script>
 
         $(document).ready(function() {
+            var dropdownHTML = 
+            `
+            <div class="btn-group custom-search-dropdown">
+                <ul class="dropdown-menu dropdown-toggleable">
+                    
+                </ul>
+            </div>
+            `;
             var html =
             `
-            <input class="form-control search-input" type="search" placeholder="Search" autocomplete="off">
+            <input class="form-control search-input" id="organization_search" type="search" placeholder="Search" autocomplete="off">
             `;
 
-            $("#main_donator").replaceWith(html);
+            $("#main_donator").replaceWith(html + dropdownHTML);
+
+            var link = "/organizations/search/";
+
+            $("#organization_search").keyup(function(){
+                let test = link +$("#organization_search").val();
+                $.ajax({
+                type: "POST",
+                url: test,
+                data:'keyword='+$(this).val(),
+                beforeSend: function(){
+                    $("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+                },
+                success: function(data){
+                    var organizations = JSON.parse(data);
+                    $(".dropdown-toggleable").html("");
+                    for(var i = 0; i < organizations.length; i++) {
+                        var href = "{{ url('/organizations/') }}" + organizations[i].id;
+                        var newishhtml = "<a class='p-2 d-block text-center' href="+href+">"+ organizations[i].name + "</a>";
+                        $(".dropdown-toggleable").append(newishhtml);
+                    }
+                }
+                });
+            });
+
+            $("#organization_search").click(function() {
+                $(".dropdown-toggleable").show();
+                if ($(".site-header").hasClass("sticky-on")) {
+                    $(".custom-search-dropdown").addClass("custom-search-dropdown-sticky-on");
+                } else {
+                    $(".custom-search-dropdown").removeClass("custom-search-dropdown-sticky-on");
+                }
+            });
+
+            $("#organization_search").blur(function() {
+                
+                setTimeout((function() {
+                    $(".dropdown-toggleable").hide();
+                }), 500)
+            });
         });
+
     
     </script>
 {% endblock %}
