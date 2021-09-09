@@ -169,11 +169,9 @@
         $(document).ready(function() {
             var dropdownHTML = 
             `
-            <div class="btn-group custom-search-dropdown">
-                <ul class="dropdown-menu dropdown-toggleable">
+            <ul class="dropdown-menu dropdown-toggleable">
                     
-                </ul>
-            </div>
+            </ul>
             `;
             var html =
             `
@@ -208,9 +206,9 @@
             $("#organization_search").click(function() {
                 $(".dropdown-toggleable").show();
                 if ($(".site-header").hasClass("sticky-on")) {
-                    $(".custom-search-dropdown").addClass("custom-search-dropdown-sticky-on");
+                    $(".dropdown-toggleable").addClass("dropdown-toggleable-sticky-on");
                 } else {
-                    $(".custom-search-dropdown").removeClass("custom-search-dropdown-sticky-on");
+                    $(".dropdown-toggleable").removeClass("dropdown-toggleable-sticky-on");
                 }
             });
 

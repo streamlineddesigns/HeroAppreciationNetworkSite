@@ -3,8 +3,8 @@
 {% block pageStyles %}
     <style>
     .profile-img-custom {
-		height: 100px;
-		width: 100px;
+		height: 125px;
+		width: 125px;
 		border-radius: 50%;
 		background-size: contain;
 		box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
@@ -139,7 +139,7 @@
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col-lg-6 wow fadeInUp aligned p-5">
-						<div class="about-curved-img p-5 ">
+						<div class="">
 							<img src="assets/img/about/man-with-laptop.png" class="rounder shadow" style="max-height: 550px;" alt="Image">
 						</div>
 					</div>
@@ -160,7 +160,7 @@
 							<ul class="check-list mt-30">
 								<li>
 									<h5 class="title">Find and follow organizations you like</h5>
-									<p>Check out any organization and see what they are doing. You can see their reviews, recent posts, & what donations they've recieved as well as what they've spent the donations on. Throughout this process, you'll become informed on the difference this organization is making in the world. Afterwards, its our hope you'll choose to become apart of that difference & donate.</p>
+									<p>Check out any organization and see what they are doing. You can see their reviews, recent posts, & what donations they've recieved as well as what they've spent the donations on. </p>
 								</li>
 								<li>
 									<h5 class="title">See who your friends are donating to</h5>
@@ -317,9 +317,11 @@
 			<div class="row team-members team-slider primary-bg">
 
 				{% for donation in donations %}
-				<li class="list-inline-item p-2 hidden donation_list_item text-center aligned shadow m-3 left-leaf custom-test border-branded">
+				<li class="list-inline-item p-2 hidden donation_list_item text-center aligned shadow m-3 left-leaf custom-test">
 					{% if donation.profile_img_url %} 
 						{% if donation.is_invisible == 0 %}
+							<div class="profile-img-custom" style="background-image: url('/assets/img/default_profile_img.png');"></div>
+						{% elseif donation.user_id == 1 %}
 							<div class="profile-img-custom" style="background-image: url('/assets/img/default_profile_img.png');"></div>
 						{% else %}
 							<div class="profile-img-custom" style="background-image: url(/assets/img/uploads/users/{{ donation.user_id }}/{{ donation.profile_img_url }});"></div>
@@ -329,7 +331,9 @@
 					{% endif %}
 					<span class="bolder">
 					{% if donation.is_invisible == 0 %}
-						Private
+						<h5 class="brand-color">Private</h5>
+					{% elseif donation.user_id == 1 %}
+						<h5 class="brand-color">Private</h5>
 					{% else %}
 						<h5 class="brand-color"><a class="brand-color" href="{{ url('/user/profile/v/') }}{{donation.user_id }}">{{donation.fname}} {{donation.lname}}</a></h5>
 						
@@ -339,7 +343,7 @@
 					</span>
 
 
-					<h5 class="bolder brand-color">${{donation.amount}}</h5>
+					<h5 class="bolder">${{donation.amount}}</h5>
 					<h5 class="bolder text-white"><a class="brand-color" href="/organizations/{{donation.org_id }}">{{donation.org_name}}</a></h5>
 				</li>
 				{% endfor %}

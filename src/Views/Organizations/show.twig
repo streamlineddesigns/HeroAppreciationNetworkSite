@@ -322,6 +322,8 @@
                                                                     {% if donation.profile_img_url %} 
                                                                         {% if donation.is_invisible == 0 %}
                                                                             <div class="profile-img-custom" style="background-image: url('/assets/img/default_profile_img.png');"></div>
+                                                                        {% elseif donation.user_id == 1 %}
+							                                                <div class="profile-img-custom" style="background-image: url('/assets/img/default_profile_img.png');"></div>
                                                                         {% else %}
                                                                             <div class="profile-img-custom" style="background-image: url(/assets/img/uploads/users/{{ donation.user_id }}/{{ donation.profile_img_url }});"></div>
                                                                         {% endif %}
@@ -330,7 +332,9 @@
                                                                     {% endif %}
                                                                     <span class="bolder">
                                                                     {% if donation.is_invisible == 0 %}
-                                                                        Private
+                                                                        <h5 class="brand-color">Private</h5>
+                                                                    {% elseif donation.user_id == 1 %}
+						                                                <h5 class="brand-color">Private</h5>
                                                                     {% else %}
                                                                         <a href="{{ url('/user/profile/v/') }}{{ donation.user_id }}" class="brand-color">{{donation.fname}} {{donation.lname}}</a>
                                                                     {% endif %}

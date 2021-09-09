@@ -121,8 +121,10 @@ class OrganizationController extends Controller
         $donation_statistics['rank'] = $rank;
 
         $donation_statistics['total'] = $donations_total;
+
+        $donations = collect($donations)->where('is_invisible', 1)->take(5);
         
-        $donations = $donations->take(5);
+        //$donations = $donations->take(5);
 
         return $this->container->get('view')->render($response, $view,  ['organization' => $organization, 'detail_texts' => $detail_texts, 'counter' => $counter, 'donations' => $donations, 'donations_total' => $donations_total, 'donation_statistics' => $donation_statistics,]);
     }
