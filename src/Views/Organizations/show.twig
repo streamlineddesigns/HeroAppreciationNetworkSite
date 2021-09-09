@@ -332,7 +332,7 @@
                                                                     {% if donation.is_invisible == 0 %}
                                                                         Private
                                                                     {% else %}
-                                                                        {{donation.fname}} {{donation.lname}}
+                                                                        <a href="{{ url('/user/profile/v/') }}{{ donation.user_id }}" class="brand-color">{{donation.fname}} {{donation.lname}}</a>
                                                                     {% endif %}
                                                                     
                                                                     

@@ -32,6 +32,27 @@ class UserController extends Controller
         }
     }
 
+    public function show($request, $response, $id)
+    {
+        $view = 'Users\show.twig';
+        $user = Users::where('id', $id)->where('is_invisible', 1)->first();
+        if (isset($user->id) && ! empty($user->id)) {
+            $donations = Donations::select("donations.*", "organizations.name")
+                                ->leftJoin('organizations', 'organizations.id', '=', 'donations.recipient_organization_id')
+                                ->where('sender_user_id', $user->id)
+                                ->where('donations.is_invisible', 1)->get();
+            $donations_total = 0;
+            for($j = 0; $j < count($donations); $j++) {
+                $donations_total += $donations[$j]->amount;
+            }
+        } else {
+            $this->container->get('flash')->addMessage('error', 'No user found!');
+            return $this->container->get('view')->render($response, $view, ['user' => $user,]);
+        }
+        
+        return $this->container->get('view')->render($response, $view, ['user' => $user, 'donations' => $donations, 'donations_total' => $donations_total]);
+    }
+
     public function edit($request, $response)
     {
         $view = 'Users\edit.twig';

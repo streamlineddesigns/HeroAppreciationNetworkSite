@@ -25,6 +25,7 @@ return function (App $app) {
         $group->get('/register', [Controllers\User\RegisterController::class, 'index']);
         $group->post('/register', [Controllers\User\RegisterController::class, 'store']);
         $group->get('/logout', [Controllers\User\LoginController::class, 'logout']);
+        $group->get('/profile/v/{id}', [Controllers\User\UserController::class, 'show']);
     });
 
     /* API Token for registering admins only */
