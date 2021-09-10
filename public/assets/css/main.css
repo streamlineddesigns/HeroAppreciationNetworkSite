@@ -5478,6 +5478,10 @@ input[type='file'] {
 		display: block;
 	}
 
+	.custom-test  {
+		background-color: white !important;
+	}
+
 	.mp-0 {
 		padding: 0px !important;
 	}
@@ -5528,7 +5532,7 @@ input[type='file'] {
 		background-size: cover;
 	}
 	
-	.left-leaf, .right-leaf, .double-right-leaf, .double-left-leaf {
+	.right-leaf, .double-right-leaf, .double-left-leaf {
 		background-color: transparent !important;
 	}
 	
