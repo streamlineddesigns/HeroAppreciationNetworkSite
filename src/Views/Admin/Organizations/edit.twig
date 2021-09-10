@@ -45,13 +45,13 @@
                                     <div class="tab-pane fade show active" id="description" role="tabpanel">
                                         <div class="row justify-content-center">
 
-                                            <div class="col-lg-6 p-5 text-center aligned left-leaf">
+                                            <div class="col-lg-6 p-5 text-center aligned left-leaf mp-2 ">
                                                 <div class="profile-img aligned">
 
                                                     {% if organization[0].featured_img_url %}
-                                                        <img id="featured_img_url" src="{{url('/assets/img/uploads/organizations/')}}{{organization[0].id}}/{{ organization[0].featured_img_url }}" alt="profile image"/>
+                                                        <img class="m-rounder" id="featured_img_url" src="{{url('/assets/img/uploads/organizations/')}}{{organization[0].id}}/{{ organization[0].featured_img_url }}" alt="profile image"/>
                                                     {% else %}
-                                                        <img id="featured_img_url" src="{{url('/assets/img/project/project-details.jpg')}}" alt="Image"/>
+                                                        <img  class="m-rounder" id="featured_img_url" src="{{url('/assets/img/project/project-details.jpg')}}" alt="Image"/>
                                                     {% endif %}
 
                                                     <div class="file btn btn-lg btn-primary">
@@ -61,7 +61,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6 p-5 text-center aligned">
+                                            <div class="col-lg-6 p-5 text-center aligned mp-2">
                                                 <div class="project-summery">
                                                     <!--<a href="#" class="category">Headphone</a>-->
                                                     <h3 class="project-title">
@@ -98,9 +98,9 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="project-form">
+                                                    <div class="project-form project-form aligned">
                                                         <form action="#">
-                                                            <ul class="donation-amount">
+                                                            <ul class="donation-amount justify-content-center">
                                                                 <li>
                                                                     <input disabled type="radio" class="btn-check width-auto" name="donation_options" id="option1" autocomplete="off" value="-1" checked>
                                                                     <label class="btn donation_options checked_donation" for="option1" id="option1Label">Custom</label>
@@ -129,7 +129,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6 p-5 text-center aligned">
+                                            <div class="col-lg-6 p-5 text-center aligned mp-2 mpt-5">
                                                 <div class="description-content text-center">
                                                     <h4 class="description-title">About Us</h4>
                                                     <p>
@@ -138,13 +138,13 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="col-lg-6 p-5 aligned double-right-leaf">
+                                            <div class="col-lg-6 p-5 aligned double-right-leaf mp-2">
                                                 <div class="profile-img  aligned">
 
                                                     {% if organization[0].about_img_url %}
-                                                        <img id="about_img_url" src="{{url('/assets/img/uploads/organizations/')}}{{organization[0].id}}/{{ organization[0].about_img_url }}" alt="about image"/>
+                                                        <img class="m-rounder" id="about_img_url" src="{{url('/assets/img/uploads/organizations/')}}{{organization[0].id}}/{{ organization[0].about_img_url }}" alt="about image"/>
                                                     {% else %}
-                                                        <img id="about_img_url" src="{{url('/assets/img/project/project-details-2.jpg')}}" alt="Image"/>
+                                                        <img class="m-rounder" id="about_img_url" src="{{url('/assets/img/project/project-details-2.jpg')}}" alt="Image"/>
                                                     {% endif %}
 
                                                     <div class="file btn btn-lg btn-primary">
@@ -154,8 +154,8 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6 p-5 right-leaf aligned">
-                                                <div class="rewards-box text-center one-hundred">
+                                            <div class="col-lg-6 p-5 right-leaf aligned mpx-1">
+                                                <div class="rewards-box text-center one-hundred m-rounder">
                                                     <h4 class="title"><span>Contact</span></h4>
 
                                                     <div class="profile-img aligned">
@@ -234,7 +234,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6 p-5 text-center aligned">
+                                            <div class="col-lg-6 p-5 text-center aligned mp-2">
                                                 <h4 class="description-title">What we do</h4>
                                                 <p>
                                                     <textarea class="form-control brand-input textarea-short" type="text" value="" name="detail_one">{{ organization[0].detail_one }}</textarea>
