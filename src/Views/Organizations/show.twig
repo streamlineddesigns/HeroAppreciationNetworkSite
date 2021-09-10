@@ -14,8 +14,12 @@
     background-position: center;
     background-color: #222222;
 }
-                                                                
+
+.custom-group-text {
+    border: 9px solid #02a95c;
+}                                                        
 </style>
+
 {% endblock %}
 
 {% block title %}{% if organization[0].name %} {{ organization[0].name }} {% else %} Organization {% endif %}{% endblock %}
@@ -394,6 +398,58 @@
             });
 
             $(".donation_list_item").first().removeClass("hidden");
+
+            var dropdownHTML = 
+            `
+            <ul class="dropdown-menu dropdown-toggleable">
+                    
+            </ul>
+            `;
+            var html =
+            `
+            <input class="form-control search-input" id="organization_search" type="search" placeholder="Search" autocomplete="off">
+            `;
+
+            $("#main_donator").replaceWith(html + dropdownHTML);
+
+            var link = "/organizations/search/";
+
+            $("#organization_search").keyup(function(){
+                let test = link +$("#organization_search").val();
+                $.ajax({
+                type: "POST",
+                url: test,
+                data:'keyword='+$(this).val(),
+                beforeSend: function(){
+                    $("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+                },
+                success: function(data){
+                    var organizations = JSON.parse(data);
+                    $(".dropdown-toggleable").html("");
+                    for(var i = 0; i < organizations.length; i++) {
+                        var href = "{{ url('/organizations/') }}" + organizations[i].id;
+                        var newishhtml = "<a class='p-2 d-block text-center' href="+href+">"+ organizations[i].name + "</a>";
+                        $(".dropdown-toggleable").append(newishhtml);
+                    }
+                }
+                });
+            });
+
+            $("#organization_search").click(function() {
+                $(".dropdown-toggleable").show();
+                if ($(".site-header").hasClass("sticky-on")) {
+                    $(".dropdown-toggleable").addClass("dropdown-toggleable-sticky-on");
+                } else {
+                    $(".dropdown-toggleable").removeClass("dropdown-toggleable-sticky-on");
+                }
+            });
+
+            $("#organization_search").blur(function() {
+                
+                setTimeout((function() {
+                    $(".dropdown-toggleable").hide();
+                }), 500)
+            });
         });
 
         function swapbackgrounds(element, img)
