@@ -131,43 +131,40 @@
                     <a href="index.html"><img src="{{url('/assets/img/logo-white.png')}}" alt="Funden"></a>
                 </div>
                 <ul class="panel-menu">
-                    <li class="current">
-                        <a href="index.html">Home</a>
-                        <ul class="submenu">
-                            <li><a href="index.html">Home One</a></li>
-                            <li><a href="index-2.html">Home Two</a></li>
-                        </ul>
+                    <li>
+                        <a href="{{url('/')}}">Home</a>
                     </li>
                     <li>
-                        <a href="project-1.html">Project</a>
-                        <ul class="submenu">
-                            <li><a href="project-1.html">Project One</a></li>
-                            <li><a href="project-2.html">Project Two</a></li>
-                            <li><a href="project-3.html">Project Three</a></li>
-                            <li><a href="project-details.html">Project Details</a></li>
-                        </ul>
+                        <a href="{{url('/organizations')}}">Organizations</a>
                     </li>
                     <li>
-                        <a href="events.html">Events</a>
+                        <a href="{{url('/about')}}">About</a>
                     </li>
                     <li>
-                        <a href="news-standard.html">News</a>
-                        <ul class="submenu">
-                            <li><a href="news-standard.html">News Standard</a></li>
-                            <li><a href="news-details.html">News Details</a></li>
-                        </ul>
+                        <a href="{{url('/contact')}}">Contact</a>
                     </li>
-                    <li>
-                        <a href="#">Pages</a>
-                        <ul class="submenu">
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="company-overview.html">Company Overview</a></li>
-                            <li><a href="team-member.html">Team Member</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contact.html">Contact</a></li>
+
+                    {% if hasUserPrivileges() %}
+                        <li>
+                            <a href="#">Account</a>
+                            <ul class="submenu">
+                                <li><a href="{{url('/user/profile')}}">Profile</a></li>
+                                {% if isAdmin() %}
+                                    <li><a href="{{ url('/admin/organizations/') }}{{userSession()['org_id']}}">Organization</a></li>
+                                {% endif %}
+
+                                {% if hasSuperUserPrivileges() %}
+                                    <li><a href="{{url('/superuser/icontypes')}}">Icon Types</a></li>
+                                    <li><a href="{{url('/superuser/icons')}}">Icons</a></li>
+                                    <!--<li><a href="{{url('/superuser/templates')}}">Templates</a></li>-->
+                                    <li><a href="{{url('/superuser/organizations/tokens')}}">Tokens</a></li>
+                                {% endif %}
+                                <li><a href="{{url('/user/logout')}}">Logout</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li><a href="{{url('/user/login')}}">Login</a></li>
+                    {% endif %}
                 </ul>
                 <div class="panel-extra">
                     <a href="#" class="main-btn btn-white">
@@ -179,8 +176,6 @@
                 </a>
             </div>
         </header>
-        <!--====== Header End ======-->
-
 
 
 
