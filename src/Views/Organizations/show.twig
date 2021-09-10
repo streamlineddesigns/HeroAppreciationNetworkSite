@@ -18,7 +18,7 @@
 </style>
 {% endblock %}
 
-{% block title %}Organizations Show{% endblock %}
+{% block title %}{% if organization[0].name %} {{ organization[0].name }} {% else %} Organization {% endif %}{% endblock %}
 
 {% block content %}
 
@@ -314,7 +314,7 @@
                                                 </div>
                                                 <div class="col-lg-6 p-5  mp-0 aligned left-leaf text-center">
                                                     
-                                                        <h1 class="my-5 text-white m-text-black">Top Donations</h1>
+                                                        <h1 class="my-5 text-white m-text-black">Top Donors</h1>
 
                                                         <ul>
                                                             {% for donation in donations %}
