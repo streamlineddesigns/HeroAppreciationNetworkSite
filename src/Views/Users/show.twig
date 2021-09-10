@@ -40,7 +40,7 @@
 
 {% endblock %}
 
-{% block title %}Profile{% endblock %}
+{% block title %}{% if user %} {{user.fname}} {{user.lname}} {% else %} User Profile {% endif %} {% endblock %}
 
 {% block content %}
 
