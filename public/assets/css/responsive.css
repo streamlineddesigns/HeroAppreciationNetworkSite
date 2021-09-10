@@ -493,7 +493,7 @@
 
 	.hero-area-one .hero-shapes,
     .hero-area-two .hero-shapes {
-		display: none;
+		display: block;
 	}
     /*======= Page Title =======*/
 	.page-title-area .page-breadcrumb {
