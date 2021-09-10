@@ -59,15 +59,15 @@
                                     <div class="tab-pane fade show active" id="description" role="tabpanel">
                                         <div class="row justify-content-center">
 
-                                            <div class="col-lg-6 p-5 text-center aligned left-leaf">
+                                            <div class="col-lg-6 p-5 text-center aligned left-leaf mp-2 ">
                                                 {% if organization[0].featured_img_url %}
-                                                    <img src="{{url('/assets/img/uploads/organizations/')}}{{organization[0].id}}/{{ organization[0].featured_img_url }}" alt="profile image"/>
+                                                    <img class="m-rounder" src="{{url('/assets/img/uploads/organizations/')}}{{organization[0].id}}/{{ organization[0].featured_img_url }}" alt="profile image"/>
                                                 {% else %}
-                                                    <img src="{{url('/assets/img/project/project-details.jpg')}}" id="featured_img_url" alt="Image"/>
+                                                    <img class="m-rounder" src="{{url('/assets/img/project/project-details.jpg')}}" id="featured_img_url" alt="Image"/>
                                                 {% endif %}
                                             </div>
 
-                                            <div class="col-lg-6 p-5 text-center aligned">
+                                            <div class="col-lg-6 p-5 text-center aligned mp-2">
                                                 <div class="project-summery">
                                                     <!--<a href="#" class="category">Headphone</a>-->
                                                     <h3 class="project-title">
@@ -128,7 +128,7 @@
 
                                                     <div class="project-form aligned">
                                                         <form method="post" action="{{url('/organizations/')}}{{organization[0].id}}/donate">
-                                                            <ul class="donation-amount">
+                                                            <ul class="donation-amount justify-content-center">
                                                                 <li>
                                                                     <input type="radio" class="btn-check width-auto" name="donation_options" id="option1" autocomplete="off" value="0.00" checked>
                                                                     <label class="btn donation_options checked_donation" for="option1" id="option1Label">Custom</label>
@@ -158,7 +158,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6 p-5 text-center aligned">
+                                            <div class="col-lg-6 p-5 text-center aligned mp-2 mpt-5">
                                                 <div class="description-content text-center">
                                                     <h4 class="description-title">About Us</h4>
                                                     <p>
@@ -167,16 +167,16 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="col-lg-6 p-5 aligned double-right-leaf">
+                                            <div class="col-lg-6 p-5 aligned double-right-leaf mp-2">
                                                 {% if organization[0].about_img_url %}
-                                                    <img src="{{url('/assets/img/uploads/organizations/')}}{{organization[0].id}}/{{ organization[0].about_img_url }}" alt="about image"/>
+                                                    <img class="m-rounder" src="{{url('/assets/img/uploads/organizations/')}}{{organization[0].id}}/{{ organization[0].about_img_url }}" alt="about image"/>
                                                 {% else %}
-                                                    <img src="{{url('/assets/img/project/project-details-2.jpg')}}" id="about_img_url" alt="Image"/>
+                                                    <img class="m-rounder" src="{{url('/assets/img/project/project-details-2.jpg')}}" id="about_img_url" alt="Image"/>
                                                 {% endif %}
                                             </div>
 
-                                            <div class="col-lg-6 p-5 double-left-leaf aligned">
-                                                <div class="rewards-box text-center one-hundred">
+                                            <div class="col-lg-6 p-5 double-left-leaf aligned  mpx-1 ">
+                                                <div class="rewards-box text-center one-hundred m-rounder">
                                                     <h4 class="title"><span>Contact</span></h4>
 
                                                     <div class="profile-img aligned">
@@ -251,7 +251,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6 p-5 text-center aligned">
+                                            <div class="col-lg-6 p-5 text-center aligned mp-2">
                                                 <h4 class="description-title">What we do</h4>
                                                 <p>
                                                     {{ organization[0].detail_one }}
@@ -271,7 +271,7 @@
                                             </div>
 
                                             {% if donations[0] %}
-                                                <div class="col-lg-6 p-5 aligned text-center">
+                                                <div class="col-lg-6 p-5 aligned text-center mpx-0 m-align-items-initial mpt-0 ">
                                                     
 
                                                     <div class="col-md-10 p-5 rounder">
@@ -312,9 +312,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-6 p-5 aligned left-leaf text-center">
+                                                <div class="col-lg-6 p-5  mp-0 aligned left-leaf text-center">
                                                     
-                                                        <h1 class="my-5 text-white">Top Donations</h1>
+                                                        <h1 class="my-5 text-white m-text-black">Top Donations</h1>
 
                                                         <ul>
                                                             {% for donation in donations %}

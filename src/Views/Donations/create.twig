@@ -59,6 +59,22 @@
                       <p>
                   </div>
               </div>
+              <div class="col-md-12 mt-4  green-bg p-4 p-5 rounder hidden m-block">
+                  <div class="profile-head my-4 text-center">
+                      <h5>
+                          Your Donation
+                      </h5>
+                  </div>
+                  <div>
+                    <strong>Donation</strong>
+                    <span class="float-right" id="checkout_donation_amount2"> {% if donation_options %} ${{ donation_options }} {% else %} $0.00 {% endif %}</span>
+                  </div>
+                  <hr>
+                  <div>
+                    <strong>Total</strong>
+                    <span class="float-right" id="checkout_donation_total2"> {% if donation_options %} ${{ donation_options }} {% else %} $0.00 {% endif %}</span>
+                  </div>
+              </div>
 
               <div class="col-md-12 mt-4">
                 <h3>Donation Amount</h3>
@@ -148,7 +164,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4">
+        <div class="col-lg-4 m-hidden">
           <div class="row">
               <div class="col-md-12 mt-4  green-bg p-4 p-5 rounder">
                   <div class="profile-head my-4 text-center">
@@ -185,6 +201,10 @@
                 $("#checkout_donation_amount").text(amount);
 
                 $("#checkout_donation_total").text(amount);
+
+                $("#checkout_donation_amount2").text(amount);
+
+                $("#checkout_donation_total2").text(amount);
             });
         });
     </script>

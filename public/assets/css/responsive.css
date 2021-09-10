@@ -693,7 +693,7 @@
 	}
 
 	.about-section-two .about-text-area .container {
-		padding-top: 235px;
+		padding-top: 0px;
 	}
 
 	.about-section-two .about-video {
@@ -1119,8 +1119,8 @@
 	}
 
 	.section-gap-extra-bottom {
-		padding-top: 115px;
-		padding-bottom: 225px;
+		padding-top: 0px;
+		padding-bottom: 0px;
 	}
 
 	.site-footer .footer-cta .container::after,
