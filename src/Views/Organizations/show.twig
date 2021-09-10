@@ -275,10 +275,10 @@
                                             </div>
 
                                             {% if donations[0] %}
-                                                <div class="col-lg-6 p-5 aligned text-center mpx-0 m-align-items-initial mpt-0 ">
+                                                <div class="col-lg-6 order-2 order-sm-1 p-5 aligned text-center mpx-0 m-align-items-initial mpt-0 ">
                                                     
 
-                                                    <div class="col-md-10 p-5 rounder">
+                                                    <div class="col-md-10 p-5 mpt-0 rounder">
                                                         <div class="profile-head my-5 text-center">
                                                             <h4>
                                                                 Donations Overview
@@ -316,7 +316,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-6 p-5  mp-0 aligned left-leaf text-center">
+                                                <div class="col-lg-6 p-5 order-1 order-sm-2 mp-0 aligned left-leaf text-center">
                                                     
                                                         <h1 class="my-5 text-white m-text-black">Top Donors</h1>
 
@@ -399,9 +399,9 @@
 
             $(".donation_list_item").first().removeClass("hidden");
 
-            var dropdownHTML = 
+            /*var dropdownHTML = 
             `
-            <ul class="dropdown-menu dropdown-toggleable">
+            <ul class="dropdown-menu dropdown-toggleable shadow">
                     
             </ul>
             `;
@@ -449,7 +449,7 @@
                 setTimeout((function() {
                     $(".dropdown-toggleable").hide();
                 }), 500)
-            });
+            });*/
         });
 
         function swapbackgrounds(element, img)
