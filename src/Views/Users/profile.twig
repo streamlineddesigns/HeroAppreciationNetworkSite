@@ -155,7 +155,7 @@
                       <div class="tab-pane fade" id="followers" role="tabpanel" aria-labelledby="followers-tab">
                         <div class="row">
                           {% for follower in followers %}
-                              <div class="col-lg-4 aligned text-center">
+                              <div class="col-lg-4 aligned text-center m-max-fifty">
                                   <div class="profile-img one-hundred-box" style="background-image:url({{url('/assets/img/uploads/users/')}}{{follower.user_id}}/{{follower.profile_img_url}}")></div>
                                   <a href="{{url('/user/profile/v/')}}{{follower.user_id}}" class="brand-color">{{ follower.fname }} {{ follower.lname }}</a><br>
                               </div>
@@ -170,7 +170,7 @@
                       <div class="tab-pane fade" id="following" role="tabpanel" aria-labelledby="following-tab">
                         <div class="row">
                           {% for follower in following %}
-                            <div class="col-lg-4 aligned text-center">
+                            <div class="col-lg-4 aligned text-center m-max-fifty">
                                 <div class="profile-img one-hundred-box" style="background-image:url({{url('/assets/img/uploads/users/')}}{{follower.user_id}}/{{follower.profile_img_url}}")></div>
                                 <a href="{{url('/user/profile/v/')}}{{follower.user_id}}" class="brand-color">{{ follower.fname }} {{ follower.lname }}</a><br>
                             </div>

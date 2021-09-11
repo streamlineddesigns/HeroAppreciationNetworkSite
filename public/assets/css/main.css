@@ -5531,6 +5531,18 @@ input[type='file'] {
 		padding-left: 10px !important;
 		padding-right: 10px !important;
 	}
+	.donation_list_item {
+		max-width: 33%;
+	}
+
+	.donation_list_item .profile-img-custom {
+		width: 75px;
+		height: 75px;
+	}
+
+	.m-max-fifty {
+		max-width: 50%;
+	}
 
 	.m-align-items-initial {
 		align-items: initial;

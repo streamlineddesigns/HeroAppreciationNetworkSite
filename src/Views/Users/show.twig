@@ -86,7 +86,7 @@
 
               {% else %}
 
-              <div class="col-md-6 mt-3">
+              <div class="col-md-6 mt-3 m-max-fifty">
 
                     {% if followed_by_me %}
                     <button class="btn main-btn px-3 float-right btn-purple-outline" type="submit">
@@ -107,7 +107,7 @@
                     {% endif %}
                 
               </div>
-              <div class="col-md-6 mt-3">
+              <div class="col-md-6 mt-3 m-max-fifty">
                 <a class="btn main-btn px-3 float-left" style="background-color:#8606A1;" href="{{url('/user/message/')}}{{user.id}}" type="submit">
                 <i class="fas fa-comment"></i>
                     Message
@@ -211,7 +211,7 @@
                         
                         <div class="row">
                             {% for follower in followers %}
-                                <div class="col-lg-4 aligned text-center">
+                                <div class="col-lg-4 aligned text-center m-max-fifty">
                                     <div class="profile-img one-hundred-box" style="background-image:url({{url('/assets/img/uploads/users/')}}{{follower.user_id}}/{{follower.profile_img_url}}")></div>
                                     <a href="{{url('/user/profile/v/')}}{{follower.user_id}}" class="brand-color">{{ follower.fname }} {{ follower.lname }}</a><br>
                                 </div>
@@ -227,7 +227,7 @@
                       <div class="tab-pane fade" id="following" role="tabpanel" aria-labelledby="following-tab">
                         <div class="row">
                             {% for follower in following %}
-                                <div class="col-lg-4 aligned text-center">
+                                <div class="col-lg-4 aligned text-center m-max-fifty">
                                     <div class="profile-img one-hundred-box" style="background-image:url({{url('/assets/img/uploads/users/')}}{{follower.user_id}}/{{follower.profile_img_url}}")></div>
                                     <a href="{{url('/user/profile/v/')}}{{follower.user_id}}" class="brand-color">{{ follower.fname }} {{ follower.lname }}</a><br>
                                 </div>
