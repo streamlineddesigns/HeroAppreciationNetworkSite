@@ -30,7 +30,7 @@
                         <th class="mobile-hidden text-center" data-sortable="true">Class</th>
                         <th class="">Icon</th>
                         <th class="">Icon Type</th>
-                        <th class="actions"></th>
+                        <!--<th class="actions"></th>-->
                     </tr>
                 </thead>
                 <tbody>
@@ -52,12 +52,12 @@
                         <td class="mobile-hidden text-center">
                             {{ icon.type }}
                         </td>
-                        <td class="mobile-td text-center">
+                        <!--<td class="mobile-td text-center">
                             <a href="/superuser/icons/{{ icon.id }}/edit" class="btn btn-primary"><i class="bi bi-pencil"></i><span class="mobile-hidden"> Edit</span></a>
                             <a href="/superuser/icons/{{ icon.id }}" class="btn btn-secondary"><i class="bi bi-eye"></i><span class="mobile-hidden"> View</span></a>
                             <a href="javascript:FunApp.deleteResource({{ icon.id }}, 'icon', 'delete-form-{{ icon.id }}')" class="btn btn-danger"><i class="bi bi-trash"></i><span class="mobile-hidden"> Delete</span></a>
                             <form method="post" action="/superuser/icons/{{ icon.id }}/delete" id="delete-form-{{ icon.id }}"></form>
-                        </td>
+                        </td>-->
                     </tr>
 
                 {% endfor %}

@@ -5,7 +5,7 @@
     
 {% endblock %}
 
-{% block title %}Icon Types{% endblock %}
+{% block title %}Users{% endblock %}
 
 {% block content %}
 
@@ -19,33 +19,32 @@
 
   <div class="container my-5">
 
-        <a href="{{url('/superuser/icontypes/create')}}" class="btn btn-success mb-5 float-right"><i class="bi bi-plus"></i> New</a>
+        <!--<a href="{{url('/superuser/organizations/create')}}" class="btn btn-success mb-5 float-right"><i class="bi bi-plus"></i> New</a>-->
 
-        {% if icontypes %}
+        {% if users %}
             <table class="table table-striped table-dark table-bordered table-responsive" data-toggle="table" data-pagination="true" data-search="true">
                 <thead>
                     <tr>
                         <th class="mobile-hidden" data-sortable="true">ID</th>
                         <th data-sortable="true">Type</th>
-                        <!--<th class="actions"></th>-->
+                        <th class="actions"></th>
                     </tr>
                 </thead>
                 <tbody>
-                {% for icontype in icontypes %}
+                {% for user in users %}
 
                     <tr>
                         <td class="mobile-hidden">
-                            {{ icontype.id }}
+                            {{ user.id }}
                         </td>
                         <td class="primary-mobile-td">
-                            {{ icontype.type }}
+                            {{ user.fname }} {{ user.lname }}
                         </td>
-                        <!--<td class="mobile-td text-center">
-                            <a href="/superuser/icontypes/{{ icontype.id }}/edit" class="btn btn-primary"><i class="bi bi-pencil"></i><span class="mobile-hidden"> Edit</span></a>
-                            <a href="/superuser/icontypes/{{ icontype.id }}" class="btn btn-secondary"><i class="bi bi-eye"></i><span class="mobile-hidden"> View</span></a>
-                            <a href="javascript:FunApp.deleteResource({{ icontype.id }}, 'icon type', 'delete-form-{{ icontype.id }}')" class="btn btn-danger"><i class="bi bi-trash"></i><span class="mobile-hidden"> Delete</span></a>
-                            <form method="post" action="/superuser/icontypes/{{ icontype.id }}/delete" id="delete-form-{{ icontype.id }}"></form>
-                        </td>-->
+                        <td class="mobile-td text-center">
+                            <a href="/user/profile/v/{{ user.id }}" class="btn btn-secondary"><i class="bi bi-eye"></i><span class="mobile-hidden"> View</span></a>
+                            <!--<a href="javascript:FunApp.deleteResource({{ user.id }}, 'icon type', 'delete-form-{{ user.id }}')" class="btn btn-danger"><i class="bi bi-trash"></i><span class="mobile-hidden"> Delete</span></a>-->
+                            <form method="post" action="/superuser/organizations/{{ user.id }}/delete" id="delete-form-{{ user.id }}"></form>
+                        </td>
                     </tr>
 
                 {% endfor %}

@@ -113,15 +113,6 @@ return function (App $app) {
         $group->post('/templates/{id}', [Controllers\SuperUser\TemplateController::class, 'update']);
         //$group->post('/templates/{id}/delete', [Controllers\SuperUser\TemplateController::class, 'destroy']);
 
-        /* Users */
-        $group->get('/users', [Controllers\SuperUser\UserController::class, 'index']);
-        $group->get('/users/create', [Controllers\SuperUser\UserController::class, 'create']);
-        $group->post('/users', [Controllers\SuperUser\UserController::class, 'store']);
-        $group->get('/users/{id}', [Controllers\SuperUser\UserController::class, 'show']);
-        $group->get('/users/{id}/edit', [Controllers\SuperUser\UserController::class, 'edit']);
-        $group->post('/users/{id}', [Controllers\Admin\UserController::class, 'update']);
-        //$group->post('/users/{id}/delete', [Controllers\SuperUser\UserController::class, 'destroy']);
-
         /* Tokens */
         $group->get('/organizations/tokens', [Controllers\SuperUser\TokenController::class, 'index']);
         $group->get('/organizations/tokens/create', [Controllers\SuperUser\TokenController::class, 'create']);
@@ -139,6 +130,24 @@ return function (App $app) {
         $group->get('/organizations/{id}/edit', [Controllers\SuperUser\OrganizationController::class, 'edit']);
         $group->post('/organizations/{id}', [Controllers\SuperUser\OrganizationController::class, 'update']);
         //$group->post('/organizations/{id}/delete', [Controllers\SuperUser\OrganizationController::class, 'destroy']);
+        
+         /* Users */
+         $group->get('/users', [Controllers\SuperUser\UserController::class, 'index']);
+         $group->get('/users/create', [Controllers\SuperUser\UserController::class, 'create']);
+         $group->post('/users', [Controllers\SuperUser\UserController::class, 'store']);
+         $group->get('/users/{id}', [Controllers\SuperUser\UserController::class, 'show']);
+         $group->get('/users/{id}/edit', [Controllers\SuperUser\UserController::class, 'edit']);
+         $group->post('/users/{id}', [Controllers\Admin\UserController::class, 'update']);
+         //$group->post('/users/{id}/delete', [Controllers\SuperUser\UserController::class, 'destroy']);
+
+         /* Donations */
+         $group->get('/donations', [Controllers\SuperUser\DonationsController::class, 'index']);
+         $group->get('/donations/create', [Controllers\SuperUser\DonationsController::class, 'create']);
+         $group->post('/donations', [Controllers\SuperUser\DonationsController::class, 'store']);
+         $group->get('/donations/{id}', [Controllers\SuperUser\DonationsController::class, 'show']);
+         $group->get('/donations/{id}/edit', [Controllers\SuperUser\DonationsController::class, 'edit']);
+         $group->post('/donations/{id}', [Controllers\Admin\DonationsController::class, 'update']);
+         //$group->post('/donations/{id}/delete', [Controllers\SuperUser\DonationsController::class, 'destroy']);
 
     })->add(Middleware\SuperUserAuthMiddleware::class);
 };
