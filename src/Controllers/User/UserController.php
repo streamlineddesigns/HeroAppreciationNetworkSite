@@ -71,7 +71,7 @@ class UserController extends Controller
                                      ->where('followed_user_id', $id)
                                      ->orderBy('created_at')->limit(10)->get();
 
-            $my_id = $_SESSION['user']['id'];
+            $my_id = (isset($_SESSION['user']['id'])) ? $_SESSION['user']['id'] : -1;
             $is_me = ($id == $my_id) ? true : false;
 
             $followed_by_me = false;
