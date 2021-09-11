@@ -5488,6 +5488,10 @@ input[type='file'] {
 	.m-rounder {
 		border-radius: 75px !important;
 	}
+	
+	.m-twenty-five {
+		width: 25%;
+	}
 
 	.m-hidden {
 		display: none !important;
