@@ -24,7 +24,7 @@ return function (Container $container) {
 
             'views' => [
                 'path' => __DIR__ . '/../src/Views',
-                'settings' => ['cache' => 'false', 'debug' => false],
+                'settings' => ['cache' => false, 'debug' => false],
             ],
 
             'upload_directory' => [

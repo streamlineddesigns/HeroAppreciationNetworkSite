@@ -75,11 +75,18 @@ class UserController extends Controller
             $is_me = ($id == $my_id) ? true : false;
 
             $followed_by_me = false;
+            $following_me = false;
             
             if (! $is_me) {
                 for($j = 0; $j < count($followers); $j++) {
                     if ($followers[$j]->follower_user_id == $my_id) {
                         $followed_by_me = true;
+                    }
+                }
+
+                for($k = 0; $k < count($following); $k++) {
+                    if ($following[$k]->followed_user_id == $my_id) {
+                        $following_me = true;
                     }
                 }
             }
@@ -91,7 +98,7 @@ class UserController extends Controller
             return $this->container->get('view')->render($response, $view, ['user' => $user,]);
         }
         
-        return $this->container->get('view')->render($response, $view, ['user' => $user, 'donations' => $donations, 'donations_total' => $donations_total, 'is_me' => $is_me, 'followed_by_me' => $followed_by_me, 'followers' => $followers, 'following' => $following]);
+        return $this->container->get('view')->render($response, $view, ['user' => $user, 'donations' => $donations, 'donations_total' => $donations_total, 'is_me' => $is_me, 'followed_by_me' => $followed_by_me, 'following_me' => $following_me, 'followers' => $followers, 'following' => $following]);
     }
 
     public function edit($request, $response)

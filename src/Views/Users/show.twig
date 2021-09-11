@@ -90,9 +90,15 @@
 
                     {% if followed_by_me %}
                     <button class="btn main-btn px-3 float-right btn-purple-outline" type="submit">
-                    <i class="fas fa-leaf"></i>
-                        Following
-                    </button>
+                    {% if following_me %}
+                        <i class="fas fa-leaf"></i>
+                         Mutual
+                        </button>
+                    {% else %}
+                        <i class="fas fa-leaf"></i>
+                         Following
+                        </button>
+                    {% endif %}
                     {% else %}
                     <button class="btn main-btn px-3 float-right" type="submit">
                     <i class="fas fa-plus"></i>
