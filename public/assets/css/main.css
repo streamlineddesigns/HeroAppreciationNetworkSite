@@ -5518,6 +5518,11 @@ input[type='file'] {
 		padding-top: 0px !important;
 	}
 
+	.mpt-1 
+	{
+		padding-top: 10px !important;
+	}
+
 	.mpt-5 {
 		padding-top: 50px !important;
 	}
@@ -5530,6 +5535,19 @@ input[type='file'] {
 	.mpx-1 {
 		padding-left: 10px !important;
 		padding-right: 10px !important;
+	}
+
+	.mpx-5 {
+		padding-left: 50px !important;
+		padding-right: 50px !important;
+	}
+	
+	.m-text-center {
+		text-align: center;
+	}
+
+	.m-fifty {
+		width: 50%;
 	}
 	.donation_list_item {
 		max-width: 33%;
