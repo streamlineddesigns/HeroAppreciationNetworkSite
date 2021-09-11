@@ -33,12 +33,12 @@ class UserController extends Controller
             $following = UserFollows::select("user_follows.*", "users.fname as fname", "users.id as user_id", "users.lname as lname", "users.profile_img_url as profile_img_url",)
                                      ->leftJoin('users', 'users.id', '=', 'user_follows.followed_user_id')
                                      ->where('follower_user_id', $id)
-                                     ->orderBy('created_at')->limit(10)->get();
+                                     ->orderBy('created_at')->limit(100)->get();
 
             $followers = UserFollows::select("user_follows.*", "users.fname as fname", "users.id as user_id", "users.lname as lname", "users.profile_img_url as profile_img_url",)
                                      ->leftJoin('users', 'users.id', '=', 'user_follows.follower_user_id')
                                      ->where('followed_user_id', $id)
-                                     ->orderBy('created_at')->limit(10)->get();
+                                     ->orderBy('created_at')->limit(100)->get();
 
 
             return $this->container->get('view')->render($response, $view, ['user' => $user, 'donations' => $donations, 'donations_total' => $donations_total, 'followers' => $followers, 'following' => $following]);
@@ -64,12 +64,12 @@ class UserController extends Controller
             $following = UserFollows::select("user_follows.*", "users.fname as fname", "users.id as user_id", "users.lname as lname", "users.profile_img_url as profile_img_url",)
                                      ->leftJoin('users', 'users.id', '=', 'user_follows.followed_user_id')
                                      ->where('follower_user_id', $id)
-                                     ->orderBy('created_at')->limit(10)->get();
+                                     ->orderBy('created_at')->limit(100)->get();
 
             $followers = UserFollows::select("user_follows.*", "users.fname as fname", "users.id as user_id", "users.lname as lname", "users.profile_img_url as profile_img_url")
                                      ->leftJoin('users', 'users.id', '=', 'user_follows.follower_user_id')
                                      ->where('followed_user_id', $id)
-                                     ->orderBy('created_at')->limit(10)->get();
+                                     ->orderBy('created_at')->limit(100)->get();
 
             $my_id = (isset($_SESSION['user']['id'])) ? $_SESSION['user']['id'] : -1;
             $is_me = ($id == $my_id) ? true : false;
