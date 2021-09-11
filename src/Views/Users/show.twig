@@ -52,9 +52,10 @@
     {% endif %}
   {% endif %}
 
+
   <div class="container emp-profile my-5 shadow">
   <a href="javascript:FunApp.backButtonClick()" class="btn btn-success mb-5 btn-chubby"><i class="bi bi-chevron-left"></i> Back</a>
-    <form>
+    <form method="post" action="{{url('/user/follow/')}}{{user.id}}">
       <div class="row">
         <div class="col-lg-12 d-flex justify-content-center align-items-center">
           <div class="profile-img">
@@ -70,27 +71,60 @@
         <div class="col-lg-12 my-5">
           <div class="row">
               
-              <div class="col-md-6">
+              <div class="col-md-12 text-center">
                   <div class="profile-head">
                       <h5>
                           {{ user.fname }} {{ user.lname }}
                       </h5>
                       <h6>
-                          {{ user.community }}
+                          
                       </h6>
-                      <p class="proile-rating"><span>Karma Points :</span> {{donations_total}}</p>
+                      <p class="proile-rating mt-0"><span>Karma Points :</span> {{donations_total}}</p>
                   </div>
               </div>
+              {% if is_me %}
+
+              {% else %}
+
+              <div class="col-md-6 mt-3">
+
+                    {% if followed_by_me %}
+                    <button class="btn main-btn px-3 float-right btn-purple-outline" type="submit">
+                    <i class="fas fa-leaf"></i>
+                        Following
+                    </button>
+                    {% else %}
+                    <button class="btn main-btn px-3 float-right" type="submit">
+                    <i class="fas fa-plus"></i>
+                        Follow
+                    </button>
+                    {% endif %}
+                
+              </div>
+              <div class="col-md-6 mt-3">
+                <a class="btn main-btn px-3 float-left" style="background-color:#8606A1;" href="{{url('/user/message/')}}{{user.id}}" type="submit">
+                <i class="fas fa-comment"></i>
+                    Message
+                </a>
+              </div>
+
+              {% endif %}
           </div>
           
           <div class="row">
-              <div class="col-md-12 mt-5 mb-3">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <div class="col-md-12 mt-5 mb-3 text-center">
+                <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                       <a class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="true">Profile</a>
                     </li>
                     <li class="nav-item" role="presentation">
                       <a class="nav-link" id="donations-tab" data-bs-toggle="tab" data-bs-target="#donations" type="button" role="tab" aria-controls="donations" aria-selected="false">Donations</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link" id="followers-tab" data-bs-toggle="tab" data-bs-target="#followers" type="button" role="tab" aria-controls="followers" aria-selected="false">Followers</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link" id="following-tab" data-bs-toggle="tab" data-bs-target="#following" type="button" role="tab" aria-controls="following" aria-selected="false">Following</a>
                     </li>
                 </ul>
               </div>
@@ -165,9 +199,41 @@
                             </div>
                             <hr>
                           {% endfor %}
-
-
                       </div>
+
+                      <div class="tab-pane fade" id="followers" role="tabpanel" aria-labelledby="followers-tab">
+                        
+                        <div class="row">
+                            {% for follower in followers %}
+                                <div class="col-lg-4 aligned">
+                                    <div class="profile-img one-hundred-box" style="background-image:url({{url('/assets/img/uploads/users/')}}{{follower.user_id}}/{{follower.profile_img_url}}")></div>
+                                    <a href="{{url('/user/profile/v/')}}{{follower.user_id}}" class="brand-color">{{ follower.fname }} {{ follower.lname }}</a><br>
+                                </div>
+                            {% endfor %}
+                            {% if followers[0] %}
+
+                            {% else %}
+                                0 Followers
+                            {% endif %}
+                        </div>
+                      </div>
+
+                      <div class="tab-pane fade" id="following" role="tabpanel" aria-labelledby="following-tab">
+                        <div class="row">
+                            {% for follower in following %}
+                                <div class="col-lg-4 aligned">
+                                    <div class="profile-img one-hundred-box" style="background-image:url({{url('/assets/img/uploads/users/')}}{{follower.user_id}}/{{follower.profile_img_url}}")></div>
+                                    <a href="{{url('/user/profile/v/')}}{{follower.user_id}}" class="brand-color">{{ follower.fname }} {{ follower.lname }}</a><br>
+                                </div>
+                            {% endfor %}
+                            {% if following[0] %}
+
+                            {% else %}
+                                0 Following
+                            {% endif %}
+                        </div>
+                      </div>
+
                   </div>
               </div>
           </div>

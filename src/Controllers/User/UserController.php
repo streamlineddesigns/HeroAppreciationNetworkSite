@@ -7,6 +7,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 use App\Controllers\Controller;
 use App\Models\Users;
+use App\Models\UserFollows;
 use App\Models\Donations;
 
 class UserController extends Controller
@@ -26,7 +27,21 @@ class UserController extends Controller
             for($j = 0; $j < count($donations); $j++) {
                 $donations_total += $donations[$j]->amount;
             }
-            return $this->container->get('view')->render($response, $view, ['user' => $user, 'donations' => $donations, 'donations_total' => $donations_total]);
+
+            $id = $_SESSION['user']['id'];
+
+            $following = UserFollows::select("user_follows.*", "users.fname as fname", "users.id as user_id", "users.lname as lname", "users.profile_img_url as profile_img_url",)
+                                     ->leftJoin('users', 'users.id', '=', 'user_follows.followed_user_id')
+                                     ->where('follower_user_id', $id)
+                                     ->orderBy('created_at')->limit(10)->get();
+
+            $followers = UserFollows::select("user_follows.*", "users.fname as fname", "users.id as user_id", "users.lname as lname", "users.profile_img_url as profile_img_url",)
+                                     ->leftJoin('users', 'users.id', '=', 'user_follows.follower_user_id')
+                                     ->where('followed_user_id', $id)
+                                     ->orderBy('created_at')->limit(10)->get();
+
+
+            return $this->container->get('view')->render($response, $view, ['user' => $user, 'donations' => $donations, 'donations_total' => $donations_total, 'followers' => $followers, 'following' => $following]);
         } else {
             return $this->container->get('view')->render($response, $view);
         }
@@ -45,12 +60,38 @@ class UserController extends Controller
             for($j = 0; $j < count($donations); $j++) {
                 $donations_total += $donations[$j]->amount;
             }
+
+            $following = UserFollows::select("user_follows.*", "users.fname as fname", "users.id as user_id", "users.lname as lname", "users.profile_img_url as profile_img_url",)
+                                     ->leftJoin('users', 'users.id', '=', 'user_follows.followed_user_id')
+                                     ->where('follower_user_id', $id)
+                                     ->orderBy('created_at')->limit(10)->get();
+
+            $followers = UserFollows::select("user_follows.*", "users.fname as fname", "users.id as user_id", "users.lname as lname", "users.profile_img_url as profile_img_url")
+                                     ->leftJoin('users', 'users.id', '=', 'user_follows.follower_user_id')
+                                     ->where('followed_user_id', $id)
+                                     ->orderBy('created_at')->limit(10)->get();
+
+            $my_id = $_SESSION['user']['id'];
+            $is_me = ($id == $my_id) ? true : false;
+
+            $followed_by_me = false;
+            
+            if (! $is_me) {
+                for($j = 0; $j < count($followers); $j++) {
+                    if ($followers[$j]->follower_user_id == $my_id) {
+                        $followed_by_me = true;
+                    }
+                }
+            }
+
+
+
         } else {
             $this->container->get('flash')->addMessage('error', 'No user found!');
             return $this->container->get('view')->render($response, $view, ['user' => $user,]);
         }
         
-        return $this->container->get('view')->render($response, $view, ['user' => $user, 'donations' => $donations, 'donations_total' => $donations_total]);
+        return $this->container->get('view')->render($response, $view, ['user' => $user, 'donations' => $donations, 'donations_total' => $donations_total, 'is_me' => $is_me, 'followed_by_me' => $followed_by_me, 'followers' => $followers, 'following' => $following]);
     }
 
     public function edit($request, $response)

@@ -1,0 +1,15 @@
+<?php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model; 
+
+class UserMessages extends Model {
+    protected $table = 'user_messages';
+    public $timestamps = true;
+
+    protected $fillable = [
+        'sender_user_id',
+        'recipient_user_id',
+        'message',
+    ];
+}

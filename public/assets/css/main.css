@@ -5444,6 +5444,23 @@ input[type='file'] {
     border: 2px solid var(--primary-color);
 }
 
+.btn-purple-outline {
+	color: #8606A1;
+	background-color: #8606A1;
+	background-color: transparent;
+	border-color: #8606A1;
+}
+
+.btn-purple-outline:focus, .btn-purple-outline:active, .btn-purple-outline:hover{
+	background-color: #8606A1 !important;
+	color: white !important;
+}
+
+.one-hundred-box {
+	width: 100px !important;
+	height: 100px !important; 
+}
+
 /* Small devices (landscape phones, 576px and DOWN)*/
 @media (max-width: 576px) { 
 

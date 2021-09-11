@@ -19,6 +19,9 @@
     width: 550px;
     border-radius: 75px;
 }
+.custom-group-text {
+    border: 9px solid #02a95c;
+}
 </style>
 {% endblock %}
 
@@ -54,27 +57,33 @@
         <div class="col-lg-12 my-5">
           <div class="row">
               
-              <div class="col-md-6">
+              <div class="col-md-12 text-center">
                   <div class="profile-head">
                       <h5>
                           {{ user.fname }} {{ user.lname }}
                       </h5>
                       <h6>
-                          {{ user.community }}
+                          
                       </h6>
-                      <p class="proile-rating"><span>Karma Points :</span> {{donations_total}}</p>
+                      <p class="proile-rating mt-0"><span>Karma Points :</span> {{donations_total}}</p>
                   </div>
               </div>
           </div>
           
           <div class="row">
               <div class="col-md-12 mt-5 mb-3">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                       <a class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="true">Profile</a>
                     </li>
                     <li class="nav-item" role="presentation">
                       <a class="nav-link" id="donations-tab" data-bs-toggle="tab" data-bs-target="#donations" type="button" role="tab" aria-controls="donations" aria-selected="false">Donations</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link" id="followers-tab" data-bs-toggle="tab" data-bs-target="#followers" type="button" role="tab" aria-controls="followers" aria-selected="false">Followers</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link" id="following-tab" data-bs-toggle="tab" data-bs-target="#following" type="button" role="tab" aria-controls="following" aria-selected="false">Following</a>
                     </li>
                 </ul>
               </div>
@@ -141,9 +150,39 @@
                             </div>
                             <hr>
                           {% endfor %}
-
-
                       </div>
+
+                      <div class="tab-pane fade" id="followers" role="tabpanel" aria-labelledby="followers-tab">
+                        <div class="row">
+                          {% for follower in followers %}
+                              <div class="col-lg-4 aligned">
+                                  <div class="profile-img one-hundred-box" style="background-image:url({{url('/assets/img/uploads/users/')}}{{follower.user_id}}/{{follower.profile_img_url}}")></div>
+                                  <a href="{{url('/user/profile/v/')}}{{follower.user_id}}" class="brand-color">{{ follower.fname }} {{ follower.lname }}</a><br>
+                              </div>
+                          {% endfor %}
+                          {% if followers[0] %}
+
+                          {% else %}
+                              0 Followers
+                          {% endif %}
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="following" role="tabpanel" aria-labelledby="following-tab">
+                        <div class="row">
+                          {% for follower in following %}
+                            <div class="col-lg-4 aligned">
+                                <div class="profile-img one-hundred-box" style="background-image:url({{url('/assets/img/uploads/users/')}}{{follower.user_id}}/{{follower.profile_img_url}}")></div>
+                                <a href="{{url('/user/profile/v/')}}{{follower.user_id}}" class="brand-color">{{ follower.fname }} {{ follower.lname }}</a><br>
+                            </div>
+                          {% endfor %}
+                          {% if following[0] %}
+
+                          {% else %}
+                              0 Following
+                          {% endif %}
+                        </div>
+                      </div>
+
                   </div>
               </div>
           </div>
@@ -152,4 +191,65 @@
     </form>           
   </div>
 
+{% endblock %}
+
+{% block pageScripts %}
+    <script src="{{url('/assets/js/FunApp.js')}}"></script>
+    <script>
+
+        $(document).ready(function() {
+            var dropdownHTML = 
+            `
+            <ul class="dropdown-menu dropdown-toggleable shadow">
+                    
+            </ul>
+            `;
+            var html =
+            `
+            <input class="form-control search-input" id="user_search" type="search" placeholder="Search" autocomplete="off">
+            `;
+
+            $("#main_donator").replaceWith(html + dropdownHTML);
+
+            var link = "/user/search/";
+
+            $("#user_search").keyup(function(){
+                let test = link +$("#user_search").val();
+                $.ajax({
+                type: "POST",
+                url: test,
+                data:'keyword='+$(this).val(),
+                beforeSend: function(){
+                    $("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+                },
+                success: function(data){
+                    var users = JSON.parse(data);
+                    $(".dropdown-toggleable").html("");
+                    for(var i = 0; i < users.length; i++) {
+                        var href = "{{ url('/user/profile/v/') }}" + users[i].id;
+                        var newishhtml = "<a class='p-2 d-block text-center' href="+href+">"+ users[i].fname + " " +users[i].lname + "</a>";
+                        $(".dropdown-toggleable").append(newishhtml);
+                    }
+                }
+                });
+            });
+
+            $("#user_search").click(function() {
+                $(".dropdown-toggleable").show();
+                if ($(".site-header").hasClass("sticky-on")) {
+                    $(".dropdown-toggleable").addClass("dropdown-toggleable-sticky-on");
+                } else {
+                    $(".dropdown-toggleable").removeClass("dropdown-toggleable-sticky-on");
+                }
+            });
+
+            $("#user_search").blur(function() {
+                
+                setTimeout((function() {
+                    $(".dropdown-toggleable").hide();
+                }), 500)
+            });
+        });
+    
+    </script>
 {% endblock %}

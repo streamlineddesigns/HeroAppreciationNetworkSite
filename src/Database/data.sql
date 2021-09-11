@@ -153,6 +153,30 @@ LOCK TABLES `galleries` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `migrations`
+--
+
+DROP TABLE IF EXISTS `migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `migrations`
+--
+
+LOCK TABLES `migrations` WRITE;
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `org_template_about_section`
 --
 
@@ -660,6 +684,68 @@ LOCK TABLES `templates` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `user_follows`
+--
+
+DROP TABLE IF EXISTS `user_follows`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_follows` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `follower_user_id` int(10) unsigned NOT NULL,
+  `followed_user_id` int(10) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_follows_follower_user_id_foreign` (`follower_user_id`),
+  KEY `user_follows_followed_user_id_foreign` (`followed_user_id`),
+  CONSTRAINT `user_follows_followed_user_id_foreign` FOREIGN KEY (`followed_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `user_follows_follower_user_id_foreign` FOREIGN KEY (`follower_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_follows`
+--
+
+LOCK TABLES `user_follows` WRITE;
+/*!40000 ALTER TABLE `user_follows` DISABLE KEYS */;
+INSERT INTO `user_follows` VALUES (28,17,9,'2021-09-10 23:40:30','2021-09-10 23:40:30'),(29,17,18,'2021-09-10 23:40:56','2021-09-10 23:40:56'),(30,17,7,'2021-09-10 23:41:21','2021-09-10 23:41:21'),(31,9,17,'2021-09-10 23:42:26','2021-09-10 23:42:26'),(32,9,18,'2021-09-10 23:52:19','2021-09-10 23:52:19'),(33,9,7,'2021-09-10 23:52:38','2021-09-10 23:52:38'),(34,15,16,'2021-09-10 23:53:35','2021-09-10 23:53:35'),(35,15,9,'2021-09-10 23:53:48','2021-09-10 23:53:48'),(36,15,7,'2021-09-10 23:54:04','2021-09-10 23:54:04'),(37,15,17,'2021-09-10 23:54:12','2021-09-10 23:54:12'),(38,10,9,'2021-09-11 00:08:47','2021-09-11 00:08:47'),(39,10,15,'2021-09-11 00:18:23','2021-09-11 00:18:23');
+/*!40000 ALTER TABLE `user_follows` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_messages`
+--
+
+DROP TABLE IF EXISTS `user_messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_messages` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sender_user_id` int(10) unsigned NOT NULL,
+  `recipient_user_id` int(10) unsigned NOT NULL,
+  `message` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_messages_sender_user_id_foreign` (`sender_user_id`),
+  KEY `user_messages_recipient_user_id_foreign` (`recipient_user_id`),
+  CONSTRAINT `user_messages_recipient_user_id_foreign` FOREIGN KEY (`recipient_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `user_messages_sender_user_id_foreign` FOREIGN KEY (`sender_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_messages`
+--
+
+LOCK TABLES `user_messages` WRITE;
+/*!40000 ALTER TABLE `user_messages` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_messages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user_roles`
 --
 
@@ -730,4 +816,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-10 16:16:06
+-- Dump completed on 2021-09-11  0:19:52

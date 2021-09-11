@@ -69,6 +69,13 @@ return function (App $app) {
 
     })->add(Middleware\UserAuthMiddleware::class);
 
+
+    /* Private Followinng Endpoints */
+    $app->group('/user/follow', function (Group $group) {
+        $group->post('/{id}', [Controllers\Follow\FollowController::class, 'create']);
+        
+    })->add(Middleware\UserAuthMiddleware::class);
+
     /* Private Organization Endpoints */
     $app->group('/admin', function (Group $group) {
         $group->get('/organizations/{id}', [Controllers\Admin\OrganizationController::class, 'show']);
