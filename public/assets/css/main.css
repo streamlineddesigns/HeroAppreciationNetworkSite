@@ -5451,6 +5451,10 @@ input[type='file'] {
 	border-color: #8606A1;
 }
 
+.btn-blue {
+	background-color: #0E56A0 !important;
+}
+
 .btn-purple-outline:focus, .btn-purple-outline:active, .btn-purple-outline:hover{
 	background-color: #8606A1 !important;
 	color: white !important;
