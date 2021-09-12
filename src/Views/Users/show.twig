@@ -187,22 +187,22 @@
                                     <label>Amount</label>
                                 </div>
                                 <div class="col-md-4">
-                                    <label>Public</label>
+                                    <label>Date</label>
                                 </div>
                                 
                             </div>
 
                             {% for donation in donations %}
                                 <div class="row row_donations">
-                                <div class="col-md-4">
-                                    <a href="/organizations/{{donation.recipient_organization_id}}">{{donation.name}}</a>
-                                </div>
-                                <div class="col-md-4">
-                                    <p>${{donation.amount}}</p>
-                                </div>
-                                <div class="col-md-4 m-hidden">
-                                    <label>{% if donation.is_invisible == 1 %} <i class="fas fa-eye brand-color"></i> {% else %} <i class="fas fa-eye-slash"></i> {% endif %}</label>
-                                </div>
+                                    <div class="col-md-4">
+                                        <a href="/organizations/{{donation.recipient_organization_id}}">{{donation.name}}</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p>${{donation.amount}}</p>
+                                    </div>
+                                    <div class="col-md-4 m-hidden">
+                                    <label>{{ donation.created_at|format_datetime() }}</label>
+                                    </div>
                                 </div>
                                 <hr>
                             {% endfor %}
