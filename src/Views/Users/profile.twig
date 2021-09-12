@@ -112,7 +112,7 @@
                                 <label>Social Media</label>
                             </div>
                             <div class="col-md-12 text-center">
-                                <p class="text-center social-medias brand-color">
+                                <p class="text-center social-medias brand-color space-between">
                                   <i class="fab fa-2x fa-facebook"></i>
                                   <i class="fab fa-2x fa-instagram"></i>
                                   <i class="fab fa-2x fa-twitter"></i>
@@ -129,7 +129,7 @@
                               <div class="col-md-4">
                                   <label>To</label>
                               </div>
-                              <div class="col-md-4">
+                              <div class="col-md-4 text-center">
                                   <label>Amount</label>
                               </div>
                               <div class="col-md-4">
@@ -140,14 +140,14 @@
 
                           {% for donation in donations %}
                             <div class="row row_donations">
-                              <div class="col-md-4">
+                              <div class="col-md-4 m-text-center">
                                   <a href="/organizations/{{donation.recipient_organization_id}}">{{donation.name}}</a>
                               </div>
-                              <div class="col-md-4">
+                              <div class="col-md-4 text-center">
                                   <p>${{donation.amount}}</p>
                               </div>
                               <div class="col-md-4 m-hidden">
-                                  <label>{{ donation.created_at|format_datetime() }}</label>
+                                  <p>{{ donation.created_at|format_datetime() }}</p>
                               </div>
                             </div>
                             <hr>

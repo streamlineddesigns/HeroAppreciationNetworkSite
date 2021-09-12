@@ -117,6 +117,26 @@ class UserController extends Controller
      */
     public function update($request, $response)
     {
+        /*$user = Users::where('id', $_SESSION['user']['id'])->first();
+        $form_data = $request->getParsedBody();
+        $password = $form_data['password'];
+        $newpassword = $form_data['newpassword'];
+        $confirmpassword = $form_data['confirmpassword'];
+        if (isset($password)) {
+            if ($user->password == hash("sha256", $password)) {
+                if ($newpassword == $confirmpassword) {
+                    $user->password = $newpassword;
+                    $user->save();
+                } else {
+                    $this->container->get('flash')->addMessage('error', 'Passwords did not match!');
+                }
+            } else {
+                $this->container->get('flash')->addMessage('error', 'Password could not be verified!');
+            }
+        }
+        $response->getBody()->write(json_encode($password));
+        return $response;*/
+
         $directory = $this->container->get('settings')['upload_directory']['users'] . $_SESSION['user']['id'] . "/";
         $uploadedFiles = $request->getUploadedFiles();
         //$files = ['profile_img_url'];
@@ -139,6 +159,25 @@ class UserController extends Controller
         $email = $form_data['email'];
 
         $user = Users::where('id', $_SESSION['user']['id'])->first();
+        
+        $password = (isset($form_data['password'])) ? $form_data['password'] : "";
+        $newpassword = (isset($form_data['newpassword'])) ? $form_data['newpassword'] : "";
+        $confirmpassword = (isset($form_data['confirmpassword'])) ? $form_data['confirmpassword'] : "";
+        if (! empty($password) && ! empty($newpassword)) {
+            if ($user->password == hash("sha256", $password)) {
+                if ($newpassword == $confirmpassword) {
+                    $user->password = hash("sha256", $newpassword);
+                    $user->save();
+                } else {
+                    $this->container->get('flash')->addMessage('error', 'New passwords did not match!');
+                    return $response->withStatus(302)->withHeader('Location', "/user/profile/edit");
+                }
+            } else {
+                $this->container->get('flash')->addMessage('error', 'Could not be authenticated!');
+                return $response->withStatus(302)->withHeader('Location', "/user/profile/edit");
+            }
+        }
+        
         if (isset($user->id)) {
 
             $user->fname = $fname;
