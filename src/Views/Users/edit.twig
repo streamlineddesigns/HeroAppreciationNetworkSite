@@ -102,11 +102,9 @@
                             </div>
                             <div class="col-md-6">
                                 <p class="text-center social-medias brand-color">
-                                  <i class="fab fa-2x fa-facebook"></i>
-                                  <i class="fab fa-2x fa-instagram"></i>
-                                  <i class="fab fa-2x fa-twitter"></i>
-                                  <i class="fab fa-2x fa-linkedin"></i>
-                                  <i class="fab fa-2x fa-google"></i>
+                                    {% for section_icon in section_icons %}
+                                        <i class="fa-2x {{section_icon.class_name}}" value="{{section_icon.id}}"></i>
+                                    {% endfor %}
                                 </p>
                             </div>
                         </div>

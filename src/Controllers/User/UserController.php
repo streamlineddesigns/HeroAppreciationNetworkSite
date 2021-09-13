@@ -9,6 +9,7 @@ use App\Controllers\Controller;
 use App\Models\Users;
 use App\Models\UserFollows;
 use App\Models\Donations;
+use App\Models\SectionIcons;
 
 class UserController extends Controller
 {
@@ -40,8 +41,9 @@ class UserController extends Controller
                                      ->where('followed_user_id', $id)
                                      ->orderBy('created_at')->limit(100)->get();
 
+            $section_icons = $this->getSocialMediaIcons();
 
-            return $this->container->get('view')->render($response, $view, ['user' => $user, 'donations' => $donations, 'donations_total' => $donations_total, 'followers' => $followers, 'following' => $following]);
+            return $this->container->get('view')->render($response, $view, ['user' => $user, 'donations' => $donations, 'donations_total' => $donations_total, 'followers' => $followers, 'following' => $following, 'section_icons' => $section_icons]);
         } else {
             return $this->container->get('view')->render($response, $view);
         }
@@ -91,14 +93,14 @@ class UserController extends Controller
                 }
             }
 
-
+            $section_icons = $this->getSocialMediaIcons();
 
         } else {
             $this->container->get('flash')->addMessage('error', 'No user found!');
             return $this->container->get('view')->render($response, $view, ['user' => $user,]);
         }
         
-        return $this->container->get('view')->render($response, $view, ['user' => $user, 'donations' => $donations, 'donations_total' => $donations_total, 'is_me' => $is_me, 'followed_by_me' => $followed_by_me, 'following_me' => $following_me, 'followers' => $followers, 'following' => $following]);
+        return $this->container->get('view')->render($response, $view, ['user' => $user, 'donations' => $donations, 'donations_total' => $donations_total, 'is_me' => $is_me, 'followed_by_me' => $followed_by_me, 'following_me' => $following_me, 'followers' => $followers, 'following' => $following, 'section_icons' => $section_icons]);
     }
 
     public function edit($request, $response)
@@ -106,7 +108,8 @@ class UserController extends Controller
         $view = 'Users\edit.twig';
         if (isset($_SESSION['user'])) {
             $user = Users::where('id', $_SESSION['user']['id'])->first();
-            return $this->container->get('view')->render($response, $view, ['user' => $user]);
+            $section_icons = $this->getSocialMediaIcons();
+            return $this->container->get('view')->render($response, $view, ['user' => $user, 'section_icons' => $section_icons]);
         } else {
             return $this->container->get('view')->render($response, $view);
         }
@@ -117,26 +120,6 @@ class UserController extends Controller
      */
     public function update($request, $response)
     {
-        /*$user = Users::where('id', $_SESSION['user']['id'])->first();
-        $form_data = $request->getParsedBody();
-        $password = $form_data['password'];
-        $newpassword = $form_data['newpassword'];
-        $confirmpassword = $form_data['confirmpassword'];
-        if (isset($password)) {
-            if ($user->password == hash("sha256", $password)) {
-                if ($newpassword == $confirmpassword) {
-                    $user->password = $newpassword;
-                    $user->save();
-                } else {
-                    $this->container->get('flash')->addMessage('error', 'Passwords did not match!');
-                }
-            } else {
-                $this->container->get('flash')->addMessage('error', 'Password could not be verified!');
-            }
-        }
-        $response->getBody()->write(json_encode($password));
-        return $response;*/
-
         $directory = $this->container->get('settings')['upload_directory']['users'] . $_SESSION['user']['id'] . "/";
         $uploadedFiles = $request->getUploadedFiles();
         //$files = ['profile_img_url'];
@@ -219,6 +202,15 @@ class UserController extends Controller
         }
         
         return $response;
+    }
+
+    protected function getSocialMediaIcons()
+    {
+        $section_icons = SectionIcons::select("section_icons.*",)
+                                ->leftJoin('section_icon_icon_types', 'section_icon_icon_types.section_icon_id', '=', 'section_icons.id')
+                                ->leftJoin('section_icon_types', 'section_icon_types.id', '=', 'section_icon_icon_types.section_icon_type_id')
+                                ->where('section_icon_types.type', "social")->get();
+        return $section_icons;
     }
 
     function moveUploadedFile($directory, $uploadedFile)
