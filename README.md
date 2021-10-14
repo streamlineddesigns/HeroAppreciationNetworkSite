@@ -80,7 +80,7 @@ run `FLUSH PRIVILEGES`
 run `exit`  
 run `cd /var/www/REPOSITORY_DIRECTORY_HERE`
 run `mysql -u HeroAppreciationNetwork -p HeroAppreciationNetwork < schema.sql` To load database schema  
-run `mysql -u HeroAppreciationNetwork -p HeroAppreciationNetwork < demo.sql` To load demo data  
+run `mysql -u HeroAppreciationNetwork -p HeroAppreciationNetwork < data.sql` To load demo data  
 ##### If you want to verify DB Setup  
 run `mysql -u HeroAppreciationNetwork -p HeroAppreciationNetwork`  
 run `use HeroAppreciationNetwork`  
@@ -115,23 +115,10 @@ run `git config core.sshCommand "ssh -i ~/.ssh/id_rsa -F /dev/null"`
 run `cd /var/www/REPOSITORY_DIRECTORY_HERE`  
 run `git pull`    
 run `cd ../`  
-run `chown -R web:www-data REPOSITORY_DIRECTORY_HERE`  
-run `cd REPOSITORY_DIRECTORY_HERE`  
-run `chmod -R 777 storage bootstrap/cache`  
-run `cd public`  
-run `chown root:root .htaccess`  
-run `cd /var/www`
-run `chown root:root REPOSITORY_DIRECTORY_HERE`
-
-
-
-run `cd var/www`  
 run `chown -R web:www-data ./REPOSITORY_DIRECTORY_HERE`  
 run `chown root:root ./REPOSITORY_DIRECTORY_HERE`  
 run `cd REPOSITORY_DIRECTORY_HERE/public`  
 run `chown root:root .htaccess`  
-run `cd ../ && mkdir var`  
-run `cd var && mkdir cache`  
-run `chmod 777 ./cache`  
-run  `cd ../ && chown -R web:www-data ./var`  
-run `cd public/assets/img && chmod -R 777 ./uploads`
+run `cd ../`  
+run `chmod -R 777 ./var/cache`  
+run `chmod -R 777 ./public/assets/img/uploads`
