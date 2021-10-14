@@ -109,3 +109,29 @@ run `sudo a2enmod rewrite`
 run `sudo a2dissite` and type '000-default' & hit enter    
 run `sudo a2ensite` and type HeroAppreciationNetwork & hit enter  
 run `sudo service apache2 restart`  
+
+#### Pulling New Changes From Git  
+run `git config core.sshCommand "ssh -i ~/.ssh/id_rsa -F /dev/null"`  
+run `cd /var/www/REPOSITORY_DIRECTORY_HERE`  
+run `git pull`    
+run `cd ../`  
+run `chown -R web:www-data REPOSITORY_DIRECTORY_HERE`  
+run `cd REPOSITORY_DIRECTORY_HERE`  
+run `chmod -R 777 storage bootstrap/cache`  
+run `cd public`  
+run `chown root:root .htaccess`  
+run `cd /var/www`
+run `chown root:root REPOSITORY_DIRECTORY_HERE`
+
+
+
+run `cd var/www`  
+run `chown -R web:www-data ./REPOSITORY_DIRECTORY_HERE`  
+run `chown root:root ./REPOSITORY_DIRECTORY_HERE`  
+run `cd REPOSITORY_DIRECTORY_HERE/public`  
+run `chown root:root .htaccess`  
+run `cd ../ && mkdir var`  
+run `cd var && mkdir cache`  
+run `chmod 777 ./cache`  
+run  `cd ../ && chown -R web:www-data ./var`  
+run `cd public/assets/img && chmod -R 777 ./uploads`
