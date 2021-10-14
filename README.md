@@ -38,41 +38,64 @@ run `sudo useradd web`
 run `sudo passwd web` and set the password for web when prompted  
 
 #### Clone Repository
+run `ssh-keygen` and go through process to setup ssh key  
+run  `cat ~/.ssh/id_rsa.pub` and copy all the text that gets output to the terminal starting with "ssh-rsa"  
+`IMPORTANT: go to github and add the ouput to your user settings under ssh-keys`  
 run `cd /var/www`  
-run `git clone https://github.com/USER_ACCOUNT_HERE/REPOSITORY_NAME_HERE.git` and enter git username/password when prompted  
+run `git clone git@github.com:USERNAME_HERE/REPOSITORY_DIRECTORY_HERE.git` and enter git username/password when prompted  
 
 #### Install Dependencies
 run `cd REPOSITORY_DIRECTORY_HERE`  
-run `sudo apt-get update && sudo apt install php-xml php-curl`  
-run `sudo apt-get install composer`  
-run `composer install`  
+run `sudo apt-get update && sudo apt install php-xml php-curl` and type 'y' when prompted  
+run `sudo apt-get install composer`  and type 'y' when prompted  
+run `composer install`  and there will probably be simple dependency related warnings - which can usually be ignored  
 
 #### Directory Setup
-run `/var/www`  
+run `cd var/www`  
 run `chown -R web:www-data ./REPOSITORY_DIRECTORY_HERE`  
+run `chown root:root ./REPOSITORY_DIRECTORY_HERE`  
 run `cd REPOSITORY_DIRECTORY_HERE/public`  
 run `chown root:root .htaccess`  
-run `cd ../var && chmod -R 777 ./cache`  
-run `cd ../` 
+run `cd ../ && mkdir var`  
+run `cd var && mkdir cache`  
+run `chmod 777 ./cache`  
+run  `cd ../ && chown -R web:www-data ./var`  
+run `cd public/assets/img && chmod -R 777 ./uploads`
+
+
+#### Setting Setup  
+run `nano app/settings.php` this file stores the website settings in an associative array inside the DI Container  
+You'll see key/value pairs such as database/username/password which can be set.  
+All of which are presumed to be reset as `HeroAppreciationNetwork` for the sake of the rest of the documentation.  
+Settings => Cache => Can be changed from false to `../var/cache`  
+Hit `CTRL X` when finished and type "y" and hit enter when prompted  
+
 
 #### Database Setup
 run `mysql`  if you're root, you'll just get logged in. Which should be the case  
 run `create database HeroAppreciationNetwork`  
-run `CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password'; `
-run `mysql -u USER_NAME_HERE -p HeroAppreciationNetwork < data.sql`  
+run `CREATE USER 'HeroAppreciationNetwork'@'localhost' IDENTIFIED BY 'HeroAppreciationNetwork';`  
+run `GRANT ALL PRIVILEGES ON HeroAppreciationNetwork.* TO 'HeroAppreciationNetwork'@'localhost';`  
+run `FLUSH PRIVILEGES`  
+run `exit`  
+run `cd /var/www/REPOSITORY_DIRECTORY_HERE`
+run `mysql -u HeroAppreciationNetwork -p HeroAppreciationNetwork < schema.sql` To load database schema  
+run `mysql -u HeroAppreciationNetwork -p HeroAppreciationNetwork < demo.sql` To load demo data  
+##### If you want to verify DB Setup  
+run `mysql -u HeroAppreciationNetwork -p HeroAppreciationNetwork`  
+run `use HeroAppreciationNetwork`  
+run `show tables`  And you should get a list of ~ 2 dozen tables in the database if all is well  
 
 #### Apache Setup
-run `sudo a2enmod rewrite`  
-run `sudo service apache2 restart`  
 run `cd /etc/apache2/sites-available`  
 run `cp 000-default.conf HeroAppreciationNetwork.conf`  
 run `sudo nano HeroAppreciationNetwork.conf`  
-change `DocumentRoot` value to `/var/www/HeroAppreciationNetwork/public`  
+change `DocumentRoot` value to `/var/www/REPOSITORY_DIRECTORY_HERE/public`  
 set `ServerName` to `www.HeroAppreciationNetwork.com` or add it after ServerAdmin line  
 after that add `ServerAlias www.HeroAppreciationNetwork.com`  
-Change `Directory` as follows  
+Change `Directory` section as follows  
 ```
-<Directory /var/www/HeroAppreciationNetwork/public/>
+<Directory /var/www/REPOSITORY_DIRECTORY_HERE/public/>
     Options Indexes FollowSymLinks MultiViews
     AllowOverride All
     Order allow,deny
@@ -80,5 +103,9 @@ Change `Directory` as follows
     Require all granted
 </Directory>
 ```
-hit `Ctl + x` while in editor to exit and write updates to file  
+hit `Ctl + x` while in editor to exit 
 hit `y` when prompted and `enter` afterwards when it tells you what filename it's saving as 
+run `sudo a2enmod rewrite`  
+run `sudo a2dissite` and type '000-default' & hit enter    
+run `sudo a2ensite` and type HeroAppreciationNetwork & hit enter  
+run `sudo service apache2 restart`  
