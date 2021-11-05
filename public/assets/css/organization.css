@@ -16,25 +16,25 @@ input[type='file'] {
 }
 
 .left-leaf {
-    background-color: #02a95c;
+    background-color: #4169E1;
     border-top-right-radius: 50px;
     border-bottom-left-radius: 50px;
 }
 
 .right-leaf {
-    background-color: #02a95c;
+    background-color: #4169E1;
     border-top-left-radius: 50px;
     border-bottom-right-radius: 50px;
 }
 
 .double-right-leaf {
-    background-color: #02a95c;
+    background-color: #4169E1;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
 }
 
 .double-left-leaf {
-    background-color: #02a95c;
+    background-color: #4169E1;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
 }

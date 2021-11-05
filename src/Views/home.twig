@@ -35,8 +35,12 @@
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-xl-10">
-						<span class="tagline wow fadeInUp" data-wow-delay="0.3s">Donation wars</span>
-						<h1 class="title wow fadeInUp" data-wow-delay="0.4s">Help your community get to the highest ranks</h1>
+						<span class="tagline wow fadeInUp text-white" data-wow-delay="0.3s"><br></span>
+
+						<h1 class="title wow fadeInUp text-white" data-wow-delay="0.4s">Help support your local Heroes</h1>
+						
+						<span class="tagline wow fadeInUp text-white" data-wow-delay="0.3s">Military, Law Enforcement, Firefighters, Clergy, Government</span>
+
 						<a href="{{url('/organizations')}}" class="btn main-btn wow fadeInUp" data-wow-delay="0.5s">
 							Explore Projects <i class="far fa-arrow-right"></i>
 						</a>
@@ -140,7 +144,7 @@
 				<div class="row align-items-center">
 					<div class="col-lg-6 wow fadeInUp aligned p-5">
 						<div class="">
-							<img src="assets/img/about/man-with-laptop.png" class="rounder shadow" style="max-height: 550px;" alt="Image">
+							<img src="assets/img/logo2.png" class="rounder roundest shadow" style="max-height: 550px;" alt="Image">
 						</div>
 					</div>
 					<div class="col-lg-6 wow fadeInUp aligned p-5">
@@ -150,28 +154,29 @@
 									<i class="fas fa-plus"></i> What we are
 									<span class="heading-shadow-text">What we are</span>
 								</span>
-								<h2 class="title">Charity made fun.</h2>
+								<h2 class="title text-red">Charity done right.</h2>
 							</div>
 							<p>
-								Subscribe to organizations to keep up to date on what they are doing. Donate to them anytime within seconds.
-								See who your followers subscribe to as well & who & where they make donations to.
-								Build Karma and help improve our communities!
+								In partnership with other nonprofit organizations,
+								The Hero Appreciation Network wants to honor all fallen 
+								heroes in your community while also helping students achieve 
+								their academic dreams through a generous scholarship and grant program.
 							</p>
 							<ul class="check-list mt-30">
 								<li>
-									<h5 class="title">Find and follow organizations you like</h5>
+									<h5 class="title text-red">Find and follow organizations you like</h5>
 									<p>Check out any organization and see what they are doing. You can see their reviews, recent posts, & what donations they've recieved as well as what they've spent the donations on. </p>
 								</li>
 								<li>
-									<h5 class="title">See who your friends are donating to</h5>
-									<p>Follow your friends and keep up to date on things. When you see them donate to an organization, you'll have a chance to donate to that same one as well. This will build karma faster for you both!</p>
+									<h5 class="title text-red">See who your friends are donating to</h5>
+									<p>Follow your friends and keep up to date on things. When you see them donate to an organization, you'll have a chance to donate to that same one as well!</p>
 								</li>
 								<li>
-									<h5 class="title">Donate to compete & help!</h5>
+									<h5 class="title text-red">Donate to compete & help!</h5>
 									<p>Your donations can increase an organizations ranking, and increase its exposure, therefore helping it even further. This benefits everyone!</p>
 								</li>
 							</ul>
-							<a href="{{ url('/about') }}" class="main-btn btn-dark mt-40">Learn More <i class="far fa-arrow-right"></i></a>
+							<a href="{{ url('/about') }}" class="main-btn mt-40">Learn More <i class="far fa-arrow-right"></i></a>
 						</div>
 						
 					</div>
@@ -246,7 +251,7 @@
 								<i class="fas fa-plus"></i> Rank up
 								<span class="heading-shadow-text">Highest Ranked</span>
 							</span>
-							<i class="fas fa-crown fa-2x"></i><h2 class="title d-inline"> Popular Organizations </h2><i class="fas fa-crown fa-2x"></i>
+							<i class="fas fa-crown fa-2x"></i><h2 class="title d-inline text-red"> Popular Organizations </h2><i class="fas fa-crown fa-2x"></i>
 						</div>
 					</div>
 					<div class="col-auto">
@@ -307,14 +312,14 @@
 							<i class="fas fa-plus"></i> Donors
 							<span class="heading-shadow-text">Donors</span>
 						</span>
-						<h2 class="title">Top Donations</h2>
+						<h2 class="title text-red">Top Donations</h2>
 					</div>
 				</div>
 			</div>
 
 		</div>
 		<div class="container-fluid fluid-extra-padding">
-			<div class="row team-members team-slider primary-bg">
+			<div class="row team-members team-slider bs-red-bg">
 
 				{% for donation in donations %}
 				<li class="list-inline-item p-2 hidden donation_list_item text-center aligned shadow m-3 left-leaf custom-test">

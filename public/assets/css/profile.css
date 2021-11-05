@@ -1,6 +1,6 @@
 body {
-    background: #02a95c;
-    background: linear-gradient(to right, #02a95c, #ffffff);
+    background: #4169E1;
+    background: linear-gradient(to right, #4169E1, #ffffff);
 }
 .emp-profile{
     padding: 3%;
@@ -125,5 +125,5 @@ p {
 }
 
 .nav-link {
-    color: #02a95c !important;
+    color: #4169E1 !important;
 }
