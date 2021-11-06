@@ -187,6 +187,7 @@
 	</section>
 	<!--====== About Section End ======-->
 
+	{% if all_organizations %}
 	<!--====== Project Section Start ======-->
 	<section class="project-section project-section-extra-gap primary-bg my-5">
 		<div class="container-fluid fluid-extra-padding">
@@ -238,8 +239,9 @@
 		</div>
 	</section>
 	<!--====== Project Section End ======-->
+	{% endif %}
 
-
+	{% if topThree[0] %}
     <!--====== Categories Section Start ======-->
 	<section class="popular-categories section-gap">
 		<div class="container">
@@ -300,8 +302,9 @@
 		</div>
 	</section>
 	<!--====== Categories Section End ======-->
+	{% endif %}
 
-
+	{% if donations[0] %}
 	<!--====== Team section Start ======-->
 	<section class="team-slider-area">
 		<div class="container mb-20">
@@ -358,7 +361,7 @@
 		</div>
 	</section>
 	<!--====== Team section End ======-->
-
+	{% endif %}
 
 	<!--====== Emergency Project & CTA Start ======-->
 	<section class="emergency-project-with-cta">
