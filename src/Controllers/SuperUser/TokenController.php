@@ -15,7 +15,7 @@ class TokenController extends Controller
      */
     public function index($request, $response)
     {
-        $view = 'Organizations/tokens/index.twig';
+        $view = 'Organizations/Tokens/index.twig';
         $tokens = OrganizationSignUpTokens::select("organization_sign_up_tokens.id", "organization_sign_up_tokens.remember_token", "organizations.name")
                                             ->leftJoin('organizations', 'organization_sign_up_tokens.organization_id', '=', 'organizations.id')
                                             ->orderByDesc('id')->get();
@@ -27,7 +27,7 @@ class TokenController extends Controller
      */
     public function create($request, $response)
     {
-        $view = 'Organizations/tokens/create.twig';
+        $view = 'Organizations/Tokens/create.twig';
         return $this->container->get('view')->render($response, $view);
     }
 
