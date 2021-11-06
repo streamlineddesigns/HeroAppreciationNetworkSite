@@ -64,7 +64,7 @@ CREATE TABLE `donations` (
   KEY `donations_recipient_organization_id_foreign` (`recipient_organization_id`),
   CONSTRAINT `donations_recipient_organization_id_foreign` FOREIGN KEY (`recipient_organization_id`) REFERENCES `organizations` (`id`) ON DELETE CASCADE,
   CONSTRAINT `donations_sender_user_id_foreign` FOREIGN KEY (`sender_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +73,7 @@ CREATE TABLE `donations` (
 
 LOCK TABLES `donations` WRITE;
 /*!40000 ALTER TABLE `donations` DISABLE KEYS */;
-INSERT INTO `donations` VALUES (16,7,5,50,1,'2021-09-07 19:55:44','2021-09-07 19:55:44'),(17,8,6,5,1,'2021-09-07 20:15:39','2021-09-07 20:15:39'),(18,9,7,10000,1,'2021-09-07 21:32:45','2021-09-07 21:32:45'),(19,10,8,1000,1,'2021-09-07 21:58:19','2021-09-07 21:58:19'),(20,10,5,2500,1,'2021-09-07 21:58:40','2021-09-07 21:58:40'),(21,10,6,8000,1,'2021-09-07 21:59:05','2021-09-07 21:59:05'),(22,7,7,500,1,'2021-09-07 22:21:43','2021-09-07 22:21:43'),(23,7,7,1500,1,'2021-09-07 22:55:10','2021-09-07 22:55:10'),(24,11,9,50000,1,'2021-09-08 05:54:44','2021-09-08 05:54:44'),(25,10,9,8000,1,'2021-09-08 05:56:55','2021-09-08 05:56:55'),(26,9,9,3000,1,'2021-09-08 05:57:49','2021-09-08 05:57:49'),(27,9,9,1000,1,'2021-09-08 05:58:50','2021-09-08 05:58:50'),(28,7,9,5000,1,'2021-09-08 05:59:13','2021-09-08 05:59:13'),(29,8,9,1500,1,'2021-09-08 05:59:50','2021-09-08 05:59:50'),(30,8,9,1750,0,'2021-09-08 06:00:06','2021-09-08 06:00:06'),(31,10,7,1900,1,'2021-09-08 06:09:56','2021-09-08 06:09:56'),(32,10,9,50,1,'2021-09-08 06:34:12','2021-09-08 06:34:12'),(33,12,10,50,1,'2021-09-08 14:18:22','2021-09-08 14:18:22'),(34,13,11,7500,1,'2021-09-08 14:33:04','2021-09-08 14:33:04'),(35,13,11,7500,1,'2021-09-08 14:33:05','2021-09-08 14:33:05'),(36,14,12,5000,1,'2021-09-08 14:47:16','2021-09-08 14:47:16'),(37,14,12,10000,1,'2021-09-08 14:48:41','2021-09-08 14:48:41'),(38,14,10,2500,1,'2021-09-08 14:49:32','2021-09-08 14:49:32'),(39,14,4,25,1,'2021-09-08 14:51:09','2021-09-08 14:51:09'),(40,15,9,1000,1,'2021-09-08 15:10:10','2021-09-08 15:10:10'),(41,15,12,1000,1,'2021-09-08 15:10:24','2021-09-08 15:10:24'),(42,15,11,1000,1,'2021-09-08 15:10:36','2021-09-08 15:10:36'),(43,15,7,5000,1,'2021-09-08 15:10:54','2021-09-08 15:10:54'),(44,15,10,1000,1,'2021-09-08 15:11:11','2021-09-08 15:11:11'),(45,15,8,1000,1,'2021-09-08 15:11:30','2021-09-08 15:11:30'),(46,10,9,100,1,'2021-09-08 23:40:10','2021-09-08 23:40:10'),(47,14,6,50,1,'2021-09-09 03:08:59','2021-09-09 03:08:59'),(48,14,11,50,1,'2021-09-09 03:11:22','2021-09-09 03:11:22'),(49,14,12,10,1,'2021-09-09 03:29:09','2021-09-09 03:29:09'),(50,13,11,1,1,'2021-09-09 03:49:58','2021-09-09 03:49:58'),(51,7,5,500,1,'2021-09-09 05:48:23','2021-09-09 05:48:23'),(52,7,11,50,1,'2021-09-09 05:49:59','2021-09-09 05:49:59'),(53,10,11,10,1,'2021-09-09 06:09:29','2021-09-09 06:09:29'),(54,9,11,50,1,'2021-09-09 06:19:28','2021-09-09 06:19:28'),(55,9,11,50,1,'2021-09-09 06:19:51','2021-09-09 06:19:51'),(56,9,11,51,1,'2021-09-09 06:20:35','2021-09-09 06:20:35'),(57,1,12,5000,1,'2021-09-09 06:34:35','2021-09-09 06:34:35'),(58,10,12,100,1,'2021-09-10 04:19:15','2021-09-10 04:19:15'),(59,9,10,50,1,'2021-09-10 06:02:57','2021-09-10 06:02:57'),(60,13,10,50,1,'2021-09-10 07:00:49','2021-09-10 07:00:49'),(61,10,12,50,1,'2021-09-10 12:23:55','2021-09-10 12:23:55'),(62,16,14,1000,1,'2021-09-10 15:07:19','2021-09-10 15:07:19'),(63,17,16,10000,1,'2021-09-10 15:26:35','2021-09-10 15:26:35'),(64,9,16,8500,1,'2021-09-10 15:28:03','2021-09-10 15:28:03'),(65,5,4,9000,1,'2021-09-10 15:48:55','2021-09-10 15:48:55'),(66,18,17,5000,1,'2021-09-10 15:57:23','2021-09-10 15:57:23'),(67,7,14,500,1,'2021-09-10 16:02:23','2021-09-10 16:02:23'),(68,7,4,1000,1,'2021-09-10 16:02:42','2021-09-10 16:02:42'),(69,9,11,50,1,'2021-09-11 02:22:29','2021-09-11 02:22:29');
+INSERT INTO `donations` VALUES (16,7,5,50,1,'2021-09-07 19:55:44','2021-09-07 19:55:44'),(17,8,6,5,1,'2021-09-07 20:15:39','2021-09-07 20:15:39'),(18,9,7,10000,1,'2021-09-07 21:32:45','2021-09-07 21:32:45'),(19,10,8,1000,1,'2021-09-07 21:58:19','2021-09-07 21:58:19'),(20,10,5,2500,1,'2021-09-07 21:58:40','2021-09-07 21:58:40'),(21,10,6,8000,1,'2021-09-07 21:59:05','2021-09-07 21:59:05'),(22,7,7,500,1,'2021-09-07 22:21:43','2021-09-07 22:21:43'),(23,7,7,1500,1,'2021-09-07 22:55:10','2021-09-07 22:55:10'),(24,11,9,50000,1,'2021-09-08 05:54:44','2021-09-08 05:54:44'),(25,10,9,8000,1,'2021-09-08 05:56:55','2021-09-08 05:56:55'),(26,9,9,3000,1,'2021-09-08 05:57:49','2021-09-08 05:57:49'),(27,9,9,1000,1,'2021-09-08 05:58:50','2021-09-08 05:58:50'),(28,7,9,5000,1,'2021-09-08 05:59:13','2021-09-08 05:59:13'),(29,8,9,1500,1,'2021-09-08 05:59:50','2021-09-08 05:59:50'),(30,8,9,1750,0,'2021-09-08 06:00:06','2021-09-08 06:00:06'),(31,10,7,1900,1,'2021-09-08 06:09:56','2021-09-08 06:09:56'),(32,10,9,50,1,'2021-09-08 06:34:12','2021-09-08 06:34:12'),(33,12,10,50,1,'2021-09-08 14:18:22','2021-09-08 14:18:22'),(34,13,11,7500,1,'2021-09-08 14:33:04','2021-09-08 14:33:04'),(35,13,11,7500,1,'2021-09-08 14:33:05','2021-09-08 14:33:05'),(36,14,12,5000,1,'2021-09-08 14:47:16','2021-09-08 14:47:16'),(37,14,12,10000,1,'2021-09-08 14:48:41','2021-09-08 14:48:41'),(38,14,10,2500,1,'2021-09-08 14:49:32','2021-09-08 14:49:32'),(39,14,4,25,1,'2021-09-08 14:51:09','2021-09-08 14:51:09'),(40,15,9,1000,1,'2021-09-08 15:10:10','2021-09-08 15:10:10'),(41,15,12,1000,1,'2021-09-08 15:10:24','2021-09-08 15:10:24'),(42,15,11,1000,1,'2021-09-08 15:10:36','2021-09-08 15:10:36'),(43,15,7,5000,1,'2021-09-08 15:10:54','2021-09-08 15:10:54'),(44,15,10,1000,1,'2021-09-08 15:11:11','2021-09-08 15:11:11'),(45,15,8,1000,1,'2021-09-08 15:11:30','2021-09-08 15:11:30'),(46,10,9,100,1,'2021-09-08 23:40:10','2021-09-08 23:40:10'),(47,14,6,50,1,'2021-09-09 03:08:59','2021-09-09 03:08:59'),(48,14,11,50,1,'2021-09-09 03:11:22','2021-09-09 03:11:22'),(49,14,12,10,1,'2021-09-09 03:29:09','2021-09-09 03:29:09'),(50,13,11,1,1,'2021-09-09 03:49:58','2021-09-09 03:49:58'),(51,7,5,500,1,'2021-09-09 05:48:23','2021-09-09 05:48:23'),(52,7,11,50,1,'2021-09-09 05:49:59','2021-09-09 05:49:59'),(53,10,11,10,1,'2021-09-09 06:09:29','2021-09-09 06:09:29'),(54,9,11,50,1,'2021-09-09 06:19:28','2021-09-09 06:19:28'),(55,9,11,50,1,'2021-09-09 06:19:51','2021-09-09 06:19:51'),(56,9,11,51,1,'2021-09-09 06:20:35','2021-09-09 06:20:35'),(57,1,12,5000,1,'2021-09-09 06:34:35','2021-09-09 06:34:35'),(58,10,12,100,1,'2021-09-10 04:19:15','2021-09-10 04:19:15'),(59,9,10,50,1,'2021-09-10 06:02:57','2021-09-10 06:02:57'),(60,13,10,50,1,'2021-09-10 07:00:49','2021-09-10 07:00:49'),(61,10,12,50,1,'2021-09-10 12:23:55','2021-09-10 12:23:55'),(62,16,14,1000,1,'2021-09-10 15:07:19','2021-09-10 15:07:19'),(63,17,16,10000,1,'2021-09-10 15:26:35','2021-09-10 15:26:35'),(64,9,16,8500,1,'2021-09-10 15:28:03','2021-09-10 15:28:03'),(65,5,4,9000,1,'2021-09-10 15:48:55','2021-09-10 15:48:55'),(66,18,17,5000,1,'2021-09-10 15:57:23','2021-09-10 15:57:23'),(67,7,14,500,1,'2021-09-10 16:02:23','2021-09-10 16:02:23'),(68,7,4,1000,1,'2021-09-10 16:02:42','2021-09-10 16:02:42');
 /*!40000 ALTER TABLE `donations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,30 +150,6 @@ CREATE TABLE `galleries` (
 LOCK TABLES `galleries` WRITE;
 /*!40000 ALTER TABLE `galleries` DISABLE KEYS */;
 /*!40000 ALTER TABLE `galleries` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `migrations`
---
-
-DROP TABLE IF EXISTS `migrations`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `migrations` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `migrations`
---
-
-LOCK TABLES `migrations` WRITE;
-/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -298,7 +274,7 @@ CREATE TABLE `org_template_hero_section` (
 
 LOCK TABLES `org_template_hero_section` WRITE;
 /*!40000 ALTER TABLE `org_template_hero_section` DISABLE KEYS */;
-INSERT INTO `org_template_hero_section` VALUES (3,4,'1f37dba6d7b2d941.jpg','0b412b5be0c9e239.png','We build strength, stability and self-reliance through shelter.',0,'2021-08-27 13:37:37','2021-09-10 15:48:29'),(4,5,'09e6f58bd73c8dc7.jpg','4053c0958bb69876.jpg','ONE DOLLAR. ONE TREE.',0,'2021-09-07 15:23:08','2021-09-08 13:41:12'),(5,6,'52b40c280766c95c.jpg','50317db88c8ef81a.jpg','Doing the most good',0,'2021-09-07 20:32:59','2021-09-07 21:02:41'),(6,7,'fd28049ba9abf494.jpg','ffe20c6909e8f18e.webp','Giving back to those who need it most',0,'2021-09-07 21:13:14','2021-09-08 13:13:48'),(7,8,'6aca7dd6eb557cff.jpg','dce319ba50d3e134.jpg','We\'re here to make a difference',0,'2021-09-07 21:47:04','2021-09-08 14:32:31'),(8,9,'7385c36b37cd6c7a.jpg','57d60dd00a9b8837.png','85% of every dollar reinvested into comunities',0,'2021-09-08 05:29:04','2021-09-08 05:48:41'),(9,10,'d29d52c3420e507c.jpg','08bf81435f17fe70.jpg','A wish begins with hope.  And hope begins with you.',0,'2021-09-08 14:07:06','2021-09-08 14:11:28'),(10,11,'c87dfdb00fb27d35.jpg','3a0253a6889edc12.png','Together, we can end Alzheimer’s. Donate today.',0,'2021-09-08 14:25:04','2021-09-10 06:07:53'),(11,12,'bf9e942dc59f468e.jpg','0fc9b924c6cec647.jpg','Lets inspire children\'s passions and encourage them to achieve success in life',0,'2021-09-08 14:42:19','2021-09-09 02:28:54'),(12,14,'c838b7017ec36229.jpg','e8553e6a82200854.jpg','WELCOME TO THE Y',0,'2021-09-10 15:00:08','2021-09-10 15:03:42'),(13,16,'13f1afccd5162999.jpg','eff15ae7af9f9dd3.jpg','Sleeves Up. Hearts Open. All In.',0,'2021-09-10 15:16:02','2021-09-11 22:18:47'),(14,17,'2b9d7ff9ec4857d9.jpg','e697cc5aa42f643c.png','The American Cancer Society’s mission is to save lives, celebrate lives, and lead the fight for a world without cancer',0,'2021-09-10 15:54:56','2021-09-10 16:01:21');
+INSERT INTO `org_template_hero_section` VALUES (3,4,'1f37dba6d7b2d941.jpg','0b412b5be0c9e239.png','We build strength, stability and self-reliance through shelter.',0,'2021-08-27 13:37:37','2021-09-10 15:48:29'),(4,5,'09e6f58bd73c8dc7.jpg','4053c0958bb69876.jpg','ONE DOLLAR. ONE TREE.',0,'2021-09-07 15:23:08','2021-09-08 13:41:12'),(5,6,'52b40c280766c95c.jpg','50317db88c8ef81a.jpg','Doing the most good',0,'2021-09-07 20:32:59','2021-09-07 21:02:41'),(6,7,'fd28049ba9abf494.jpg','ffe20c6909e8f18e.webp','Giving back to those who need it most',0,'2021-09-07 21:13:14','2021-09-08 13:13:48'),(7,8,'6aca7dd6eb557cff.jpg','dce319ba50d3e134.jpg','We\'re here to make a difference',0,'2021-09-07 21:47:04','2021-09-08 14:32:31'),(8,9,'7385c36b37cd6c7a.jpg','57d60dd00a9b8837.png','85% of every dollar reinvested into comunities',0,'2021-09-08 05:29:04','2021-09-08 05:48:41'),(9,10,'d29d52c3420e507c.jpg','08bf81435f17fe70.jpg','A wish begins with hope.  And hope begins with you.',0,'2021-09-08 14:07:06','2021-09-08 14:11:28'),(10,11,'c87dfdb00fb27d35.jpg','3a0253a6889edc12.png','Together, we can end Alzheimer’s. Donate today.',0,'2021-09-08 14:25:04','2021-09-10 06:07:53'),(11,12,'bf9e942dc59f468e.jpg','0fc9b924c6cec647.jpg','Lets inspire children\'s passions and encourage them to achieve success in life',0,'2021-09-08 14:42:19','2021-09-09 02:28:54'),(12,14,'c838b7017ec36229.jpg','e8553e6a82200854.jpg','WELCOME TO THE Y',0,'2021-09-10 15:00:08','2021-09-10 15:03:42'),(13,16,'13f1afccd5162999.jpg','eff15ae7af9f9dd3.jpg','We Are The American Red Cross - Sleeves Up. Hearts Open. All In.',0,'2021-09-10 15:16:02','2021-09-10 15:23:35'),(14,17,'2b9d7ff9ec4857d9.jpg','e697cc5aa42f643c.png','The American Cancer Society’s mission is to save lives, celebrate lives, and lead the fight for a world without cancer',0,'2021-09-10 15:54:56','2021-09-10 16:01:21');
 /*!40000 ALTER TABLE `org_template_hero_section` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -449,7 +425,7 @@ CREATE TABLE `organization_users` (
 
 LOCK TABLES `organization_users` WRITE;
 /*!40000 ALTER TABLE `organization_users` DISABLE KEYS */;
-INSERT INTO `organization_users` VALUES (4,4,5,'2021-08-27 13:25:39','2021-08-27 13:25:39'),(5,5,7,'2021-09-07 15:17:39','2021-09-07 15:17:39'),(6,6,8,'2021-09-07 20:14:20','2021-09-07 20:14:20'),(7,7,9,'2021-09-07 21:09:03','2021-09-07 21:09:03'),(8,8,10,'2021-09-07 21:42:10','2021-09-07 21:42:10'),(9,9,11,'2021-09-08 05:26:20','2021-09-08 05:26:20'),(10,10,12,'2021-09-08 14:06:03','2021-09-08 14:06:03'),(11,11,13,'2021-09-08 14:23:11','2021-09-08 14:23:11'),(12,12,14,'2021-09-08 14:39:07','2021-09-08 14:39:07'),(13,13,15,'2021-09-08 15:08:44','2021-09-08 15:08:44'),(14,14,16,'2021-09-10 14:55:19','2021-09-10 14:55:19'),(16,16,17,'2021-09-10 15:14:29','2021-09-10 15:14:29'),(17,17,18,'2021-09-10 15:52:17','2021-09-10 15:52:17');
+INSERT INTO `organization_users` VALUES (4,4,5,'2021-08-27 13:25:39','2021-08-27 13:25:39'),(5,5,7,'2021-09-07 15:17:39','2021-09-07 15:17:39'),(6,6,8,'2021-09-07 20:14:20','2021-09-07 20:14:20'),(7,7,9,'2021-09-07 21:09:03','2021-09-07 21:09:03'),(8,8,10,'2021-09-07 21:42:10','2021-09-07 21:42:10'),(9,9,11,'2021-09-08 05:26:20','2021-09-08 05:26:20'),(10,10,12,'2021-09-08 14:06:03','2021-09-08 14:06:03'),(11,11,13,'2021-09-08 14:23:11','2021-09-08 14:23:11'),(12,12,14,'2021-09-08 14:39:07','2021-09-08 14:39:07'),(13,13,15,'2021-09-08 15:08:44','2021-09-08 15:08:44'),(14,14,16,'2021-09-10 14:55:19','2021-09-10 14:55:19'),(15,15,5,'2021-09-10 15:11:08','2021-09-10 15:11:08'),(16,16,17,'2021-09-10 15:14:29','2021-09-10 15:14:29'),(17,17,18,'2021-09-10 15:52:17','2021-09-10 15:52:17');
 /*!40000 ALTER TABLE `organization_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -483,7 +459,7 @@ CREATE TABLE `organizations` (
 
 LOCK TABLES `organizations` WRITE;
 /*!40000 ALTER TABLE `organizations` DISABLE KEYS */;
-INSERT INTO `organizations` VALUES (4,'Habitat for Humanity','123 N Saturday Dr, August, FL, 39213','info@habitat.org','616-392-2325',NULL,'476d4c64e1f386ad.png',NULL,NULL,1,'2021-08-27 13:24:59','2021-09-10 15:34:09'),(5,'One Tree Planted','3255 2nd st, ft lauderdale, fl, 34299','info@onetreeplanted.org','248-233-3303',NULL,'3c213966ab22a77d.jpg',NULL,NULL,1,'2021-09-07 15:16:22','2021-09-11 22:21:24'),(6,'The Salvation Army','432 Shady St, New Jersey, 34245','info@salvationarmyusa.org','3495082394',NULL,'baaf82f8a3d8f3a8.png',NULL,NULL,1,'2021-09-07 20:12:17','2021-09-07 20:34:31'),(7,'St. Jude Children\'s Hospital','8946 Cleveland St. Warminster, PA 18974','info@stjudes.com','2344634523',NULL,'4361eb29b54099bf.png',NULL,NULL,1,'2021-09-07 21:08:09','2021-09-08 18:58:33'),(8,'Breast Cancer Research Foundation','8 Thomas Road Attleboro, MA 02703','info@bcrf.org','646-497-2600',NULL,'ec712ef00aa20778.jpg',NULL,NULL,1,'2021-09-07 21:40:50','2021-09-08 14:32:31'),(9,'Goodwill','603 Summer Lane Lake Villa, IL 60046','info@goodwill.org','9524233905',NULL,'4fc76aab265e388f.jpg',NULL,NULL,1,'2021-09-08 05:23:39','2021-09-08 05:49:02'),(10,'Make a wish foundation','227 Warren Road Lake In The Hills, IL 60156','info@wish.org','64123478734',NULL,'53bfcdd8303306a6.png',NULL,NULL,1,'2021-09-08 14:04:29','2021-09-08 14:17:54'),(11,'Alzheimer\'s Association','498 Cardinal Avenue Vista, CA 92083','info@alz.org','91923419232',NULL,'03722bf8c69ebbf8.jpg',NULL,NULL,1,'2021-09-08 14:21:55','2021-09-08 14:28:23'),(12,'Big Brothers Big Sisters','246 Peanut Ln, Raining, Kn, 34256','info@bbbs.org','345234345559',NULL,'e3282922662f09d0.png',NULL,NULL,1,'2021-09-08 14:38:09','2021-09-09 03:17:31'),(13,'American Kidney Fund',NULL,'info@kidneyfund.org',NULL,NULL,NULL,NULL,NULL,0,'2021-09-08 15:07:47','2021-09-08 15:07:47'),(14,'YMCA','223 Logan Rd. South Plainfield, NJ 07080','info@ymca.org','898467824454',NULL,'afe6ad57bf4be8f1.png',NULL,NULL,1,'2021-09-10 14:53:53','2021-09-10 15:03:42'),(16,'American Red Cross','8905 Squaw Creek Ave. Sioux City, IA 51106','info@redcross.org','898467824454',NULL,'525b74128e78b9ca.jpg',NULL,NULL,1,'2021-09-10 15:14:03','2021-09-10 15:25:27'),(17,'American Cancer Society','358 N. Lafayette St. Amarillo, TX 79106','info@cancer.org','898467824454',NULL,'e3580c5d23f20e56.png',NULL,NULL,1,'2021-09-10 15:51:41','2021-09-10 15:57:04');
+INSERT INTO `organizations` VALUES (4,'Habitat for Humanity','123 N Saturday Dr, August, FL, 39213','info@habitat.org','616-392-2325',NULL,'476d4c64e1f386ad.png',NULL,NULL,1,'2021-08-27 13:24:59','2021-09-10 15:34:09'),(5,'ONE TREE PLANTED','3255 2nd st, ft lauderdale, fl, 34299','info@onetreeplanted.org','248-233-3303',NULL,'3c213966ab22a77d.jpg',NULL,NULL,1,'2021-09-07 15:16:22','2021-09-08 13:42:05'),(6,'The Salvation Army','432 Shady St, New Jersey, 34245','info@salvationarmyusa.org','3495082394',NULL,'baaf82f8a3d8f3a8.png',NULL,NULL,1,'2021-09-07 20:12:17','2021-09-07 20:34:31'),(7,'St. Jude Children\'s Hospital','8946 Cleveland St. Warminster, PA 18974','info@stjudes.com','2344634523',NULL,'4361eb29b54099bf.png',NULL,NULL,1,'2021-09-07 21:08:09','2021-09-08 18:58:33'),(8,'Breast Cancer Research Foundation','8 Thomas Road Attleboro, MA 02703','info@bcrf.org','646-497-2600',NULL,'ec712ef00aa20778.jpg',NULL,NULL,1,'2021-09-07 21:40:50','2021-09-08 14:32:31'),(9,'Goodwill','603 Summer Lane Lake Villa, IL 60046','info@goodwill.org','9524233905',NULL,'4fc76aab265e388f.jpg',NULL,NULL,1,'2021-09-08 05:23:39','2021-09-08 05:49:02'),(10,'Make a wish foundation','227 Warren Road Lake In The Hills, IL 60156','info@wish.org','64123478734',NULL,'53bfcdd8303306a6.png',NULL,NULL,1,'2021-09-08 14:04:29','2021-09-08 14:17:54'),(11,'Alzheimer\'s Association','498 Cardinal Avenue Vista, CA 92083','info@alz.org','91923419232',NULL,'03722bf8c69ebbf8.jpg',NULL,NULL,1,'2021-09-08 14:21:55','2021-09-08 14:28:23'),(12,'Big Brothers Big Sisters','246 Peanut Ln, Raining, Kn, 34256','info@bbbs.org','345234345559',NULL,'e3282922662f09d0.png',NULL,NULL,1,'2021-09-08 14:38:09','2021-09-09 03:17:31'),(13,'American Kidney Fund',NULL,'info@kidneyfund.org',NULL,NULL,NULL,NULL,NULL,0,'2021-09-08 15:07:47','2021-09-08 15:07:47'),(14,'YMCA','223 Logan Rd. South Plainfield, NJ 07080','info@ymca.org','898467824454',NULL,'afe6ad57bf4be8f1.png',NULL,NULL,1,'2021-09-10 14:53:53','2021-09-10 15:03:42'),(15,'American Red Cross',NULL,'info@redcross.org',NULL,NULL,NULL,NULL,NULL,0,'2021-09-10 15:09:44','2021-09-10 15:09:44'),(16,'American Red Cross','8905 Squaw Creek Ave. Sioux City, IA 51106','info@redcross.org','898467824454',NULL,'525b74128e78b9ca.jpg',NULL,NULL,1,'2021-09-10 15:14:03','2021-09-10 15:25:27'),(17,'American Cancer Society','358 N. Lafayette St. Amarillo, TX 79106','info@cancer.org','898467824454',NULL,'e3580c5d23f20e56.png',NULL,NULL,1,'2021-09-10 15:51:41','2021-09-10 15:57:04');
 /*!40000 ALTER TABLE `organizations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -684,68 +660,6 @@ LOCK TABLES `templates` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `user_follows`
---
-
-DROP TABLE IF EXISTS `user_follows`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user_follows` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `follower_user_id` int(10) unsigned NOT NULL,
-  `followed_user_id` int(10) unsigned NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `user_follows_follower_user_id_foreign` (`follower_user_id`),
-  KEY `user_follows_followed_user_id_foreign` (`followed_user_id`),
-  CONSTRAINT `user_follows_followed_user_id_foreign` FOREIGN KEY (`followed_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `user_follows_follower_user_id_foreign` FOREIGN KEY (`follower_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user_follows`
---
-
-LOCK TABLES `user_follows` WRITE;
-/*!40000 ALTER TABLE `user_follows` DISABLE KEYS */;
-INSERT INTO `user_follows` VALUES (28,17,9,'2021-09-10 23:40:30','2021-09-10 23:40:30'),(29,17,18,'2021-09-10 23:40:56','2021-09-10 23:40:56'),(30,17,7,'2021-09-10 23:41:21','2021-09-10 23:41:21'),(31,9,17,'2021-09-10 23:42:26','2021-09-10 23:42:26'),(32,9,18,'2021-09-10 23:52:19','2021-09-10 23:52:19'),(33,9,7,'2021-09-10 23:52:38','2021-09-10 23:52:38'),(34,15,16,'2021-09-10 23:53:35','2021-09-10 23:53:35'),(35,15,9,'2021-09-10 23:53:48','2021-09-10 23:53:48'),(36,15,7,'2021-09-10 23:54:04','2021-09-10 23:54:04'),(37,15,17,'2021-09-10 23:54:12','2021-09-10 23:54:12'),(38,10,9,'2021-09-11 00:08:47','2021-09-11 00:08:47'),(39,10,15,'2021-09-11 00:18:23','2021-09-11 00:18:23'),(41,7,17,'2021-09-11 00:21:48','2021-09-11 00:21:48'),(42,13,17,'2021-09-11 00:42:09','2021-09-11 00:42:09'),(43,9,15,'2021-09-11 01:24:06','2021-09-11 01:24:06'),(44,9,14,'2021-09-11 02:25:07','2021-09-11 02:25:07'),(45,10,7,'2021-09-11 04:04:41','2021-09-11 04:04:41'),(46,9,10,'2021-09-11 08:10:50','2021-09-11 08:10:50'),(48,15,6,'2021-09-12 07:54:25','2021-09-12 07:54:25');
-/*!40000 ALTER TABLE `user_follows` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `user_messages`
---
-
-DROP TABLE IF EXISTS `user_messages`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user_messages` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `sender_user_id` int(10) unsigned NOT NULL,
-  `recipient_user_id` int(10) unsigned NOT NULL,
-  `message` text COLLATE utf8mb4_unicode_ci,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `user_messages_sender_user_id_foreign` (`sender_user_id`),
-  KEY `user_messages_recipient_user_id_foreign` (`recipient_user_id`),
-  CONSTRAINT `user_messages_recipient_user_id_foreign` FOREIGN KEY (`recipient_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `user_messages_sender_user_id_foreign` FOREIGN KEY (`sender_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user_messages`
---
-
-LOCK TABLES `user_messages` WRITE;
-/*!40000 ALTER TABLE `user_messages` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user_messages` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `user_roles`
 --
 
@@ -763,7 +677,7 @@ CREATE TABLE `user_roles` (
   KEY `user_roles_role_id_foreign` (`role_id`),
   CONSTRAINT `user_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
   CONSTRAINT `user_roles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -772,7 +686,7 @@ CREATE TABLE `user_roles` (
 
 LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
-INSERT INTO `user_roles` VALUES (1,1,3,'2021-08-24 22:06:49','2021-08-24 22:06:49'),(5,5,2,'2021-08-27 13:25:39','2021-08-27 13:25:39'),(6,6,1,'2021-08-29 23:06:07','2021-08-29 23:06:07'),(7,7,2,'2021-08-29 23:06:30','2021-09-07 15:17:39'),(8,8,2,'2021-09-07 20:14:20','2021-09-07 20:14:20'),(9,9,2,'2021-09-07 21:09:03','2021-09-07 21:09:03'),(10,10,2,'2021-09-07 21:42:10','2021-09-07 21:42:10'),(11,11,2,'2021-09-08 05:26:20','2021-09-08 05:26:20'),(12,12,2,'2021-09-08 14:06:03','2021-09-08 14:06:03'),(13,13,2,'2021-09-08 14:23:11','2021-09-08 14:23:11'),(14,14,2,'2021-09-08 14:39:07','2021-09-08 14:39:07'),(15,15,2,'2021-09-08 15:08:44','2021-09-08 15:08:44'),(16,16,2,'2021-09-10 14:55:19','2021-09-10 14:55:19'),(17,17,2,'2021-09-10 15:14:29','2021-09-10 15:14:29'),(18,18,2,'2021-09-10 15:52:17','2021-09-10 15:52:17'),(19,19,3,'2021-09-11 22:57:02','2021-09-11 22:57:02');
+INSERT INTO `user_roles` VALUES (1,1,3,'2021-08-24 22:06:49','2021-08-24 22:06:49'),(5,5,2,'2021-08-27 13:25:39','2021-08-27 13:25:39'),(6,6,1,'2021-08-29 23:06:07','2021-08-29 23:06:07'),(7,7,2,'2021-08-29 23:06:30','2021-09-07 15:17:39'),(8,8,2,'2021-09-07 20:14:20','2021-09-07 20:14:20'),(9,9,2,'2021-09-07 21:09:03','2021-09-07 21:09:03'),(10,10,2,'2021-09-07 21:42:10','2021-09-07 21:42:10'),(11,11,2,'2021-09-08 05:26:20','2021-09-08 05:26:20'),(12,12,2,'2021-09-08 14:06:03','2021-09-08 14:06:03'),(13,13,2,'2021-09-08 14:23:11','2021-09-08 14:23:11'),(14,14,2,'2021-09-08 14:39:07','2021-09-08 14:39:07'),(15,15,2,'2021-09-08 15:08:44','2021-09-08 15:08:44'),(16,16,2,'2021-09-10 14:55:19','2021-09-10 14:55:19'),(17,17,2,'2021-09-10 15:14:29','2021-09-10 15:14:29'),(18,18,2,'2021-09-10 15:52:17','2021-09-10 15:52:17');
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -794,7 +708,7 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -803,7 +717,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Super','User','info@colorswitch.com','b56db951978df0bd.png','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',0,'2021-08-24 22:06:49','2021-09-11 02:59:12'),(5,'George',' Clooney','info@habitat.org','e6bc2abc309e4515.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-08-27 13:25:39','2021-09-10 15:32:12'),(6,'Dwayne',' Johnson','info@heart.org','552503d0a079fd5d.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-08-29 23:06:07','2021-09-09 03:56:15'),(7,'Keanu',' Reeves','info@onetreeplanted.org','e8372174a621727b.png','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-08-29 23:06:30','2021-09-09 04:03:16'),(8,'Justin','Bieber','info@salvationarmyusa.org','9037ea133c5d1a8a.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-07 20:14:20','2021-09-09 03:53:13'),(9,'Will','Smith','info@stjudes.com','55ded5e7665ff52e.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-07 21:09:03','2021-09-08 13:03:09'),(10,'Selena','Gomez','info@bcrf.org','f3e523420fd897c2.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-07 21:42:10','2021-09-09 03:33:56'),(11,'Angelina','Jolie','info@goodwill.org','9ea840ad2b12fa1e.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-08 05:26:20','2021-09-09 03:35:17'),(12,'Tony','Hawk','info@wish.org','0faa8ea67c87e84f.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-08 14:06:03','2021-09-08 14:06:34'),(13,'Scarlett','Johansson','info@alz.org','e769bd08bc68cbbc.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-08 14:23:11','2021-09-09 03:40:55'),(14,'Jennifer','Lopez','info@bbbs.org','657c06a3c6f42827.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-08 14:39:07','2021-09-08 14:39:53'),(15,'Oprah','Winfrey','info@kidneyfund.org','148b10ec95410be8.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-08 15:08:44','2021-09-08 15:09:14'),(16,'The','Weekend','info@ymca.org','00a19eb7f53c0ae0.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-10 14:55:19','2021-09-10 14:56:55'),(17,'Ben','Affleck','info@redcross.org','9f69301ed28a8261.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-10 15:14:29','2021-09-10 15:15:20'),(18,'Kanye','West','info@cancer.org','9f900b334795acfa.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-10 15:52:17','2021-09-10 15:54:27'),(19,'Super','User','dev@colorswitch.com',NULL,'f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',0,'2021-09-11 22:57:02','2021-09-12 18:56:28');
+INSERT INTO `users` VALUES (1,'Super','User','admin@colorswitch.com','b56db951978df0bd.png','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',0,'2021-08-24 22:06:49','2021-09-08 13:58:38'),(5,'George',' Clooney','info@habitat.org','e6bc2abc309e4515.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-08-27 13:25:39','2021-09-10 15:32:12'),(6,'Dwayne',' Johnson','info@heart.org','552503d0a079fd5d.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',0,'2021-08-29 23:06:07','2021-09-09 03:56:15'),(7,'Keanu',' Reeves','info@onetreeplanted.org','e8372174a621727b.png','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-08-29 23:06:30','2021-09-09 04:03:16'),(8,'Justin','Bieber','info@salvationarmyusa.org','9037ea133c5d1a8a.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-07 20:14:20','2021-09-09 03:53:13'),(9,'Will','Smith','info@stjudes.com','55ded5e7665ff52e.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-07 21:09:03','2021-09-08 13:03:09'),(10,'Selena','Gomez','info@bcrf.org','f3e523420fd897c2.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-07 21:42:10','2021-09-09 03:33:56'),(11,'Angelina','Jolie','info@goodwill.org','9ea840ad2b12fa1e.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-08 05:26:20','2021-09-09 03:35:17'),(12,'Tony','Hawk','info@wish.org','0faa8ea67c87e84f.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-08 14:06:03','2021-09-08 14:06:34'),(13,'Scarlett','Johansson','info@alz.org','e769bd08bc68cbbc.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-08 14:23:11','2021-09-09 03:40:55'),(14,'Jennifer','Lopez','info@bbbs.org','657c06a3c6f42827.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-08 14:39:07','2021-09-08 14:39:53'),(15,'Oprah','Winfrey','info@kidneyfund.org','148b10ec95410be8.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-08 15:08:44','2021-09-08 15:09:14'),(16,'The','Weekend','info@ymca.org','00a19eb7f53c0ae0.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-10 14:55:19','2021-09-10 14:56:55'),(17,'Ben','Affleck','info@redcross.org','9f69301ed28a8261.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-10 15:14:29','2021-09-10 15:15:20'),(18,'Kanye','West','info@cancer.org','9f900b334795acfa.jpg','f0e4c2f76c58916ec258f246851bea091d14d4247a2fc3e18694461b1816e13b',1,'2021-09-10 15:52:17','2021-09-10 15:54:27');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -816,4 +730,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-12 18:59:27
+-- Dump completed on 2021-09-10 16:02:59

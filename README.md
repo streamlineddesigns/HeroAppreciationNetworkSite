@@ -78,9 +78,9 @@ run `CREATE USER 'HeroAppreciationNetwork'@'localhost' IDENTIFIED BY 'HeroApprec
 run `GRANT ALL PRIVILEGES ON HeroAppreciationNetwork.* TO 'HeroAppreciationNetwork'@'localhost';`  
 run `FLUSH PRIVILEGES`  
 run `exit`  
-run `cd /var/www/REPOSITORY_DIRECTORY_HERE`
+run `cd /var/www/REPOSITORY_DIRECTORY_HERE/src/database`
 run `mysql -u HeroAppreciationNetwork -p HeroAppreciationNetwork < schema.sql` To load database schema  
-run `mysql -u HeroAppreciationNetwork -p HeroAppreciationNetwork < data.sql` To load demo data  
+run `mysql -u HeroAppreciationNetwork -p HeroAppreciationNetwork < dependencies.sql` To load dependencies data  
 ##### If you want to verify DB Setup  
 run `mysql -u HeroAppreciationNetwork -p HeroAppreciationNetwork`  
 run `use HeroAppreciationNetwork`  
