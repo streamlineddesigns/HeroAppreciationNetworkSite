@@ -764,6 +764,7 @@ LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
+
 --
 -- Table structure for table `users`
 --
