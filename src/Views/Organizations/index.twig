@@ -35,7 +35,7 @@
 
   <div class="container my-5">
     
-        {% if topThree %}
+        {% if topThree[0] %}
 
             
             <!--====== Project Area Start ======-->
@@ -96,7 +96,27 @@
             </section>
             <!--====== Project Area End ======-->
         {% else %}
-            No organization found.
+            <!--====== Emergency Project & CTA Start ======-->
+            <section class="emergency-project-with-cta">
+                <div class="container">
+                    <!-- Call to Action -->
+                    <div class="cta-box cta-double-content cta-box-exclusion rounder" style="background-image: url({{url('/assets/img/cta/01.jpg')}});">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-6 col-lg-6 col-md-9">
+                                <div class="content">
+                                    <h2 class="cta-title">Register Organization</h2>
+                                    <p class="white-text text-white">Are you an organization and you want to sign up?</p>
+                                    <a href="{{url('/contact')}}" class="main-btn">Contact Us! <i class="far fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pb-225">
+                    
+                </div>
+            </section>
+            <!--====== Emergency Project & CTA End ======-->
         {% endif %}
 
 

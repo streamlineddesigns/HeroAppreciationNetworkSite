@@ -3243,7 +3243,11 @@ textarea {
 	padding: 80px 45px;
 }
 
-.cta-box.cta-double-content::after {
+.pb-225 {
+	padding-bottom: 225px;
+}
+
+.cta-box.cta-double-content:not(.cta-box-exclusion)::after {
 	content: "";
 	position: absolute;
 	left: 50%;
