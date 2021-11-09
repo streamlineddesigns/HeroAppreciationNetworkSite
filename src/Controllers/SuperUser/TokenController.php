@@ -45,7 +45,9 @@ class TokenController extends Controller
         ]);
 
         $directory = $this->container->get('settings')['upload_directory']['organizations'] . $Organization->id;
-        mkdir($directory);
+        if (! is_dir($directory)) {
+            mkdir($directory);
+        }
 
         $OrganizationSignUpToken = OrganizationSignUpTokens::create([
             "remember_token" => bin2hex(random_bytes(8)),

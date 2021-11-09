@@ -52,12 +52,12 @@ class UserController extends Controller
     public function show($request, $response, $id)
     {
         $view = 'Users\show.twig';
-        $user = Users::where('id', $id)->where('is_invisible', 1)->first();
+        $user = Users::where('id', $id)->where('is_invisible', 0)->first();
         if (isset($user->id) && ! empty($user->id)) {
             $donations = Donations::select("donations.*", "organizations.name")
                                 ->leftJoin('organizations', 'organizations.id', '=', 'donations.recipient_organization_id')
                                 ->where('sender_user_id', $user->id)
-                                ->where('donations.is_invisible', 1)->get();
+                                ->where('donations.is_invisible', 0)->get();
             $donations_total = 0;
             for($j = 0; $j < count($donations); $j++) {
                 $donations_total += $donations[$j]->amount;

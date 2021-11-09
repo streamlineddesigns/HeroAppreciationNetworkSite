@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index($request, $response)
     {
         $view = 'SuperUser/Users/index.twig';
-        $users = Users::where('is_invisible', 1)->orderByDesc('id')->get();
+        $users = Users::where('is_invisible', 0)->orderByDesc('id')->get();
 
         return $this->container->get('view')->render($response, $view, ['users' => $users]);
     }
