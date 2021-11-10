@@ -50,7 +50,7 @@ class OrganizationController extends Controller
                     "organization_id" => $organization_create_result,
                     "user_id" => $user_create_result,
                 ]);
-                $this->container->get('flash')->addMessage('success', 'Successfully created organization & admin!');
+                $this->container->get('flash')->addMessage('success', 'Successfully created organization and admin!');
             }
 
         } else {
