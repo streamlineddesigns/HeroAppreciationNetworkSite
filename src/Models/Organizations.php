@@ -11,6 +11,7 @@ class Organizations extends Model {
         'name',
         'address',
         'email',
+        'phone',
         'logo_img_url',
         'primary_brand_color',
         'secondary_brand_color',

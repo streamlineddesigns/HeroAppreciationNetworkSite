@@ -1,0 +1,391 @@
+{% extends "app.twig" %}
+
+{% block pageStyles %}
+<link rel="stylesheet" href="{{ url('/assets/css/organization.css') }}">
+<link rel="stylesheet" href="{{url('/assets/css/crud.css')}}">
+<style>label {font-weight: 100;}</style>
+{% endblock %}
+
+{% block title %}Organizations Edit{% endblock %}
+
+{% block content %}
+
+  {% if hasMessages() %}
+    {% if successMessage() %}
+        <script>swal("Success!", "{{successMessage()}}", "success");</script>
+    {% elseif errorMessage() %}
+        <script>swal("Error!", "{{errorMessage()}}", "error");</script>
+    {% endif %}
+  {% endif %}
+
+    <div class="container my-5">
+
+        <form method="post" action="{{url('/')}}superuser/organizations" enctype="multipart/form-data">
+        
+            <a href="javascript:FunApp.backButtonClick()" class="btn btn-success mb-5 btn-chubby"><i class="bi bi-chevron-left"></i> Back</a>
+
+             <!-- User Registration section -->
+            <section>
+
+                <div class="row">
+                <div class="col-lg-12 col-xl-12">
+                    <div class="card flex-row mb-4 border-0 custom-right-leaf overflow-hidden">
+                    <div class="card-img-left d-none d-md-flex justify-content-center align-items-center p-5">
+                        <!-- Background image for card set in CSS! -->
+                        <img src="{{url('/assets/img/default_profile_img.png')}}" class="img-fluid p-5" alt="default profile image"/>
+                    </div>
+                    <div class="card-body p-4 p-sm-5">
+                        <h3 class="card-title text-center my-3">Organization Admin</h3>
+
+                        <div class="form-floating row">
+                            <div class="col-lg-6 col-sm-6 form-floating mb-3">
+                            <input type="text" name="fname" class="form-control brand-input" id="floatingInputFname" placeholder="First Name" required>
+                            <label class="px-4" for="floatingInputFname">First Name</label>
+                            </div>
+                            <div class="col-lg-6 col-sm-6 form-floating mb-3 rounder">
+                            <input type="text" name="lname" class="form-control brand-input" id="floatingInputLname" placeholder="Last Name" required>
+                            <label class="px-4" for="floatingInputLname">Last Name</label>
+                            </div>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="email" name="user_email" class="form-control brand-input" id="floatingInputEmail" placeholder="name@example.com">
+                            <label for="floatingInputEmail">Email address</label>
+                        </div>
+
+                        <hr>
+
+                        <div class="form-floating mb-3">
+                            <input type="password" name="password" class="form-control brand-input" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="password" name="confirm_password" class="form-control brand-input" id="floatingPasswordConfirm" placeholder="Confirm Password">
+                            <label for="floatingPasswordConfirm">Confirm Password</label>
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+            <!-- User Registration section -->
+
+
+            <h3 class="card-title text-center my-5">Organization Details</h3>
+
+
+            <!--====== Page Title Start ======-->
+            <section id="hero_img_url" class="page-title-area">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-lg-12 text-center">
+                            <h1 class="page-title">
+                                <input class="form-control brand-input input-text-lg" type="text" placeholder="Name" name="name">
+                            </h1>
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="file btn btn-lg btn-primary btn-lower">
+                    Add Photo
+                    <input accept="image/*" type="file" onchange="swapbackgrounds(document.getElementById('hero_img_url'), window.URL.createObjectURL(this.files[0]) )" class="form-control form-control-file" name="hero_img_url" placeholder="hero_img_url">
+                </div>
+            </section>
+            <!--====== Page Title End ======-->
+
+            <!--====== Project Details Area Start ======-->
+            <section class="project-details-area section-gap-extra-bottom">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                        
+                        <div class="col-12">
+                            <div class="project-details-tab">
+                        
+                                <div class="tab-content" id="projectTabContent">
+                                    <div class="tab-pane fade show active" id="description" role="tabpanel">
+                                        <div class="row justify-content-center">
+
+                                            <div class="col-lg-6 p-5 text-center aligned left-leaf mp-2 ">
+                                                <div class="profile-img aligned">
+
+                                                    {% if organization[0].featured_img_url %}
+                                                        <img class="m-rounder" id="featured_img_url" src="{{url('/assets/img/uploads/organizations/')}}{{organization[0].id}}/{{ organization[0].featured_img_url }}" alt="profile image"/>
+                                                    {% else %}
+                                                        <img  class="m-rounder" id="featured_img_url" src="{{url('/assets/img/project/project-details.jpg')}}" alt="Image"/>
+                                                    {% endif %}
+
+                                                    <div class="file btn btn-lg btn-primary">
+                                                        Add Photo
+                                                        <input accept="image/*" type="file" onchange="document.getElementById('featured_img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="featured_img_url" placeholder="featured_img_url">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 p-5 text-center aligned mp-2">
+                                                <div class="project-summery">
+                                                    <!--<a href="#" class="category">Headphone</a>-->
+                                                    <h3 class="project-title">
+                                                        <input class="form-control brand-input" type="text" placeholder="Heading" name="cta_text">
+                                                    </h3>
+
+                                                    <!---<div class="meta">
+                                                        <div class="author">
+                                                            <img src="{{url('/assets/img/author-thumbs/03.jpg')}}" alt="Thumb">
+                                                            <a href="#">James W. Barrows</a>
+                                                        </div>
+                                                        <a href="#" class="date"><i class="far fa-calendar-alt"></i>25 Feb 2021</a>
+                                                    </div>-->
+                                                    <div class="project-funding-info">
+                                                        <div class="info-box rounder">
+                                                            <span>{% if false %} ${{donations_total}} {% else %} X {% endif %}</span>
+                                                            <span class="info-title">Pledged</span>
+                                                        </div>
+                                                        <div class="info-box rounder">
+                                                            <span>X</span>
+                                                            <span class="info-title">Backers</span>
+                                                        </div>
+                                                        <div class="info-box rounder">
+                                                            <span>X</span>
+                                                            <span class="info-title">Rank</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="project-raised clearfix">
+                                                        <div class="d-flex align-items-center justify-content-between">
+                                                            <div class="raised-label">Raised {% if false %} ${{donations_total}} {% else %} X {% endif %}</div>
+                                                        </div>
+                                                        <div class="stats-bar" data-value="79">
+                                                            <div class="bar-line"></div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="project-form project-form aligned">
+                                                        <form action="#">
+                                                            <ul class="donation-amount justify-content-center">
+                                                                <li>
+                                                                    <input disabled type="radio" class="btn-check width-auto" name="donation_options" id="option1" autocomplete="off" value="-1" checked>
+                                                                    <label class="btn donation_options checked_donation" for="option1" id="option1Label">Custom</label>
+                                                                </li>
+                                                                <li>
+                                                                    <input disabled type="radio" class="btn-check width-auto" name="donation_options" id="option2" autocomplete="off" value="5">
+                                                                    <label class="btn donation_options" for="option2">$5</label>
+                                                                </li>
+                                                                <li>
+                                                                    <input disabled type="radio" class="btn-check width-auto" name="donation_options" id="option3" autocomplete="off" value="10">
+                                                                    <label class="btn donation_options" for="option3">$10</label>
+                                                                </li>
+                                                                <li>
+                                                                    <input disabled type="radio" class="btn-check width-auto" name="donation_options" id="option4" autocomplete="off" value="25">
+                                                                    <label class="btn donation_options" for="option4">$25</label>
+                                                                </li>
+                                                                <li>
+                                                                    <input disabled type="radio" class="btn-check width-auto" name="donation_options" id="option5" autocomplete="off" value="50">
+                                                                    <label class="btn donation_options" for="option5">$50</label>
+                                                                </li>
+                                                            </ul>
+                                                            <button disabled class="btn main-btn btn-chubby">Donate Now <i class="far fa-arrow-right"></i></button>
+                                                        </form>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 p-5 text-center aligned mp-2 mpt-5">
+                                                <div class="description-content text-center">
+                                                    <h4 class="description-title">About Us</h4>
+                                                    <p>
+                                                        <textarea class="form-control brand-input" type="text" value="" name="about_us_text">{{ organization[0].about_us_text }}</textarea>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-lg-6 p-5 aligned double-right-leaf mp-2">
+                                                <div class="profile-img  aligned">
+
+                                                    {% if organization[0].about_img_url %}
+                                                        <img class="m-rounder" id="about_img_url" src="{{url('/assets/img/uploads/organizations/')}}{{organization[0].id}}/{{ organization[0].about_img_url }}" alt="about image"/>
+                                                    {% else %}
+                                                        <img class="m-rounder" id="about_img_url" src="{{url('/assets/img/project/project-details-2.jpg')}}" alt="Image"/>
+                                                    {% endif %}
+
+                                                    <div class="file btn btn-lg btn-primary">
+                                                        Add Photo
+                                                        <input accept="image/*" type="file" onchange="document.getElementById('about_img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="about_img_url" placeholder="about_img_url">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 p-5 right-leaf aligned mpx-1">
+                                                <div class="rewards-box text-center one-hundred m-rounder">
+                                                    <h4 class="title"><span>Contact</span></h4>
+
+                                                    <div class="profile-img aligned">
+
+                                                        {% if organization[0].contact_img_url %}
+                                                            <img id="contact_img_url" class="max-fifty" src="{{url('/assets/img/uploads/organizations/')}}{{organization[0].id}}/{{ organization[0].contact_img_url }}" alt="contact image"/>
+                                                        {% else %}
+                                                            <img id="contact_img_url" class="max-fifty" src="{{url('/assets/img/project/project-list-01.jpg')}}" alt="Image"/>
+                                                        {% endif %}
+
+                                                        <div class="file btn btn-lg btn-primary max-fifty">
+                                                            Add Photo
+                                                            <input accept="image/*" type="file" onchange="document.getElementById('contact_img_url').src = window.URL.createObjectURL(this.files[0])" class="form-control form-control-file" name="contact_img_url" placeholder="contact_img_url">
+                                                        </div>
+                                                    </div>
+
+                                                    <span class="rewards-count text-center">Phone</span>
+                                                    <ul class="rewards-info">
+                                                        <li class="text-center">
+                                                                                                                
+                                                            <div class="input-group mb-2">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <i class="fas fa-phone"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <input name="phone" class="form-control brand-input input-left-padded right-rounded" type="text">
+                                                            </div>
+
+                                                        </li>
+                                                    </ul>
+
+                                                    <span class="rewards-count text-center">Email</span>
+                                                    <ul class="rewards-info">
+                                                        <li class="text-center">
+                                                        
+                                                            <div class="input-group mb-2">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <i class="fas fa-envelope"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <input class="form-control brand-input input-left-padded right-rounded" type="text"  name="email">
+                                                            </div>
+
+                                                        </li>
+                                                    </ul>
+
+                                                    <span class="rewards-count text-center">Address</span>
+                                                    <ul class="rewards-info">
+                                                        <li class="text-center">
+
+                                                            <div class="input-group mb-2">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <i class="fas fa-map-marker-alt"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <input class="form-control brand-input input-left-padded right-rounded" type="text" name="address">
+                                                            </div>
+                                                            
+                                                        </li>
+                                                    </ul>
+
+                                                    <span class="rewards-count text-center">Social Media</span>
+                                                    <ul class="rewards-info">
+                                                        <li class="text-center">
+                                                            <i class="fab fa-facebook-square fa-2x"></i>
+                                                            <i class="fab fa-twitter fa-2x"></i>
+                                                            <i class="fab fa-instagram fa-2x"></i>
+                                                            <i class="fab fa-google fa-2x"></i>
+                                                            <i class="fab fa-linkedin fa-2x"></i>
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 p-5 text-center aligned mp-2">
+                                                <h4 class="description-title">What we do</h4>
+                                                <p>
+                                                    <textarea class="form-control brand-input textarea-short" type="text" value="" name="detail_one">{{ organization[0].detail_one }}</textarea>
+                                                </p>
+                                                <ul class="description-list">
+                                                    
+                                                    {% for index in getEmptyArray(0, 8) %}
+                                                        <li><textarea class="detail_field form-control brand-input textarea-small" type="text" value="" name="detail_text_{{index}}"></textarea></li>
+                                                    {% endfor %}
+
+
+                                                    <input type="text" class="hidden" name="detail_texts">
+                                                </ul>
+                                                <p>
+                                                    <textarea class="form-control brand-input textarea-short" type="text" value="" name="detail_two">{{ organization[0].detail_two }}</textarea>
+                                                </p>
+                                            </div>
+
+                                            <div class="col-lg-12 p-5">
+                                                <div class="form-group mt-5 float-right">
+                                                    <label for="name" class="form-label">Enabled</label>
+                                                    <label class="switch">
+                                                        <input type="checkbox" name="is_invisible">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-lg-12 p-5">
+                                                <button type="submit" class="btn btn-big edit-btn float-right btn-chubby"><i class="fas fa-plus"></i> Create</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="update" role="tabpanel">
+                                        Update
+                                    </div>
+                                    <div class="tab-pane fade" id="bascker-list" role="tabpanel">
+                                        Bascker List
+                                    </div>
+                                    <div class="tab-pane fade" id="reviews" role="tabpanel">
+                                        Reviews
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--====== Project Details Area End ======-->
+
+            
+        </form>
+
+    </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+    <script src="{{url('/assets/js/FunApp.js')}}"></script>
+    <script>
+
+        $(document).ready(function() {
+            saveData();
+            {% if organization[0].hero_img_url %}
+                var hero_img_url = "{{url('/assets/img/uploads/organizations/')}}{{organization[0].id}}/{{organization[0].hero_img_url}}";
+                swapbackgrounds(document.getElementById('hero_img_url'), hero_img_url);
+            {% endif %}
+        });
+
+        function swapbackgrounds(element, img)
+        {
+            var newimg = "url('" + img  +"')";
+            $(element).css("background-image", newimg);
+        }
+
+        $(".detail_field").change(function() {
+            saveData();
+        });
+
+        function saveData() {
+            details = [];
+            $(".detail_field").each(function() {
+                var detail = {bHasValue: ($(this).val() != "") ? true : false,bHasID: ($(this).attr("id") != undefined) ? true : false, id:$(this).attr("id"), detail_text:$(this).val()};
+                details.push(detail);
+            });
+
+            $("input[name='detail_texts']").val(JSON.stringify(details));
+            
+        }
+    </script>
+{% endblock %}
