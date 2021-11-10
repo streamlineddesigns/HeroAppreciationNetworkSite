@@ -189,7 +189,7 @@ class UserController extends Controller
     public function search($request, $response, $name) 
     {
         $user = Users::select("users.*")
-                                       ->where("is_invisible", 1)
+                                       ->where("is_invisible", 0)
                                        ->where("users.fname",'LIKE','%'.$name.'%')
                                        ->orWhere("users.lname",'LIKE','%'.$name.'%')
                                        ->orderBy("users.fname")

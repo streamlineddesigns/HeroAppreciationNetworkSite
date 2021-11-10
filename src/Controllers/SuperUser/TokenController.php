@@ -41,10 +41,10 @@ class TokenController extends Controller
         $Organization = Organizations::create([
             "name" => $form_data['org_name'],
             "email" => $form_data['email'],
-            "is_invisible" => false,
+            "is_invisible" => 1,
         ]);
 
-        $directory = $this->container->get('settings')['upload_directory']['organizations'] . $Organization->id;
+        $directory = $this->container->get('settings')['upload_directory']['organizations'] . $Organization->id . "/";
         if (! is_dir($directory)) {
             mkdir($directory);
         }

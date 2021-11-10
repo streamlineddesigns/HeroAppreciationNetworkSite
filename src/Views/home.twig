@@ -325,7 +325,7 @@
 				{% for donation in donations %}
 				<li class="list-inline-item p-2 hidden donation_list_item text-center aligned shadow m-3 left-leaf custom-test">
 					{% if donation.profile_img_url %} 
-						{% if donation.is_invisible == 0 %}
+						{% if donation.is_invisible == 1 %}
 							<div class="profile-img-custom" style="background-image: url('/assets/img/default_profile_img.png');"></div>
 						{% elseif donation.user_id == 1 %}
 							<div class="profile-img-custom" style="background-image: url('/assets/img/default_profile_img.png');"></div>
@@ -336,7 +336,7 @@
 						<div class="profile-img-custom" style="background-image: url('/assets/img/default_profile_img.png');"></div>
 					{% endif %}
 					<span class="bolder">
-					{% if donation.is_invisible == 0 %}
+					{% if donation.is_invisible == 1 %}
 						<h5 class="brand-color">Private</h5>
 					{% elseif donation.user_id == 1 %}
 						<h5 class="brand-color">Private</h5>

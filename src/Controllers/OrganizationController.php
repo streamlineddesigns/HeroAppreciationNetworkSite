@@ -23,7 +23,7 @@ class OrganizationController extends Controller
                                            ->leftJoin('org_template_hero_section', 'org_template_hero_section.organization_id', '=', 'organizations.id')
                                            ->leftJoin('org_template_quote_section', 'org_template_quote_section.organization_id', '=', 'organizations.id')
                                            ->leftJoin('org_template_social_media_section', 'org_template_social_media_section.organization_id', '=', 'organizations.id')
-                                           ->where('organizations.is_invisible', 1)->get();
+                                           ->where('organizations.is_invisible', 0)->get();
 
         $donations = Donations::select("donations.*")->get();
                             
@@ -122,7 +122,7 @@ class OrganizationController extends Controller
 
         $donation_statistics['total'] = $donations_total;
 
-        $donations = collect($donations)->where('is_invisible', 1)->take(5);
+        $donations = collect($donations)->where('is_invisible', 0)->take(5);
         
         //$donations = $donations->take(5);
 
@@ -133,7 +133,7 @@ class OrganizationController extends Controller
     public function search($request, $response, $name) 
     {
         $organization = Organizations::select("organizations.*")
-                                       ->where("is_invisible", 1)
+                                       ->where("is_invisible", 0)
                                        ->where("organizations.name",'LIKE','%'.$name.'%')
                                        ->orderBy("organizations.name")
                                        ->limit(5)->get();

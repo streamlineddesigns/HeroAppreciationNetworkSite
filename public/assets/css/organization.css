@@ -15,6 +15,12 @@ input[type='file'] {
     background: #212529b8;
 }
 
+.custom-right-leaf {
+    border: 25px solid var(--primary-color) !important;
+    border-top-left-radius: 50px !important;
+    border-bottom-right-radius: 50px;
+}
+
 .left-leaf {
     background-color: #4169E1;
     border-top-right-radius: 50px;

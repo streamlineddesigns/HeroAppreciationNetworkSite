@@ -38,7 +38,7 @@ class DonationController extends Controller
         $sender_user_id = (isset($_SESSION['user']['id'])) ? $_SESSION['user']['id'] : false;
         $recipient_organization_id = $id;
         $amount = $form_data['donation_amount'];
-        $is_invisible = (isset($form_data['is_invisible'])) ? 1 : 0;
+        $is_invisible = (isset($form_data['is_invisible'])) ? 0 : 1;//have to flip it because the form input is opposite of boolean
 
         if ($sender_user_id) {
             

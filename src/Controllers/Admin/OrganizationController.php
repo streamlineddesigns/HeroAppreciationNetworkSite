@@ -138,7 +138,7 @@ class OrganizationController extends Controller
         $detail_one = $form_data['detail_one'];
         $detail_two = $form_data['detail_two'];
         $detail_texts = json_decode($form_data['detail_texts']);
-        $is_invisible = (isset($form_data['is_invisible'])) ? 1 : 0;
+        $is_invisible = (isset($form_data['is_invisible'])) ? 0 : 1;//have to flip it because the form input is opposite of boolean
         
         //Create & Update Models using form data & file names
         $organization = Organizations::find($id);
@@ -183,13 +183,13 @@ class OrganizationController extends Controller
                     "organization_id" => $id,
                     "about_us_text" => $about_us_text,
                     "about_img_url" => $files['about_img_url'],
-                    "is_invisible" => 0,
+                    "is_invisible" => 1,
                 ]);
             } else {
                 $OrgTemplateAboutSection = OrgTemplateAboutSection::create([
                     "organization_id" => $id,
                     "about_us_text" => $about_us_text,
-                    "is_invisible" => 0,
+                    "is_invisible" => 1,
                 ]);
             }
         }
@@ -227,28 +227,28 @@ class OrganizationController extends Controller
                     "hero_img_url" => $files["hero_img_url"],
                     "featured_img_url" => $files["featured_img_url"],
                     "cta_text" => $cta_text,
-                    "is_invisible" => 0,
+                    "is_invisible" => 1,
                 ]);
             } else if ((isset($files["hero_img_url"]) && ! empty($files["hero_img_url"]) ) && empty($files["featured_img_url"])) {
                 $org_template_hero_section = OrgTemplateHeroSection::create([
                     "organization_id" => $id,
                     "hero_img_url" => $files["hero_img_url"],
                     "cta_text" => $cta_text,
-                    "is_invisible" => 0,
+                    "is_invisible" => 1,
                 ]);
             } else if (empty($files["hero_img_url"]) && (isset($files["featured_img_url"]) && ! empty($files["featured_img_url"]) ) ) {
                 $org_template_hero_section = OrgTemplateHeroSection::create([
                     "organization_id" => $id,
                     "featured_img_url" => $files["featured_img_url"],
                     "cta_text" => $cta_text,
-                    "is_invisible" => 0,
+                    "is_invisible" => 1,
                 ]);
             } else {
                 $org_template_hero_section = OrgTemplateHeroSection::create([
                     "organization_id" => $id,
                     "featured_img_url" => null,
                     "cta_text" => $cta_text,
-                    "is_invisible" => 0,
+                    "is_invisible" => 1,
                 ]);
             }
             
@@ -281,7 +281,7 @@ class OrganizationController extends Controller
                     $org_template_details_section = OrgTemplateDetailsSection::create([
                         "organization_id" => $id,
                         "detail_id" => $detail->id,
-                        "is_invisible" => 0,
+                        "is_invisible" => 1,
                     ]);
                 }
             } else if (! $detail_texts[$i]->bHasID && $detail_texts[$i]->bHasValue) {
@@ -292,7 +292,7 @@ class OrganizationController extends Controller
                 $org_template_details_section = OrgTemplateDetailsSection::create([
                     "organization_id" => $id,
                     "detail_id" => $detail->id,
-                    "is_invisible" => 0,
+                    "is_invisible" => 1,
                 ]);
             }
         }

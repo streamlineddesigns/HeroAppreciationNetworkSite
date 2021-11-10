@@ -53,7 +53,7 @@ class AdminRegisterController extends Controller
                     "lname" => $lname,
                     "email" => $email,
                     "password" => hash("sha256", $password),
-                    "is_invisible" => true,
+                    "is_invisible" => 1,
                 ]);
 
                 $user_role = UserRoles::create([

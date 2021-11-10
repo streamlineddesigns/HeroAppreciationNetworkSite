@@ -50,7 +50,7 @@ class TemplateController extends Controller
         }
 
         $form_data = $request->getParsedBody();
-        $is_invisible = (isset($form_data['is_invisible'])) ? 0 : 1;
+        $is_invisible = (isset($form_data['is_invisible'])) ? 0 : 1;//have to flip it because the form input is opposite of boolean
 
         $Template = Templates::create([
             "name"                          => $form_data['name'],

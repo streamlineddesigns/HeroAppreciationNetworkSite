@@ -261,7 +261,7 @@
                                                 <div class="form-group mt-5 float-right">
                                                     <label for="name" class="form-label">Enabled</label>
                                                     <label class="switch">
-                                                        <input type="checkbox" {% if (organization[0].is_invisible) %} checked {% endif %} name="is_invisible">
+                                                        <input type="checkbox" {% if (organization[0].is_invisible) %} {% else %} checked {% endif %} name="is_invisible">
                                                         <span class="slider round"></span>
                                                     </label>
                                                 </div>
