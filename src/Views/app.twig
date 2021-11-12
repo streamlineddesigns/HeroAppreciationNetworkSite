@@ -73,7 +73,11 @@
                 <div class="container">
                     <div class="navbar-inner">
                         <div class="site-logo">
-                            <a href="{{url('/')}}"><img src="{{url('/assets/img/logo.png')}}" alt="Hero Appreciation Network Logo" id="logo-img"></a>
+                            <a href="{{url('/')}}" class="no-decoration">
+                                <img src="{{url('/assets/img/logo.png')}}" alt="Hero Appreciation Network Logo" id="logo-img">
+                                <span class="logo-text">Hero Appreciation Network</span>
+                            </a>
+                            
                         </div>
                         <div class="nav-menu">
                             <ul>
@@ -208,8 +212,8 @@
                         <div class="row justify-content-between">
                             <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="widget about-widget">
-                                    <div class="footer-logo">
-                                        <img src="{{url('/assets/img/logo-white.png')}}" alt="Funden">
+                                    <div class="footer-logo text-center">
+                                        <img src="{{url('/assets/img/logo-white.png')}}" alt="Logo">
                                     </div>
                                     <p>
                                         Help your favorite organizations get to the highest ranks!

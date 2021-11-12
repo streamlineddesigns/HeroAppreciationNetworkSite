@@ -2563,13 +2563,26 @@ textarea {
 
 .project-summery .project-funding-info .info-box {
 	padding: 25px 20px;
-	background-color: var(--primary-soft-color);
+	background-color: var(--primary-color);
 	text-align: center;
 	font-size: 24px;
 	font-weight: 700;
-	color: var(--secondary-color);
+	color: var(--white);
 	line-height: 1.1;
 	border-radius: 5px;
+}
+
+.no-decoration {
+	text-decoration: none;
+}
+
+.footer-logo img {
+	max-height: 128px;
+}
+
+.logo-text {
+	text-decoration: none;
+    font-weight: 900;
 }
 
 .project-summery .project-funding-info .info-box span {
