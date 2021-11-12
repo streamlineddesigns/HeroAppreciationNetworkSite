@@ -15,6 +15,7 @@ return function (App $app) {
     $app->get('/about', [Controllers\AboutController::class, 'index']);
     $app->get('/contact', [Controllers\ContactController::class, 'index']);
     $app->post('/contact', [Controllers\ContactController::class, 'store']);
+    $app->post('/newsletter', [Controllers\NewsletterController::class, 'store']);
 
     $app->get('/faq', [Controllers\FaqController::class, 'index']);
     $app->get('/privacy', [Controllers\PrivacyController::class, 'index']);

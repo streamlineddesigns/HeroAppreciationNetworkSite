@@ -39,7 +39,7 @@
                             {{ token.id }}
                         </td>
                         <td class="primary-mobile-td">
-                            {{ token.remember_token }}
+                            <a href="{{url('/user/register/')}}{{token.remember_token}}">{{ token.remember_token }}</a>
                         </td>
                         <td class="mobile-hidden text-center">
                             {{ token.name }}

@@ -220,8 +220,12 @@
                                     </p>
                                     <div class="newsletter-form">
                                         <h5 class="form-title">Join Newsletters</h5>
-                                        <form action="#">
-                                            <input type="text" placeholder="Email Address">
+                                        <form action="{{url('/newsletter')}}" method="post">
+                                            <input type="email" name="email" placeholder="Email Address" required>
+                                            <div class="form-floating mb-3" id="protector">
+                                                <input type="text" name="protector" class="form-control rounder" id="testingInput" placeholder="testing">
+                                                <label for="testingInput">testing</label>
+                                            </div>
                                             <button type="submit"><i class="far fa-arrow-right"></i></button>
                                         </form>
                                     </div>

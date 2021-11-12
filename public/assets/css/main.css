@@ -2561,6 +2561,10 @@ textarea {
 	margin: 35px 0 40px;
 }
 
+#protector {
+	display: none;
+  }
+
 .project-summery .project-funding-info .info-box {
 	padding: 25px 20px;
 	background-color: var(--primary-color);
