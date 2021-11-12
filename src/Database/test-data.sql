@@ -31,7 +31,7 @@ CREATE TABLE `details` (
   PRIMARY KEY (`id`),
   KEY `details_section_icon_id_foreign` (`section_icon_id`),
   CONSTRAINT `details_section_icon_id_foreign` FOREIGN KEY (`section_icon_id`) REFERENCES `section_icons` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `details` (
 
 LOCK TABLES `details` WRITE;
 /*!40000 ALTER TABLE `details` DISABLE KEYS */;
-INSERT INTO `details` VALUES (1,NULL,'','2021-11-10 09:21:05','2021-11-10 09:21:05'),(2,NULL,'Expand access to wrap-around support services by building capacity across the Goodwill network','2021-11-11 23:17:53','2021-11-11 23:17:53'),(3,NULL,'Improve job quality outcomes by equipping career advancers with locally-relevant skills','2021-11-11 23:17:53','2021-11-11 23:17:53'),(4,NULL,'Increase the numbers of people connected with good jobs through expanded employer relationships and retention support','2021-11-11 23:17:53','2021-11-11 23:17:53'),(5,NULL,'Divert more goods from landfills through growth in retail','2021-11-11 23:17:53','2021-11-11 23:17:53'),(6,NULL,'Increase funding for our mission and opportunities','2021-11-11 23:17:53','2021-11-11 23:17:53'),(7,NULL,'Offer equal employment opportunities. Local Goodwills collectively employ 141,000 people','2021-11-11 23:17:53','2021-11-11 23:17:53'),(8,NULL,'','2021-11-11 23:26:21','2021-11-11 23:26:21');
+INSERT INTO `details` VALUES (1,NULL,'','2021-11-10 09:21:05','2021-11-10 09:21:05'),(2,NULL,'Expand access to wrap-around support services by building capacity across the Goodwill network','2021-11-11 23:17:53','2021-11-11 23:17:53'),(3,NULL,'Improve job quality outcomes by equipping career advancers with locally-relevant skills','2021-11-11 23:17:53','2021-11-11 23:17:53'),(4,NULL,'Increase the numbers of people connected with good jobs through expanded employer relationships and retention support','2021-11-11 23:17:53','2021-11-11 23:17:53'),(5,NULL,'Divert more goods from landfills through growth in retail','2021-11-11 23:17:53','2021-11-11 23:17:53'),(6,NULL,'Increase funding for our mission and opportunities','2021-11-11 23:17:53','2021-11-11 23:17:53'),(7,NULL,'Offer equal employment opportunities. Local Goodwills collectively employ 141,000 people','2021-11-11 23:17:53','2021-11-11 23:17:53'),(8,NULL,'','2021-11-11 23:26:21','2021-11-11 23:26:21'),(9,NULL,'','2021-11-12 17:52:44','2021-11-12 17:52:44');
 /*!40000 ALTER TABLE `details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -205,7 +205,7 @@ CREATE TABLE `org_template_about_section` (
 
 LOCK TABLES `org_template_about_section` WRITE;
 /*!40000 ALTER TABLE `org_template_about_section` DISABLE KEYS */;
-INSERT INTO `org_template_about_section` VALUES (1,1,'The Mexican American Opportunity Foundation (MAOF) is a non-profit, state-wide community-based organization that was established in 1963 by Founder Dionicio Morales to serve disadvantaged individuals and families in the Los Angeles area. MAOF is one of the largest family services organizations in the Unites States and has achieved this status by providing high quality social services and programs to diverse communities where the need is the greatest. It currently operates in seven California counties with over 60 service locations and over 900 employees. The annual budget exceeds $120,000,000.','0ce2f8b427a15fe8.jpg',1,'2021-11-10 09:16:24','2021-11-10 09:34:43'),(2,2,'The AAMA is a place for fellowship, education and empowerment. You will have the opportunity to grow with your peers while developing ministerial skills. Becoming a member opens up the opportunity to engage within our community and ministerium, learning from established ministry leaders. Within AAMA, we pride ourselves in supporting each other working together to build relationships and grow within the Kingdom of God.','6ae67c9af8084799.jpg',1,'2021-11-11 23:06:24','2021-11-11 23:06:24'),(3,3,'Goodwill stores generate $5 billion in annual revenue while diverting nearly 5 billion pounds of goods from landfills and into reuse. Retail revenue augments grants and other philanthropy to fund Goodwill career centers and services. Goodwill retail operations generate revenue that supports our mission work. People can have a positive impact on their communities and the environment simply through their donations.','0ea003c544ea7ba2.png',1,'2021-11-11 23:17:53','2021-11-11 23:17:53'),(4,4,'In partnership with other nonprofit organizations, The Hero Appreciation Network wants to honor all fallen heroes in your community while also helping students achieve their academic dreams through a generous scholarship and grant program.',NULL,1,'2021-11-11 23:24:14','2021-11-11 23:24:14');
+INSERT INTO `org_template_about_section` VALUES (1,1,'The Mexican American Opportunity Foundation (MAOF) is a non-profit, state-wide community-based organization that was established in 1963 by Founder Dionicio Morales to serve disadvantaged individuals and families in the Los Angeles area. MAOF is one of the largest family services organizations in the Unites States and has achieved this status by providing high quality social services and programs to diverse communities where the need is the greatest. It currently operates in seven California counties with over 60 service locations and over 900 employees. The annual budget exceeds $120,000,000.','0ce2f8b427a15fe8.jpg',1,'2021-11-10 09:16:24','2021-11-10 09:34:43'),(2,2,'The AAMA is a place for fellowship, education and empowerment. You will have the opportunity to grow with your peers while developing ministerial skills. Becoming a member opens up the opportunity to engage within our community and ministerium, learning from established ministry leaders. Within AAMA, we pride ourselves in supporting each other working together to build relationships and grow within the Kingdom of God.','6ae67c9af8084799.jpg',1,'2021-11-11 23:06:24','2021-11-11 23:06:24'),(3,3,'Goodwill stores generate $5 billion in annual revenue while diverting nearly 5 billion pounds of goods from landfills and into reuse. Retail revenue augments grants and other philanthropy to fund Goodwill career centers and services. Goodwill retail operations generate revenue that supports our mission work. People can have a positive impact on their communities and the environment simply through their donations.','ab7f1928e9c8c843.png',1,'2021-11-11 23:17:53','2021-11-12 17:51:45'),(4,4,'In partnership with other nonprofit organizations, The Hero Appreciation Network wants to honor all fallen heroes in your community while also helping students achieve their academic dreams through a generous scholarship and grant program.','f802e7f641029a5a.jpg',1,'2021-11-11 23:24:14','2021-11-12 17:50:24');
 /*!40000 ALTER TABLE `org_template_about_section` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -228,7 +228,7 @@ CREATE TABLE `org_template_details_section` (
   KEY `org_template_details_section_detail_id_foreign` (`detail_id`),
   CONSTRAINT `org_template_details_section_detail_id_foreign` FOREIGN KEY (`detail_id`) REFERENCES `details` (`id`) ON DELETE CASCADE,
   CONSTRAINT `org_template_details_section_organization_id_foreign` FOREIGN KEY (`organization_id`) REFERENCES `organizations` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -237,7 +237,7 @@ CREATE TABLE `org_template_details_section` (
 
 LOCK TABLES `org_template_details_section` WRITE;
 /*!40000 ALTER TABLE `org_template_details_section` DISABLE KEYS */;
-INSERT INTO `org_template_details_section` VALUES (1,1,1,1,'2021-11-10 09:21:05','2021-11-10 09:21:05'),(2,3,2,1,'2021-11-11 23:17:53','2021-11-11 23:17:53'),(3,3,3,1,'2021-11-11 23:17:53','2021-11-11 23:17:53'),(4,3,4,1,'2021-11-11 23:17:53','2021-11-11 23:17:53'),(5,3,5,1,'2021-11-11 23:17:53','2021-11-11 23:17:53'),(6,3,6,1,'2021-11-11 23:17:53','2021-11-11 23:17:53'),(7,3,7,1,'2021-11-11 23:17:53','2021-11-11 23:17:53'),(8,4,8,1,'2021-11-11 23:26:21','2021-11-11 23:26:21');
+INSERT INTO `org_template_details_section` VALUES (1,1,1,1,'2021-11-10 09:21:05','2021-11-10 09:21:05'),(2,3,2,1,'2021-11-11 23:17:53','2021-11-11 23:17:53'),(3,3,3,1,'2021-11-11 23:17:53','2021-11-11 23:17:53'),(4,3,4,1,'2021-11-11 23:17:53','2021-11-11 23:17:53'),(5,3,5,1,'2021-11-11 23:17:53','2021-11-11 23:17:53'),(6,3,6,1,'2021-11-11 23:17:53','2021-11-11 23:17:53'),(7,3,7,1,'2021-11-11 23:17:53','2021-11-11 23:17:53'),(8,4,8,1,'2021-11-11 23:26:21','2021-11-11 23:26:21'),(9,2,9,1,'2021-11-12 17:52:44','2021-11-12 17:52:44');
 /*!40000 ALTER TABLE `org_template_details_section` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -300,7 +300,7 @@ CREATE TABLE `org_template_hero_section` (
 
 LOCK TABLES `org_template_hero_section` WRITE;
 /*!40000 ALTER TABLE `org_template_hero_section` DISABLE KEYS */;
-INSERT INTO `org_template_hero_section` VALUES (1,1,'65850f6af3fee9b1.png','8fa5986ecd47f631.png','Help support the socio-economic betterment of the Latino community in California',1,'2021-11-10 09:16:24','2021-11-10 09:38:27'),(2,2,'914da38b45daff72.jpg','f165b3d30328173c.png','Donate to help all African Americans in our denomination',1,'2021-11-11 23:06:24','2021-11-11 23:06:24'),(3,3,'33686d285df33977.jpg','a86c0f04296f0fe6.png','85% of every dollar reinvested into communities',1,'2021-11-11 23:17:53','2021-11-11 23:17:53'),(4,4,'d6f136162db65ddc.png','580729e266a9aadb.png','',1,'2021-11-11 23:24:14','2021-11-11 23:26:21');
+INSERT INTO `org_template_hero_section` VALUES (1,1,'65850f6af3fee9b1.png','1b5ff40a44bd64ba.png','Help support the socio-economic betterment of the Latino community in California',1,'2021-11-10 09:16:24','2021-11-12 17:53:05'),(2,2,'914da38b45daff72.jpg','b128a7cef0b90f92.webp','Donate to help all African Americans in our denomination',1,'2021-11-11 23:06:24','2021-11-12 17:52:44'),(3,3,'33686d285df33977.jpg','767fdde1132ff996.png','85% of every dollar reinvested into communities',1,'2021-11-11 23:17:53','2021-11-12 17:51:45'),(4,4,'d6f136162db65ddc.png','580729e266a9aadb.png','',1,'2021-11-11 23:24:14','2021-11-11 23:26:21');
 /*!40000 ALTER TABLE `org_template_hero_section` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -485,7 +485,7 @@ CREATE TABLE `organizations` (
 
 LOCK TABLES `organizations` WRITE;
 /*!40000 ALTER TABLE `organizations` DISABLE KEYS */;
-INSERT INTO `organizations` VALUES (1,'Mexican American Opportunity Foundation','401 N. Garfield Avenue Montebello, CA 90640','info@maof.com','(323) 890-9600',NULL,'2beec9ddbad8acab.jpg',NULL,NULL,0,'2021-11-10 09:16:24','2021-11-11 22:50:02'),(2,'African American Ministers Association','','info@aama.com','',NULL,'714a0cdb1a2a01ae.png',NULL,NULL,0,'2021-11-11 23:06:24','2021-11-11 23:06:24'),(3,'Goodwill','15810 Indianola Dr. Rockville, MD 20855 USA','info@goodwill.com','',NULL,'08761b95963118d7.jpg',NULL,NULL,0,'2021-11-11 23:17:53','2021-11-11 23:17:53'),(4,'Hero Appreciation Network','','info@heroappreciationnetwork.com','',NULL,'bc6e5cbe5bd566c7.png',NULL,NULL,0,'2021-11-11 23:24:14','2021-11-11 23:24:14');
+INSERT INTO `organizations` VALUES (1,'Mexican American Opportunity Foundation','401 N. Garfield Avenue Montebello, CA 90640','info@maof.com','(323) 890-9600',NULL,'987e866a35d2793d.jpg',NULL,NULL,0,'2021-11-10 09:16:24','2021-11-12 17:53:05'),(2,'African American Ministers Association','','info@aama.com','',NULL,'31fa5a81e30cb52d.png',NULL,NULL,0,'2021-11-11 23:06:24','2021-11-12 17:52:44'),(3,'Goodwill','15810 Indianola Dr. Rockville, MD 20855 USA','info@goodwill.com','',NULL,'08761b95963118d7.jpg',NULL,NULL,0,'2021-11-11 23:17:53','2021-11-11 23:17:53'),(4,'Hero Appreciation Network','','info@heroappreciationnetwork.com','',NULL,'bc6e5cbe5bd566c7.png',NULL,NULL,0,'2021-11-11 23:24:14','2021-11-11 23:24:14');
 /*!40000 ALTER TABLE `organizations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -817,4 +817,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-12  0:20:43
+-- Dump completed on 2021-11-12 19:15:58
