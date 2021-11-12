@@ -15,7 +15,11 @@ return function (App $app) {
     $app->get('/about', [Controllers\AboutController::class, 'index']);
     $app->get('/contact', [Controllers\ContactController::class, 'index']);
     $app->post('/contact', [Controllers\ContactController::class, 'store']);
+
     $app->get('/faq', [Controllers\FaqController::class, 'index']);
+    $app->get('/privacy', [Controllers\PrivacyController::class, 'index']);
+    $app->get('/terms', [Controllers\TermsController::class, 'index']);
+    $app->get('/eula', [Controllers\EulaController::class, 'index']);
     //$app->get('/donate', [Controllers\DonateController::class, 'index']);
 
     /* Public User Endpoints */

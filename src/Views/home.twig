@@ -200,7 +200,7 @@
 				{% for organization in all_organizations %}
                         <div class="col-lg-4 p-3">
                             <div class="card p-2 rounder shadow">
-                                <div class="thumb card-img-top organization_featured_img" style="background-image: url(/assets/img/uploads/organizations/{{organization.id}}/{{organization.featured_img_url}});"></div>
+                                <div class="thumb card-img-top organization_featured_img" style="background-image: url(/assets/img/uploads/organizations/{{organization.id}}/{{organization.contact_img_url}});"></div>
                                 <div class="card-body">
                                     <h5 class="card-title text-center">
                                         <a href="/organizations/{{ organization.id }}" class="brand-color no-decoration">{{ organization.name }}</a>
@@ -263,7 +263,7 @@
 				{% for organization in topThree %}
                         <div class="col-lg-4 p-3" style="z-index:10;">
                             <div class="card p-2 rounder shadow">
-                                <div class="thumb card-img-top organization_featured_img" style="background-image: url(/assets/img/uploads/organizations/{{organization.id}}/{{organization.featured_img_url}});"></div>
+                                <div class="thumb card-img-top organization_featured_img" style="background-image: url(/assets/img/uploads/organizations/{{organization.id}}/{{organization.contact_img_url}});"></div>
                                 <div class="card-body">
                                     <h5 class="card-title text-center">
                                         <a href="/organizations/{{ organization.id }}" class="brand-color no-decoration">{{ organization.name }}</a>
