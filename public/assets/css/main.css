@@ -1646,6 +1646,7 @@ textarea {
 }
 .brand-color {
     color: var(--primary-color);
+	text-decoration: none;
 }
 
 .rounder {

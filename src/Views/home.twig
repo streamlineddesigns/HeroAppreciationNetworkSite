@@ -320,10 +320,10 @@
 
 		</div>
 		<div class="container-fluid fluid-extra-padding">
-			<div class="row team-members team-slider bs-red-bg">
+			<div class="row team-members team-slider bs-red-bg" style="justify-content: center;">
 
 				{% for donation in donations %}
-				<li class="list-inline-item p-2 hidden donation_list_item text-center aligned shadow m-3 left-leaf custom-test">
+				<li class="col-md-3 list-inline-item p-2 hidden donation_list_item text-center aligned shadow m-3 left-leaf custom-test">
 					{% if donation.profile_img_url %} 
 						{% if donation.is_invisible == 1 %}
 							<div class="profile-img-custom" style="background-image: url('/assets/img/default_profile_img.png');"></div>
